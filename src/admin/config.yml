@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo: michaelhthomas/michaelhthomas.github.io
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "content/posts"
+    path: "{{slug}}/index"
+    media_folder: ''
+    public_folder: ''
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Description"
+        name: "description"
+        widget: "string"
+      - label: "Cover Image"
+        name: "cover_image"
+        widget: "image"
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
