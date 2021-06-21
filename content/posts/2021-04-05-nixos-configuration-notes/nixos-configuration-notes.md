@@ -1,6 +1,7 @@
 ---
 title: NixOS Configuration Notes
 slug: nixos-configuration-notes
+cover_image: ./cover.png
 date_published: 2021-04-05
 date_updated: 2021-04-05
 tags: ['NixOS', 'Linux']
