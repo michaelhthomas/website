@@ -13,12 +13,12 @@
 
 <page-query>
 query {
-  posts: allPost {
+  posts: allPost(sortBy: "date_published", order: DESC) {
     edges {
       node {
         id
         title
-        date_published (format: "D. MMMM YYYY")
+        date_published (format: "MMMM D, YYYY")
         timeToRead
         description
         cover_image (width: 770, height: 380, blur: 10)
