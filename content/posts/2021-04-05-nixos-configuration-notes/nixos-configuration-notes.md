@@ -43,20 +43,21 @@ In order to set a custom shell as the default shell for a user, you'll have to s
 
 Visual Studio Code, my editor of choice, can be both installed and configured through Home Manager, making it easy to keep consistent configurations across systems. For example, the following configuration will install the Nix extension for proper syntax highlighting & code editing features, as well as configure some editor settings like the default font and tab size. 
 
-    { config, pkgs, libs, ... }:
-    {
-      programs = {
-        vscode = {
-          enable = true;
-          extensions = [
-            pkgs.vscode-extensions.bbenoist.Nix
-          ];
-          userSettings = {
-            "editor.fontFamily" = "'FiraCode Nerd Font', 'Droid Sans Mono', 'monospace'";
-            "editor.tabSize" = 2;
-          };
-        };
+```nix
+{ config, pkgs, libs, ... }:
+{
+  programs = {
+    vscode = {
+      enable = true;
+      extensions = [
+        pkgs.vscode-extensions.bbenoist.Nix
+      ];
+      userSettings = {
+        "editor.fontFamily" = "'FiraCode Nerd Font', 'Droid Sans Mono', 'monospace'";
+        "editor.tabSize" = 2;
       };
-    }
-
-vscode.nix
+    };
+  };
+}
+```
+`vscode.nix`

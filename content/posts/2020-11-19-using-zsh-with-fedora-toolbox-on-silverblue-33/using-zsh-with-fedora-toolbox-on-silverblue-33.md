@@ -44,22 +44,28 @@ These next steps may differ a bit depending on the framework you choose, but the
 
 The default Silverblue bash config uses a function that looks something like this to return whether or not toolbox is active: 
 
-    if [ -f /run/.containerenv ] \
-       && [ -f /run/.toolboxenv ]; then
-        PS1=$(printf "\[\033[35m\]⬢\[\033[0m\]%s" "[\u@\h \W]\\$ ")
+```shell
+if [ -f /run/.containerenv ] \
+    && [ -f /run/.toolboxenv ]; then
+    PS1=$(printf "\[\033[35m\]⬢\[\033[0m\]%s" "[\u@\h \W]\\$ ")
+```
 
 In other words, the presence of /run/.containerenv and /run/.toolboxenv is what indicates that the shell is running inside toolbox. We can use this in our zsh config to append the purple ⬢ symbol, albeit a bit more elegantly.
 
 I took my prompt theme of choice, gitster, and duplicated its folder in ~/.zim/modules (this process will be similar for oh-my-zsh and others). I then edited my new prompt theme and added a function to detect the toolbox:
 
-    _prompt_toolbox() {
-      if [ -f /run/.containerenv ] && [ -f /run/.toolboxenv ]; then
-      	print -n "%F{magenta}⬢ "
-      fi
-    }
+```shell
+_prompt_toolbox() {
+    if [ -f /run/.containerenv ] && [ -f /run/.toolboxenv ]; then
+    print -n "%F{magenta}⬢ "
+    fi
+}
+```
 
 This function uses the same detection logic as the bash version, and uses the much more elegant `%F{}` zsh color syntax to switch the color to magenta before outputting the ⬢ character. Next, when the prompt variable, PS1, is defined at the end of the theme file, I added a call to `_prompt_toolbox()` at the beginning, resulting in the proper output of the indicator if and only if toolbox is active. 
 
-    PS1='$(_prompt_toolbox)%(?:%F{green}:%F{red})➜ $(_prompt_gitster_pwd)${(e)git_info[prompt]}%f '
+```shell
+PS1='$(_prompt_toolbox)%(?:%F{green}:%F{red})➜ $(_prompt_gitster_pwd)${(e)git_info[prompt]}%f '
+```
 
 Now, time to test it out! I saved my new custom theme and enabled it in `~/.zimrc`. After running `zim compile` to build my new theme, I restarted zsh and was greeted with the same prompt as before. This time, though, entering the toolbox presented that small, purple indicator; finally giving me the beauty of a custom shell combined with the helpful utility that Silverblue's default configuration provides. 
