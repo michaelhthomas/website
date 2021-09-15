@@ -35,6 +35,12 @@ module.exports = {
         publicPath: `/admin`,
       }
     },
+    {
+      use: '@gridsome/plugin-google-analytics',
+      options: {
+        id: 'G-7DK3PZ81VY'
+      }
+    }
   ],
 
   transformers: {
