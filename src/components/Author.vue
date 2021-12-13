@@ -8,7 +8,7 @@
 		</h1>
 
 		<p class="author__intro">
-			A blog on Linux, NixOS, web development, home automation, and more.
+			Hi there! I'm Michael Thomas, a web developer and systems architect. I build complex web apps using Vue.js, Nuxt.js, and SASS, and spend a lot of my time experimenting with Linux, Dev Ops, etc. 
 		</p>
 
 		<p class="author__links">
@@ -32,34 +32,3 @@ export default {
 	props: ['showTitle']
 }
 </script>
-
-<style lang="scss">
-.author {
-	margin: 0 auto;
-	max-width: 500px;
-	text-align: center;
-	padding: calc(var(--space) / 2) 0;
-
-	&__image {
-		border-radius: 100%;
-		width: 90px;
-		height: 90px;
-		margin-bottom: 1em;
-	}
-
-	&__intro {
-		opacity: .8;
-	}
-
-	&__site-title {
-		font-size: 1.5em;
-	}
-
-	&__links {
-		margin-top: -.5em;
-		a {
-			margin: 0 .5em;
-		}
-	}
-}
-</style>

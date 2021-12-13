@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Michael Thomas\'s Blog',
+  siteName: 'Michael Thomas',
   siteDescription: 'A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.',
 
   templates: {
@@ -30,10 +30,7 @@ module.exports = {
       }
     },
     {
-      use: `gridsome-plugin-netlify-cms`,
-      options: {
-        publicPath: `/admin`,
-      }
+      use: 'gridsome-plugin-windicss',
     },
     {
       use: '@gridsome/plugin-google-analytics',
