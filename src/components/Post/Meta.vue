@@ -1,6 +1,6 @@
 <template>
    <div class="post-meta">
-      Posted {{ (post.properties.date_published) ? post.properties.date_published.date.start : "" }}.
+      Posted {{ post.date_published }}.
       <template v-if="post.timeToRead">
         <strong>{{ post.timeToRead }} min read.</strong>
       </template>

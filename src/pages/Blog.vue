@@ -1,11 +1,12 @@
 <template>
   <Layout :show-logo="false">
-    <!-- Author intro -->
-    <Author :show-title="true" />
+    
+    <div class="flex justify-center items-center title">
+      <h2 class="text-center">Blog</h2>
+    </div>
 
-    <!-- List posts -->
-    <div class="posts">
-      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node"/>
+    <div class="wrapper-small my-5">
+      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
     </div>
 
   </Layout>
@@ -35,16 +36,20 @@ query {
 </page-query>
 
 <script>
-import Author from '~/components/Author.vue'
-import PostCard from '~/components/PostCard.vue'
+import Blogs from '~/components/Blogs.vue';
 
 export default {
   components: {
-    Author,
-    PostCard
+    Blogs
   },
   metaInfo: {
     title: 'Blog'
-  }
+  },
+  methods: {
+    formatDate(date) {
+      const options = {year: 'numeric', month: 'long', day: 'numeric'}
+      return new Date(date).toLocaleDateString('en', options)
+    }
+  },
 }
 </script>

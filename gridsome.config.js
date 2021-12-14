@@ -9,7 +9,8 @@ module.exports = {
   siteDescription: 'A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.',
 
   templates: {
-    Post: '/:title',
+    Post: '/blog/:title',
+    // Page: '/:slug',
     Tag: '/tag/:id'
   },
 
@@ -29,6 +30,14 @@ module.exports = {
         }
       }
     },
+    // {
+    //   // Create posts from markdown files
+    //   use: '@gridsome/source-filesystem',
+    //   options: {
+    //     typeName: 'Page',
+    //     path: 'content/pages/*.md',
+    //   }
+    // },
     {
       use: 'gridsome-plugin-windicss',
     },

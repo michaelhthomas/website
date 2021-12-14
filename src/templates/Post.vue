@@ -1,45 +1,48 @@
 <template>
   <Layout>
-    <div class="post-title">
-      <h1 class="post-title__text">
-        {{ $page.post.title }}
-      </h1>
+    <div class="wrapper-small text-gray-900 dark:text-gray-100">
+      <div class="post-title my-10 text-center">
+        <h1 class="text-3xl font-bold text-true-gray-800 dark:text-true-gray-200 post-title__text mb-4">
+          {{ $page.post.title }}
+        </h1>
 
-      <PostMeta :post="$page.post" />
+        <PostMeta
+          class="text-thin text-true-gray-600 dark:text-true-gray-400"
+          :post="$page.post" 
+        />
 
-    </div>
-
-    <div class="post content-box">
-      <div class="post__header">
-        <g-image alt="Cover image" v-if="$page.post.properties.Cover_Image.files[0]" :src="$page.post.properties.Cover_Image.files[0].file.url" />
       </div>
 
-      <div class="post__content" v-html="$page.post.content" />
+      <div class="post content-box bg-white dark:bg-true-gray-800 shadow-2xl shadow-true-gray-500 dark:shadow-true-gray-800 max-w-screen-md pb-5 mx-auto rounded-lg">
+        <div class="post__header">
+          <g-image 
+            alt="Cover image"
+            class="rounded-t-lg mx-auto"
+            v-if="$page.post.cover_image"
+            :src="$page.post.cover_image" 
+          />
+        </div>
 
-      <div class="post__footer">
-        <PostTags :post="$page.post" />
+        <div class="mx-10">
+          <div class="post__content prose prose-red text-gray-900 dark:text-gray-100 mx-auto my-10" v-html="$page.post.content" />
+        </div>
+        
+        <div class="post__footer">
+          <PostTags :post="$page.post" />
+        </div>
       </div>
-    </div>
 
-    <div class="post-comments">
-      <!-- Add comment widgets here -->
-    </div>
+      <div class="post-comments">
+        <!-- Add comment widgets here -->
+      </div>
 
-    <Author class="post-author" />
+      <Author class="post-author" />
+    </div>
   </Layout>
 </template>
 
 <script>
-import PostMeta from '~/components/PostMeta'
-import PostTags from '~/components/PostTags'
-import Author from '~/components/Author.vue'
-
 export default {
-  components: {
-    Author,
-    PostMeta,
-    PostTags
-  },
   metaInfo () {
     return {
       title: this.$page.post.title,
@@ -59,7 +62,7 @@ query Post ($id: ID!) {
   post: post (id: $id) {
     title
     path
-    date_published (format: "D. MMMM YYYY")
+    date_published (format: "MMMM D, YYYY")
     timeToRead
     tags {
       id

@@ -1,11 +1,11 @@
 <template>
   <Layout>
-    <h1 class="tag-title text-center space-bottom">
+    <h1 class="tag-title text-center title">
       # {{ $page.tag.title }}
     </h1>
 
-    <div class="posts">
-      <PostCard v-for="edge in $page.tag.belongsTo.edges" :key="edge.node.id" :post="edge.node"/>
+    <div class="posts wrapper-small">
+      <PostCard v-for="edge in $page.tag.belongsTo.edges" :key="edge.node.id" :post="edge.node" />
     </div>
   </Layout>
 </template>
@@ -20,10 +20,10 @@ query Tag ($id: ID!) {
           ...on Post {
             title
             path
-            date_published (format: "D. MMMM YYYY")
+            date_published (format: "MMMM D, YYYY")
             timeToRead
             description
-            content
+            cover_image
           }
         }
       }
@@ -33,16 +33,17 @@ query Tag ($id: ID!) {
 </page-query>
 
 <script>
-import Author from '~/components/Author.vue'
-import PostCard from '~/components/PostCard.vue'
-
 export default {
-  components: {
-    Author,
-    PostCard
-  },
-  metaInfo: {
-    title: 'Hello, world!'
+   metaInfo () {
+    return {
+      title: `#${this.$page.tag.title}`,
+      meta: [
+        {
+          name: 'description',
+          content: this.$page.tag.description
+        }
+      ]
+    }
   }
 }
 </script>

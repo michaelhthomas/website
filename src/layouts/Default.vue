@@ -1,39 +1,39 @@
 <template>
-  <div id="app">
 
-    <header class="header">
-      <div class="header__left">
-        <Logo v-if="showLogo" /> 
-      </div>
+  <div id="app" class="min-h-screen bg-true-gray-100 dark:bg-true-gray-900 transition-colors duration-150">
+    <div>
+      <Navigation />
+    </div>
       
-      <div class="header__right">        
-        <ToggleTheme />
+    <transition name="page" appear>
+      <div class="page">
+        <div class="mb-auto">
+          <slot />
+        </div>
+      
+        <div>
+          <Footer />
+        </div>
       </div>
-    </header>
 
-    <main class="main">
-      <slot/>
-    </main>
-
-    <footer class="footer">
-      <span class="footer__copyright">Copyright © {{ new Date().getFullYear() }} Michael Thomas. </span>
-      <span class="footer__links">Powered by <a href="//gridsome.org"> Gridsome </a></span>
-    </footer>
-
+    </transition>
   </div>
 </template>
 
-<script>
-import Logo from '~/components/Logo.vue'
-import ToggleTheme from '~/components/ToggleTheme.vue'
-
-export default {
-  props: {
-    showLogo: { default: true }
-  },
-  components: {
-    Logo,
-    ToggleTheme
-  }
+<style>
+.wrapper {
+  @apply max-w-screen-xl mx-auto;
 }
-</script>
+
+.wrapper-small {
+  @apply max-w-screen-lg mx-auto px-6;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.title {
+  @apply text-5xl mb-16 font-semibold text-gray-600 dark:text-gray-300;
+}
+</style>
