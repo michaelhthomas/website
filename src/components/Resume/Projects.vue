@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper-small my-5">
+  <div class="my-5">
     <!-- Loading -->
     <div
       v-if="loading"
@@ -17,7 +17,7 @@
         v-for='(project, index) in projects'
         :key='index'
         :href='project.html_url'
-        class='block bg-gray-50 dark:bg-true-gray-800 p-6 shadow rounded-lg mt-2 lg:mt-0'
+        class='block bg-gray-50 dark:bg-true-gray-800 p-6 shadow rounded-lg mt-2 lg:mt-0 hover:shadow-lg transform hover:-translate-y-1.5 transition duration-200'
         rel="noreferrer"
         target='_blank'
       >
@@ -30,11 +30,11 @@
           </p>
           <ul class='flex items-center space-x-4 text-black dark:text-gray-200'>
             <li class='inline-flex items-center'>
-              <IconStar class="h-4 w-4 mr-1"/>
+              <Icon icon="mdi:star" class="h-4 w-4 mr-1"/>
               <span>{{ project.stargazers_count }}</span>
             </li>
             <li v-if='project.forks' class='inline-flex items-center'>
-              <IconFork class="h-4 w-4 mr-1"/>
+              <Icon icon="mdi:source-fork" class="h-4 w-4 mr-1"/>
               <span>{{ project.forks }}</span>
             </li>
           </ul>
@@ -49,7 +49,7 @@
         rel="noreferrer"
         target='_blank'
       >
-        <IconGithub class="text-white h-6 w-6 mr-3"/>
+        <Icon icon="mdi:github" class="text-white h-5 w-5 mr-2"/>
         See More Projects
       </a>
     </div>
@@ -88,7 +88,7 @@ export default {
       }
 
       const data = await response.json()
-      // this.loading = false
+      this.loading = false
       this.projects = data.items
     }
   }

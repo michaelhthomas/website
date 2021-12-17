@@ -1,48 +1,40 @@
 <template>
-  <div class="wrapper flex flex-wrap text-base text-center m-3 text-gray-800 dark:text-gray-200">
-    <a
-      aria-label="Github"
-      class="social-link hover:text-primary-500 mx-3"
+  <div class="wrapper flex flex-wrap text-base text-center m-3 text-true-gray-700 dark:text-true-gray-300">
+    <Link
+      role="button"
+      :aria-label="social.name"
+      class="social-link hover:text-primary-500 mx-3 transition-colors"
       target="_blank"
-      :href=$static.metadata.devGithubLink
+      :href="social.link"
+      v-for="social in $static.metadata.socials"
+      :key="social.name"
     >
-      <IconGithub class="h-6 w-6"/>
-    </a>
-
-    <a
-      aria-label="Twitter"
-      class="social-link hover:text-primary-500 mx-3"
-      target="_blank"
-      :href=$static.devTwitterLink
-    >
-      <IconTwitter class="h-6 w-6"/>
-    </a>
-
-    <a
-      aria-label="LinkedIn"
-      class="social-link hover:text-primary-500 mx-3"
-      target="_blank"
-      :href=$static.devLinkedinLink
-    >
-      <IconLinkedin class="h-6 w-6"/>
-    </a>
+      <Icon
+        class="h-8 w-8"
+        :icon="social.icon"
+      />
+    </Link>
   </div>
 </template>
 
 <static-query>
 query {
   metadata {
-    devGithubLink
+    socials {
+      name
+      link
+      icon
+    }
   }
 }
 </static-query>
 
 <script>
-import IconGithub from '~/components/Icon/Github.vue'
-
+import { Icon } from '@iconify/vue2'
 export default {
+  name: "Social",
   components: {
-    IconGithub
+    Icon
   }
 }
 </script>

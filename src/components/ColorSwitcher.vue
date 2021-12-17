@@ -2,23 +2,21 @@
   <button
     role="button"
     aria-label="Toggle dark/light"
-    class="rounded-full cursor-pointer bg-gray-100 p-2 text-gray-900 dark:bg-true-gray-800 dark:text-gray-100 focus:outline-none"
-    @click.prevent="toggleTheme"
+    class="h-9 w-9 rounded-full cursor-pointer bg-true-gray-200 p-2 text-gray-900 dark:bg-true-gray-800 dark:text-gray-100"
+    @click="toggleTheme"
   >
-    <IconSun v-if="darkTheme === false" class="h-5 w-5"/>
-    <IconMoon v-else class="h-5 w-5"/>
+    <Icon icon="ph:sun" v-if="darkTheme === false" class="h-5 w-5"/>
+    <Icon icon="ph:moon-stars" v-else class="h-5 w-5"/>
 
   </button>
 </template>
 
 <script>
-import IconSun from "~/components/Icon/Sun.vue";
-import IconMoon from "~/components/Icon/Moon.vue";
+import Icon from "./Icon.vue";
 
 export default {
   components: {
-    IconSun,
-    IconMoon
+    Icon
   },
   data() {
     return {
@@ -29,7 +27,9 @@ export default {
     /**
      * Updates the color mode value.
      */
-    toggleTheme() {
+    toggleTheme(event) {
+      event.currentTarget.blur();
+
       this.darkTheme = !this.darkTheme
       // This is using a script that is added in index.html
       window.__setPreferredTheme(

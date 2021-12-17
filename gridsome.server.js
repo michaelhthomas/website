@@ -10,15 +10,26 @@ module.exports = function (api) {
     // Use the Data store API here: https://gridsome.org/docs/data-store-api/
   })
   api.loadSource(async store => {
-    store.addMetadata('devGithubLink', 'https://github.com/michaelhthomas')
+    store.addMetadata('socials', [
+      {
+        name: "github",
+        icon: "mdi:github",
+        link: 'https://github.com/michaelhthomas'
+      },
+      {
+        name: "reddit",
+        icon: "mdi:reddit",
+        link: 'https://reddit.com/u/linuxoveruser'
+      }
+    ])
   })
 
   // A nifty little autoloader for Vue components
   // TODO: we should make a plugin out of this
-  const UnpluginVueComponents = require('unplugin-vue-components/webpack')
   api.chainWebpack((webpack) => {
-    webpack.plugin('vue-components').use(UnpluginVueComponents({
+    webpack.plugin('vue-components').use(require('unplugin-vue-components/webpack')({
       directoryAsNamespace: true,
     }))
+    
   })
 }
