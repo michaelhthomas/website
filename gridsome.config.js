@@ -10,7 +10,6 @@ module.exports = {
 
   templates: {
     Post: '/blog/:title',
-    // Page: '/:slug',
     Tag: '/tag/:id'
   },
 
@@ -30,14 +29,23 @@ module.exports = {
         }
       }
     },
-    // {
-    //   // Create posts from markdown files
-    //   use: '@gridsome/source-filesystem',
-    //   options: {
-    //     typeName: 'Page',
-    //     path: 'content/pages/*.md',
-    //   }
-    // },
+    {
+      // Create posts from markdown files
+      use: '@gridsome/source-filesystem',
+      options: {
+        typeName: 'SitePage',
+        path: 'content/pages/*.md',
+      }
+    },
+    {
+      use: '@gridsome/vue-remark',
+      options: {
+        typeName: 'SitePage',
+        baseDir: './content/pages',
+        route: '/:slug',
+        template: './src/templates/SitePage.vue'
+      }
+    },
     {
       use: 'gridsome-plugin-windicss',
     },
@@ -46,7 +54,18 @@ module.exports = {
       options: {
         id: 'G-7DK3PZ81VY'
       }
-    }
+    },
+    {
+      use: "gridsome-plugin-manifest",
+      options: {
+        background_color: "#000000",
+        icon_path: "./src/assets/images/avatar.png",
+        name: "Michael Thomas",
+        short_name: "Michael",
+        theme_color: "#FFFFFF",
+        lang: "en",
+      },
+    },
   ],
 
   transformers: {
