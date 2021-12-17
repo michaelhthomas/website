@@ -16,16 +16,19 @@ export default defineConfig({
     ],
   },
   theme: {
-    fontFamily: {
-      'sans': ['Inter', 'sans-serif'],
-    },
     extend: {
+      // Primary Color
       colors: {
         'primary': colors.blue,
       },
     },
   },
   plugins: [
-    typographyPlugin
-  ]
+    typographyPlugin({
+      dark: true,
+    })
+  ],
+  variants: {
+    typography: ["dark"],
+  },
 });

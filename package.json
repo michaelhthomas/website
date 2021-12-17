@@ -23,7 +23,6 @@
     "gridsome-plugin-windicss": "^1.0.4",
     "sass": "^1.45.0",
     "sass-loader": "^10.1.1",
-    "typeface-inter": "^3.18.1",
     "unplugin-vue-components": "^0.17.9",
     "windicss": "^3.3.0"
   }
