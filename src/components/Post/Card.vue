@@ -1,5 +1,5 @@
 <template>
-  <div class="project-card md:flex mt-10">
+  <div class="md:flex my-8">
     <div class="img max-w-lg md:max-w-sm mx-auto m-2 rounded-xl shadow-xl shadow-true-gray-500 dark:shadow-true-gray-800">
       <g-link :to="post.path">
         <g-image :alt="post.title" :src="post.cover_image" class="rounded-xl" />
@@ -13,11 +13,11 @@
         <p class="font-semibold text-gray-600 dark:text-gray-300 text-sm">{{ post.date_published }}</p>
         <div class="flex flex-col justify-between max-w-lg mx-auto">
         </div>
-        <BlogTags :tags="post.tags" />
+        <PostTags class="my-2" :tags="post.tags" />
         <p class="text-base text-gray-700 dark:text-gray-200 my-1">{{ post.description }}</p>
         <g-link
           :to="post.path"
-          class="text-base font-semibold text-gray-700 dark:text-gray-200 my-3 hover:underline">
+          class="text-base font-semibold text-gray-700 dark:text-gray-200 block my-3 hover:underline">
           Read more →
         </g-link>
       </div>

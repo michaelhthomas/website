@@ -1,7 +1,7 @@
 <template>
   <Layout>
-    <div class="wrapper-small text-gray-900 dark:text-gray-100">
-      <div class="post-title my-10 text-center">
+    <div class="text-gray-900 dark:text-gray-100">
+      <div class="wrapper-small post-title my-10 text-center">
         <h1 class="text-3xl font-bold text-true-gray-800 dark:text-true-gray-200 post-title__text mb-4">
           {{ $page.post.title }}
         </h1>
@@ -12,19 +12,19 @@
         />
 
       </div>
-
-      <div class="post content-box bg-white dark:bg-true-gray-800 shadow-2xl shadow-true-gray-500 dark:shadow-true-gray-800 max-w-screen-md pb-5 mx-auto rounded-lg">
+      
+      <div class="post content-box bg-white dark:bg-true-gray-800 shadow-xl shadow-true-gray-300 dark:shadow-true-gray-700 max-w-3xl pb-5 mx-0 sm:mx-5 md:mx-auto sm:rounded-lg">
         <div class="post__header">
           <g-image 
             alt="Cover image"
-            class="rounded-t-lg mx-auto"
+            class="sm:rounded-t-lg mx-auto"
             v-if="$page.post.cover_image"
             :src="$page.post.cover_image" 
           />
         </div>
 
         <div class="mx-10">
-          <div class="post__content prose prose-red text-gray-900 dark:text-gray-100 mx-auto my-10" v-html="$page.post.content" />
+          <div class="post__content prose prose-lg text-gray-900 dark:text-gray-100 mx-auto my-10" v-html="$page.post.content" />
         </div>
         
         <div class="post__footer">

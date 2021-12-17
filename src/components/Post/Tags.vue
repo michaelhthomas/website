@@ -1,6 +1,11 @@
 <template>
    <div class="post-tags">
-   		<g-link class="post-tags__link" v-for="tag in post.tags" :key="tag.id" :to="tag.path">
+   		<g-link 
+       class="font-semibold text-gray-600 bg-opacity-25 dark:bg-opacity-40 dark:text-gray-300 text-sm rounded bg-true-gray-400 dark:bg-true-gray-600 mr-1 px-2 py-1"
+       v-for="tag in tags"
+       :key="tag.id"
+       :to="tag.path"
+      >
    			<span>#</span> {{ tag.title }}
    		</g-link>
     </div>
@@ -8,6 +13,11 @@
 
 <script>
 export default {
-  props: ['post']
+  props: {
+    tags: {
+      type: Array,
+      default() {return []}
+    },
+  },
 }
 </script>
