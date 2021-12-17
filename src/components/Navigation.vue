@@ -1,5 +1,5 @@
 <template>
-  <div class="border-t-8 border-gray-200 dark:border-true-gray-800">
+  <div class="border-t-8 border-primary-600 dark:border-true-gray-700">
     <nav class="wrapper py-6">
       <div class="px-10 flex justify-between items-center">
         <div class="logo">

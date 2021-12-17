@@ -20,6 +20,12 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "Default"
+}
+</script>
+
 <style>
 .wrapper {
   @apply max-w-screen-xl mx-auto;
@@ -34,6 +40,6 @@
 }
 
 .title {
-  @apply text-5xl mb-16 font-semibold text-gray-600 dark:text-gray-300;
+  @apply text-5xl mb-16 font-bold text-true-gray-800 dark:text-gray-300;
 }
 </style>
