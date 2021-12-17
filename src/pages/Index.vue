@@ -6,48 +6,46 @@
 
       <section
         id="technologies"
-        class="mt-6"
+        class="my-8"
       >
-        <h3 class="section-heading">
+        <h2 class="section-heading">
           Technologies I Use
-        </h3>
+        </h2>
 
         <ResumeTechnologies />
       </section>
 
-      <section
-        id="experience"
-        class="grid gap-6 mt-4 sm:mt-6 md:mt-10 sm:gap-8 sm:grid-cols-2"
-      >
-        <h3 class="section-heading">
-          Experience
-        </h3>
+      <div class="section grid gap-10 md:grid-cols-2">
+        <section id="experience">
+          <h2 class="section-heading mb-4">
+            Experience
+          </h2>
 
-        <div class="grid gap-2 mt-4">
-          <!-- <CardExperience
-            v-for="(experience, index) in experiences.jobs"
-            :key="`experience-job-${index}`"
-            :title="experience.title"
-            :url="experience.url"
-            :date="experience.date"
-            :position="experience.position"
-          /> -->
-        </div>
-      </section>
+          <ResumeExperience />
+        </section>
 
-      <section id="featured-posts" class="mt-6">
-        <h3 class="section-heading">
+        <section id="education">
+          <h2 class="section-heading mb-4">
+            Education
+          </h2>
+
+          <ResumeEducation />
+        </section>
+      </div>
+    
+      <section id="featured-posts" class="section">
+        <h2 class="section-heading">
           Featured Posts
-        </h3>
+        </h2>
 
         <PostCard v-for="post in $page.posts.edges" :key="post.node.slug" :post="post.node" />
       </section>
 
 
-      <section id="projects" class="mt-6">
-        <h3 class="section-heading">
+      <section id="projects" class="section">
+        <h2 class="section-heading">
           Open Source Projects
-        </h3>
+        </h2>
 
         <ResumeProjects />
       </section>
@@ -83,12 +81,15 @@ query {
 <script>
 export default {
   metaInfo: {
-    title: 'Home'
+    title: 'Hello, world!'
   }
 }
 </script>
 
 <style>
+  .section {
+    @apply my-8;
+  }
  .section-heading {
     @apply text-xl font-semibold text-gray-900 dark:text-gray-100;
   }
