@@ -22,10 +22,10 @@
         target='_blank'
       >
         <div>
-          <h3 class='text-lg font-medium text-gray-800 dark:text-gray-100'>
+          <h3 class='text-lg font-medium text-true-gray-800 dark:text-true-gray-100'>
             {{ project.name }}
           </h3>
-          <p class='my-2 text-base text-gray-500 dark:text-gray-400'>
+          <p class='my-2 text-base text-true-gray-500 dark:text-true-gray-400'>
             {{ project.description }}
           </p>
           <ul class='flex items-center space-x-4 text-black dark:text-gray-200'>

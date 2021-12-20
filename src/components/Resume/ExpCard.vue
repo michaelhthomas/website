@@ -12,11 +12,11 @@
       </h2>
 
       <span
-        class="text-true-gray-500 font-medium text-lg"
+        class="text-true-gray-600 dark:text-true-gray-400 font-medium text-lg"
       >{{ years }}</span>
     </div>
     
-    <h4 class="text-lg text-true-gray-600">{{ subtitle }}</h4>
+    <h4 class="text-lg text-true-gray-600 dark:text-true-gray-400">{{ subtitle }}</h4>
   </div>
 </template>
 

@@ -13,7 +13,7 @@
 
       </div>
       
-      <div class="post content-box bg-white dark:bg-true-gray-800 shadow-xl shadow-true-gray-300 dark:shadow-true-gray-700 max-w-3xl pb-5 mx-0 sm:mx-5 md:mx-auto sm:rounded-lg">
+      <div class="post content-box bg-white dark:bg-true-gray-800 shadow-lg shadow-true-gray-300 dark:shadow-true-gray-900 max-w-3xl pb-5 mx-0 sm:mx-5 md:mx-auto sm:rounded-lg">
         <div class="post__header">
           <g-image 
             alt="Cover image"
