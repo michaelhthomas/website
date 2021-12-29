@@ -1,6 +1,7 @@
 ---
 title: Using ZSH with Toolbox on Fedora Silverblue 33
 slug: using-zsh-with-fedora-toolbox-on-silverblue-33
+type: post
 cover_image: ./prompt.png
 date_published: 2020-11-19
 date_updated: 2021-04-05
