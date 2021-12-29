@@ -1,22 +1,19 @@
 <template>
 
   <div id="app" class="min-h-screen bg-true-gray-100 dark:bg-true-gray-900 transition-colors duration-150">
-    <div>
+    <div class="navigation">
       <Navigation />
     </div>
       
     <transition name="page" appear>
-      <div class="page">
-        <div class="mb-auto">
-          <slot />
-        </div>
-      
-        <div>
-          <Footer />
-        </div>
+      <div class="page mb-auto">
+        <slot />
       </div>
-
     </transition>
+
+    <div class="footer">
+      <Footer />
+    </div>
   </div>
 </template>
 
@@ -27,6 +24,20 @@ export default {
 </script>
 
 <style>
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+}
+
 .wrapper {
   @apply max-w-screen-xl mx-auto;
 }
@@ -42,4 +53,5 @@ export default {
 .title {
   @apply text-5xl mb-16 font-bold text-true-gray-800 dark:text-gray-300;
 }
+
 </style>
