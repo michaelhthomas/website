@@ -32,17 +32,26 @@
         </div>
       </div>
 
-      <div class="post-comments">
-        <!-- Add comment widgets here -->
-      </div>
+      <div class="max-w-screen-md mx-auto mt-10 px-5">
+        <div class="post-comments">
+          <Disqus shortname="michaelt" :pageConfig="{title: $page.post.title, identifier: $page.post.path}" />
+        </div>
 
-      <Author class="post-author" />
+        <div class="my-10"></div>
+
+        <AuthorSmall class="post-author" />
+      </div>
     </div>
   </Layout>
 </template>
 
 <script>
+import AuthorSmall from '~/components/Author/Small.vue';
+
 export default {
+  components: {
+    AuthorSmall
+  },
   metaInfo () {
     return {
       title: this.$page.post.title,

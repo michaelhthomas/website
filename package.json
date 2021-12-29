@@ -15,7 +15,7 @@
     "@gridsome/vue-remark": "^0.2.6",
     "autoprefixer": "^10.4.0",
     "gridsome": "^0.7.0",
-    "gridsome-source-notion": "^1.1.1"
+    "vue-disqus": "^4.0.1"
   },
   "devDependencies": {
     "@iconify/vue2": "^1.1.1",
