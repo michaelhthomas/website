@@ -36,12 +36,7 @@ query {
 </page-query>
 
 <script>
-import Blogs from '~/components/Blogs.vue';
-
 export default {
-  components: {
-    Blogs
-  },
   metaInfo: {
     title: 'Blog'
   },
