@@ -22,12 +22,11 @@
     "eslint": "^7.0.0",
     "eslint-plugin-gridsome": "^1.6.2",
     "gridsome-plugin-manifest": "^0.3.5",
-    "gridsome-plugin-windicss": "1.0.4",
+    "gridsome-plugin-windicss": "https://github.com/michaelhthomas/gridsome-plugin-windicss",
     "sass": "^1.45.0",
     "sass-loader": "^10.1.1",
     "unplugin-vue-components": "^0.17.9",
     "vue-eslint-parser": "^8.0.1",
-    "windicss": "^3.3.0",
-    "windicss-webpack-plugin": "1.4.8"
+    "windicss": "^3.3.0"
   }
 }
