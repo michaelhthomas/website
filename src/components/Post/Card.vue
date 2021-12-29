@@ -17,8 +17,11 @@
         <p class="text-base text-true-gray-600 dark:text-true-gray-400 my-1">{{ post.description }}</p>
         <g-link
           :to="post.path"
-          class="text-base font-semibold text-gray-700 dark:text-gray-200 block my-3 hover:underline">
-          Read more →
+          class="text-base font-semibold text-primary-800 dark:text-primary-200 block my-3 group">
+          <span class="link-underline before:bg-primary-800 dark:before:bg-primary-200">
+            Read more
+          </span>
+          <Icon class="transform group-hover:translate-x-1 transition-transform" inline icon="icon-park-outline:arrow-right" />
         </g-link>
       </div>
     </div>
@@ -41,3 +44,28 @@ export default {
   },
 }
 </script>
+
+<style>
+
+.link-underline {
+  position: relative;
+}
+
+.link-underline::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: calc(100% - 5px);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+}
+
+.group:hover .link-underline::before {
+  transform: scaleX(1);
+}
+
+</style>
