@@ -77,19 +77,21 @@ export default {
   },
   methods: {
     async fetchData() {
-      this.error = this.projects = null
-      this.loading = true
+      if (process.isClient) {
+        this.error = this.projects = null
+        this.loading = true
 
-      const response = await fetch('https://api.github.com/search/repositories?q=user:michaelhthomas&sort=stars&per_page=4')
-      
-      if (!response.ok) {
-        this.error = response.statusText
-        throw new Error(`HTTP error! status: ${response.status}`)
+        const response = await fetch('https://api.github.com/search/repositories?q=user:michaelhthomas&sort=stars&per_page=4')
+        
+        if (!response.ok) {
+          this.error = response.statusText
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+
+        const data = await response.json()
+        this.loading = false
+        this.projects = data.items
       }
-
-      const data = await response.json()
-      this.loading = false
-      this.projects = data.items
     }
   }
 }
