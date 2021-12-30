@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex space-x-2 items-center justify-between">
-      <h2 class="text-xl font-semibold text-true-gray-800 dark:text-true-gray-200">
+      <h3 class="text-xl font-semibold text-true-gray-800 dark:text-true-gray-200">
         <Link
           :href="link"
           blank
@@ -9,14 +9,14 @@
         >
           {{ title }}
         </Link>
-      </h2>
+      </h3>
 
       <span
         class="text-true-gray-600 dark:text-true-gray-400 font-medium text-lg"
       >{{ years }}</span>
     </div>
     
-    <h4 class="text-lg text-true-gray-600 dark:text-true-gray-400">{{ subtitle }}</h4>
+    <p class="text-lg text-true-gray-600 dark:text-true-gray-400">{{ subtitle }}</p>
   </div>
 </template>
 
