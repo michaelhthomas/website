@@ -1,44 +1,56 @@
 <template>
   <Layout>
-    <div class="post-title">
-      <h1 class="post-title__text">
-        {{ $page.post.title }}
-      </h1>
+    <div class="text-gray-900 dark:text-gray-100">
+      <div class="wrapper-small post-title my-10 text-center">
+        <h1 class="text-3xl font-bold text-true-gray-800 dark:text-true-gray-200 post-title__text mb-4">
+          {{ $page.post.title }}
+        </h1>
 
-      <PostMeta :post="$page.post" />
+        <PostMeta
+          class="text-thin text-true-gray-600 dark:text-true-gray-400"
+          :post="$page.post" 
+        />
 
-    </div>
+      </div>
+      
+      <div class="post content-box bg-white dark:bg-true-gray-800 shadow-lg shadow-true-gray-300 dark:shadow-true-gray-900 max-w-3xl pb-5 mx-0 sm:mx-5 md:mx-auto sm:rounded-lg">
+        <div class="post__header">
+          <g-image 
+            alt="Cover image"
+            class="sm:rounded-t-lg mx-auto"
+            v-if="$page.post.cover_image"
+            :src="$page.post.cover_image" 
+          />
+        </div>
 
-    <div class="post content-box">
-      <div class="post__header">
-        <g-image alt="Cover image" v-if="$page.post.cover_image" :src="$page.post.cover_image" />
+        <div class="mx-10">
+          <div class="post__content prose prose-lg text-gray-900 dark:text-gray-100 mx-auto my-10" v-html="$page.post.content" />
+        </div>
+        
+        <div class="post__footer">
+          <PostTags :post="$page.post" />
+        </div>
       </div>
 
-      <div class="post__content" v-html="$page.post.content" />
+      <div class="max-w-screen-md mx-auto mt-10 px-5">
+        <div class="post-comments">
+          <Disqus shortname="michaelt" :pageConfig="{title: $page.post.title, identifier: $page.post.path}" />
+        </div>
 
-      <div class="post__footer">
-        <PostTags :post="$page.post" />
+        <div class="my-10"></div>
+
+        <AuthorSmall class="post-author" />
       </div>
     </div>
-
-    <div class="post-comments">
-      <!-- Add comment widgets here -->
-    </div>
-
-    <Author class="post-author" />
   </Layout>
 </template>
 
 <script>
-import PostMeta from '~/components/PostMeta'
-import PostTags from '~/components/PostTags'
-import Author from '~/components/Author.vue'
+import AuthorSmall from '~/components/Author/Small.vue';
 
 export default {
   components: {
-    Author,
-    PostMeta,
-    PostTags
+    AuthorSmall
   },
   metaInfo () {
     return {
@@ -59,7 +71,7 @@ query Post ($id: ID!) {
   post: post (id: $id) {
     title
     path
-    date_published (format: "D. MMMM YYYY")
+    date_published (format: "MMMM D, YYYY")
     timeToRead
     tags {
       id
@@ -72,60 +84,3 @@ query Post ($id: ID!) {
   }
 }
 </page-query>
-
-<style lang="scss">
-.post-title {
-  padding: calc(var(--space) / 2) 0 calc(var(--space) / 2);
-  text-align: center;
-}
-
-.post {
-
-  &__header {
-    width: calc(100% + var(--space) * 2);
-    margin-left: calc(var(--space) * -1);
-    margin-top: calc(var(--space) * -1);
-    margin-bottom: calc(var(--space) / 2);
-    overflow: hidden;
-    border-radius: var(--radius) var(--radius) 0 0;
-
-    img {
-      width: 100%;
-    }
-
-    &:empty {
-      display: none;
-    }
-  }
-
-  &__content {
-    h2:first-child {
-      margin-top: 0;
-    }
-
-    p:first-of-type {
-      font-size: 1.2em;
-      color: var(--title-color);
-    }
-
-    img {
-      width: calc(100% + var(--space) * 2);
-      margin-left: calc(var(--space) * -1);
-      display: block;
-      max-width: none;
-    }
-  }
-}
-
-.post-comments {
-  padding: calc(var(--space) / 2);
-
-  &:empty {
-    display: none;
-  }
-}
-
-.post-author {
-  margin-top: calc(var(--space) / 2);
-}
-</style>

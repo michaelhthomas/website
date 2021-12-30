@@ -5,11 +5,11 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Michael Thomas\'s Blog',
+  siteName: 'Michael Thomas',
   siteDescription: 'A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.',
 
   templates: {
-    Post: '/:title',
+    Post: '/blog/:title',
     Tag: '/tag/:id'
   },
 
@@ -30,10 +30,24 @@ module.exports = {
       }
     },
     {
-      use: `gridsome-plugin-netlify-cms`,
+      // Create posts from markdown files
+      use: '@gridsome/source-filesystem',
       options: {
-        publicPath: `/admin`,
+        typeName: 'SitePage',
+        path: 'content/pages/*.md',
       }
+    },
+    {
+      use: '@gridsome/vue-remark',
+      options: {
+        typeName: 'SitePage',
+        baseDir: './content/pages',
+        route: '/:slug',
+        template: './src/templates/SitePage.vue'
+      }
+    },
+    {
+      use: 'gridsome-plugin-windicss',
     },
     {
       use: '@gridsome/plugin-google-analytics',
