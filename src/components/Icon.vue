@@ -1,10 +1,13 @@
 <template>
-  <IconifyIcon :inline="inline" :icon="icon" />
+  <span 
+    class="iconify"
+    :data-icon="icon"
+    :data-inline="inline"
+  ></span>
 </template>
 
 <script>
-import { Icon as IconifyIcon } from "@iconify/vue2"
-import { addCollection } from '@iconify/vue2';
+import { addCollection } from "@iconify/iconify";
 
 addCollection({
   prefix: 'custom',
@@ -24,9 +27,6 @@ addCollection({
 
 export default {
   name: "Icon",
-  components: {
-    IconifyIcon
-  },
   props: {
     icon: {
       type: String
@@ -39,3 +39,11 @@ export default {
   }
 }
 </script>
+
+<style>
+
+svg.iconify-inline {
+  display: inline;
+}
+
+</style>

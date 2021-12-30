@@ -5,6 +5,8 @@
 // Changes here requires a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+const { PurgeIcons } = require('purge-icons-webpack-plugin')
+
 module.exports = function (api) {
   api.loadSource(({ addCollection }) => { // eslint-disable-line
     // Use the Data store API here: https://gridsome.org/docs/data-store-api/
@@ -30,6 +32,10 @@ module.exports = function (api) {
     webpack.plugin('vue-components').use(require('unplugin-vue-components/webpack')({
       directoryAsNamespace: true,
     }))
-    
+    webpack.plugin('purge-icons').use(new PurgeIcons({
+      included: [
+
+      ]
+    }))
   })
 }

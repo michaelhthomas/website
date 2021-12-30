@@ -30,11 +30,7 @@ query {
 </static-query>
 
 <script>
-import { Icon } from '@iconify/vue2'
 export default {
-  name: "Social",
-  components: {
-    Icon
-  }
+  name: "Social"
 }
 </script>

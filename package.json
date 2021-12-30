@@ -13,16 +13,16 @@
     "@gridsome/source-filesystem": "^0.6.0",
     "@gridsome/transformer-remark": "^0.3.0",
     "@gridsome/vue-remark": "^0.2.6",
+    "@iconify/iconify": "^2.1.0",
     "autoprefixer": "^10.4.0",
     "gridsome": "^0.7.0",
     "vue-disqus": "^4.0.1"
   },
   "devDependencies": {
-    "@iconify/vue2": "^1.1.1",
     "eslint": "^7.0.0",
     "eslint-plugin-gridsome": "^1.6.2",
-    "gridsome-plugin-manifest": "^0.3.5",
     "gridsome-plugin-windicss": "https://github.com/michaelhthomas/gridsome-plugin-windicss",
+    "purge-icons-webpack-plugin": "^0.7.0",
     "sass": "^1.45.0",
     "sass-loader": "^10.1.1",
     "unplugin-vue-components": "^0.17.9",
