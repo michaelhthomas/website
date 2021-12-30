@@ -54,18 +54,7 @@ module.exports = {
       options: {
         id: 'G-7DK3PZ81VY'
       }
-    },
-    {
-      use: "gridsome-plugin-manifest",
-      options: {
-        background_color: "#000000",
-        icon_path: "./src/assets/images/avatar.png",
-        name: "Michael Thomas",
-        short_name: "Michael",
-        theme_color: "#FFFFFF",
-        lang: "en",
-      },
-    },
+    }
   ],
 
   transformers: {
