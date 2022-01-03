@@ -1,5 +1,32 @@
-<script>
+<template>
+  <!-- Internal URL -->
+  <g-link
+    v-if="
+      href &&
+      ((isInternalPage === true && external === false) || internal === true)
+    "
+    :to="href"
+    :target="blank && '_blank'"
+    :title="title"
+    class="link"
+  >
+    <slot />
+  </g-link>
 
+  <!-- External URL -->
+  <a
+    v-else
+    :href="href && (utm === false ? href : getUtmLink)"
+    :target="blank ? '_blank' : ''"
+    rel="noreferrer noopener"
+    :title="title"
+    class="link"
+  >
+    <slot />
+  </a>
+</template>
+
+<script>
 export default {
   name: "Link",
   props: {
@@ -62,28 +89,18 @@ export default {
 }
 </script>
 
-<template>
-  <!-- Internal URL -->
-  <g-link
-    v-if="
-      href &&
-      ((isInternalPage === true && external === false) || internal === true)
-    "
-    :to="href"
-    :target="blank && '_blank'"
-    :title="title"
-  >
-    <slot />
-  </g-link>
+<style scoped>
+.underline {
+  @apply bg-gradient-to-r from-primary-300 to-primary-300 dark:from-primary-700 dark:to-primary-700;
+  text-decoration: none;
 
-  <!-- External URL -->
-  <a
-    v-else
-    :href="href && (utm === false ? href : getUtmLink)"
-    :target="blank ? '_blank' : ''"
-    rel="noreferrer noopener"
-    :title="title"
-  >
-    <slot />
-  </a>
-</template>
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 100%;
+  transition: all 200ms;
+}
+
+.underline:hover {
+  background-size: 100% 100%;
+}
+</style>

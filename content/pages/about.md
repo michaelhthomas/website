@@ -14,7 +14,15 @@ import TechnologyCard from '~/components/Resume/Technologies.vue'
 
 I'm Michael Thomas, a computer science student and web developer. Over the past few years, I've developed numerous websites (including this one!) using a wide range of technologies:
 
+</div>
+
+<div class="max-w-65ch mx-auto my-5 text-xl">
+
 <TechnologyCard />
+
+</div>
+
+<div class="prose prose-xl mx-auto">
 
 In addition to web development, I have a passion for self-hosting, using technologies like Docker and Linux to host my own personal cloud. I'm always learning new things and finding new ways to solve problems!
 
