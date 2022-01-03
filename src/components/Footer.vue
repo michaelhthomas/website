@@ -5,7 +5,7 @@
         <div class="flex flex-col items-center justify-between mt-6 md:mt-0 md:flex-row">
           <div class="logo flex items-center">
             <div class="text-sm text-gray-700 dark:text-gray-200 mx-1 mt-5 text-center sm:text-left sm:mt-0">
-              <p class="font-bold">© 2021 Michael Thomas</p>
+              <p class="font-bold">© {{ year }} Michael Thomas</p>
               <p>
                 Built with <Icon inline icon="noto:red-heart" /> and
                 <Link
@@ -14,7 +14,7 @@
                   class="text-sm underline text-gray-700 dark:text-gray-200"
                   href="https://github.com/michaelhthomas/michaelhthomas.github.io"
                 >
-                  available on Github
+                  available on GitHub
                 </Link>
               </p>
             </div>
@@ -32,6 +32,11 @@
 
 <script>
 export default {
-  name: "Footer"
+  name: "Footer",
+  computed: {
+    year() {
+      return new Date().getFullYear();
+    }
+  }
 }
 </script>
