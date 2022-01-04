@@ -5,9 +5,12 @@
     class="h-9 w-9 rounded-full cursor-pointer bg-true-gray-200 p-2 text-gray-900 dark:bg-true-gray-800 dark:text-gray-100"
     @click="toggleTheme"
   >
-    <Icon icon="ph:sun" v-if="darkTheme === false" class="h-5 w-5"/>
-    <Icon icon="ph:moon-stars" v-else class="h-5 w-5"/>
-
+    <div v-show="darkTheme">
+      <Icon icon="ph:sun" class="h-5 w-5" />
+    </div>
+    <div v-show="!darkTheme">
+      <Icon icon="ph:moon-stars" class="h-5 w-5" />
+    </div>
   </button>
 </template>
 
