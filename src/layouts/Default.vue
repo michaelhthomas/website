@@ -1,6 +1,9 @@
 <template>
 
-  <div id="app" class="min-h-screen bg-true-gray-100 dark:bg-true-gray-900 transition-colors duration-150">
+  <div
+    id="app"
+    class="min-h-screen bg-true-gray-100 dark:bg-true-gray-900 transition-colors duration-150 text-true-gray-900 dark:text-true-gray-100"
+  >
     <div class="navigation">
       <Navigation />
     </div>
@@ -24,6 +27,14 @@ export default {
 </script>
 
 <style>
+
+::selection {
+  background: #b6ddf7;
+}
+
+.dark ::selection {
+  background: #3498DB;
+}
 
 #app {
   height: 100%;
@@ -51,7 +62,7 @@ export default {
 }
 
 .title {
-  @apply text-5xl mb-16 font-bold text-true-gray-800 dark:text-gray-300;
+  @apply text-5xl mb-16 font-bold text-true-gray-800 dark:text-true-gray-300;
 }
 
 </style>
