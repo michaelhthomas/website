@@ -7,6 +7,7 @@ date_published: 2020-11-19
 date_updated: 2021-04-05
 tags: ['Fedora Silverblue', 'Linux']
 description: Setup your own customized shell within Fedora Toolbox, all while maintaining convenience features from the default shell.
+featured: true
 ---
 
 Fedora Silverblue is one of the most interesting Linux distros I have tried to date, and I ended up choosing to use it as my daily-driver for its stability, ease of updates, and cleanliness. However, one of my biggest must-haves was a proper, customized shell. 
@@ -17,17 +18,23 @@ My personal choice of shell is ZSH with the [Zim Framework](https://github.com/z
 
 First, install `zsh` as a layered package on the host system with rpm-ostree:
 
-    sudo rpm-ostree install zsh
+```bash
+sudo rpm-ostree install zsh
+```
 
 After doing so, go ahead and reboot to enter the new ostree deployment, which will now contain zsh.
 
 Next, we'll go ahead and install zsh in toolbox. Enter the toolbox with `toolbox enter` and then install `zsh` the old fashioned way:
 
-    sudo dnf install zsh
+```bash
+sudo dnf install zsh
+```
 
 Now that we've got zsh installed everywhere, type `exit` to get back to the host system. Since `chsh` is not included on Silverblue, we'll use `usermod` instead to switch to our shiny new shell:
 
-    sudo usermod --shell $(which zsh) $USER
+```bash
+sudo usermod --shell $(which zsh) $USER
+```
 
 Alternatively, Fedora offers `lchsh` which provides a similar interface to `chsh` on other Linux systems. 
 
@@ -39,7 +46,9 @@ If you've made it here, congratulations! Zsh is now installed and working.
 
 Silverblue's default bash shell contains some important tweaks which, for example, provide the purple indicator present when inside the toolbox. These tweaks are a must-have for me, so I'll be implementing them in my prompt theme for zsh. First, though, I'll install my zsh framework of choice, Zim: 
 
-    curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+```bash
+curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+```
 
 These next steps may differ a bit depending on the framework you choose, but the principles are the same. Currently, there is no way of knowing whether or not the shell is running inside toolbox, so we'll start by fixing that. 
 
