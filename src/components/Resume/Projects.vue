@@ -17,7 +17,7 @@
         v-for='(project, index) in projects'
         :key='index'
         :href='project.html_url'
-        class='block bg-gray-50 dark:bg-true-gray-800 p-6 shadow rounded-lg mt-2 lg:mt-0 hover:shadow-lg transform hover:-translate-y-1.5 transition duration-200'
+        class='block bg-true-gray-50 dark:bg-true-gray-800 p-6 shadow rounded-lg mt-2 lg:mt-0 hover:shadow-lg transform hover:-translate-y-1.5 transition duration-200'
         rel="noreferrer"
         target='_blank'
       >
@@ -28,7 +28,7 @@
           <p class='my-2 text-base text-true-gray-500 dark:text-true-gray-400'>
             {{ project.description }}
           </p>
-          <ul class='flex items-center space-x-4 text-black dark:text-gray-200'>
+          <ul class='flex items-center space-x-4 text-black dark:text-true-gray-200'>
             <li class='inline-flex items-center'>
               <Icon icon="mdi:star" class="h-4 w-4 mr-1"/>
               <span>{{ project.stargazers_count }}</span>

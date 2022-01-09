@@ -9,7 +9,7 @@
     </div>
 
     <div class="flex-grow flex flex-col justify-center">
-      <h1 class="text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+      <h1 class="text-3xl font-semibold text-true-gray-900 dark:text-true-gray-100 mb-2">
         Michael Thomas
       </h1>
       <p>

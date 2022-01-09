@@ -91,6 +91,6 @@ export default {
     @apply my-8;
   }
  .section-heading {
-    @apply text-xl font-semibold text-gray-900 dark:text-gray-100;
+    @apply text-xl font-semibold text-true-gray-900 dark:text-true-gray-100;
   }
 </style>

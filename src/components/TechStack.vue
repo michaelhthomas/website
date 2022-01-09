@@ -1,6 +1,6 @@
 <template>
   <div class="mt-16 md:mt-24">
-    <div class="flex justify-center items-center text-base font-semibold text-gray-600 dark:text-gray-300">
+    <div class="flex justify-center items-center text-base font-semibold text-true-gray-600 dark:text-true-gray-300">
       <h2 class="text-center">Tech stack I use </h2>
       <IconDoubleDown class="h-4 w-4"/>
     </div>

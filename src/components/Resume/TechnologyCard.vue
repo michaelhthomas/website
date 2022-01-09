@@ -1,7 +1,7 @@
 <template>
   <Link
     blank
-    class="flex items-center space-x-2 overflow-hidden text-gray-900 dark:text-gray-100 hover:bg-light-700 dark:hover:bg-true-gray-800 p-2 rounded-md transition-colors !no-underline"
+    class="flex items-center space-x-2 overflow-hidden text-true-gray-900 dark:text-true-gray-100 hover:bg-light-700 dark:hover:bg-true-gray-800 p-2 rounded-md transition-colors !no-underline"
     :href="link"
   >
       <Icon :icon="getIconName" :style="getStyle" class="flex-shrink-0 w-7 h-7" />

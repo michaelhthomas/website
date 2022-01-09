@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="text-gray-900 dark:text-gray-100">
+    <div class="text-true-gray-900 dark:text-true-gray-100">
       <div class="wrapper-small post-title my-10 text-center">
         <h1 class="text-3xl font-bold text-true-gray-800 dark:text-true-gray-200 post-title__text mb-4">
           {{ $page.post.title }}
@@ -24,7 +24,7 @@
         </div>
 
         <div class="mx-10">
-          <div class="post__content prose prose-lg text-gray-900 dark:text-gray-100 mx-auto my-10" v-html="$page.post.content" />
+          <div class="post__content prose prose-lg text-true-gray-900 dark:text-true-gray-100 mx-auto my-10" v-html="$page.post.content" />
         </div>
         
         <div class="post__footer">

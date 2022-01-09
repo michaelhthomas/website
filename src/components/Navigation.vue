@@ -4,7 +4,7 @@
       <div class="px-10 flex justify-between items-center">
         <div class="logo">
           <g-link to="/">
-            <h1 class="text-2xl font-semibold text-gray-700 dark:text-gray-200">Michael Thomas</h1>
+            <h1 class="text-2xl font-semibold text-true-gray-700 dark:text-true-gray-200">Michael Thomas</h1>
           </g-link>
         </div>
 
@@ -36,11 +36,11 @@ export default {
 
 <style>
 .mobile-link {
-  @apply block px-3 py-2 text-lg text-gray-900 rounded-md text-white font-medium text-center;
+  @apply block px-3 py-2 text-lg text-true-gray-900 rounded-md text-white font-medium text-center;
 }
 
 .nav-link {
-  @apply font-medium text-center text-lg text-gray-700 dark:text-gray-200 hover:text-primary-500 dark:hover:text-primary-500 transition-colors duration-100;
+  @apply font-medium text-center text-lg text-true-gray-700 dark:text-true-gray-200 hover:text-primary-500 dark:hover:text-primary-500 transition-colors duration-100;
   line-height: 2.25rem;
 }
 </style>

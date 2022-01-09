@@ -2,7 +2,7 @@
   <button
     role="button"
     aria-label="Toggle dark/light"
-    class="h-9 w-9 rounded-full cursor-pointer bg-true-gray-200 p-2 text-gray-900 dark:bg-true-gray-800 dark:text-gray-100"
+    class="h-9 w-9 rounded-full cursor-pointer bg-true-gray-200 p-2 text-true-gray-900 dark:bg-true-gray-800 dark:text-true-gray-100"
     @click="toggleTheme"
   >
     <div v-show="darkTheme">
