@@ -38,6 +38,20 @@ export default defineConfig({
               '&:focus': {
                 'background-size': '100% 100%',
               }
+            },
+            code: {
+              'background': colors.trueGray[200],
+
+              '&::before': {
+                content: '"﻿" !important', // Use a zero width non-breaking space to fix some weird line break issues
+              },
+              '&::after': {
+                content: '"" !important',
+              },
+            },
+            h1: {
+              marginTop: "1em!important",
+              marginBottom: "0.6em!important"
             }
           },
         },
@@ -57,6 +71,9 @@ export default defineConfig({
               '&:focus': {
                 'background-size': '100% 100%',
               }
+            },
+            code: {
+              'background': colors.trueGray[700],
             }
           }
         }

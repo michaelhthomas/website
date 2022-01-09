@@ -16,6 +16,8 @@
     "@iconify/iconify": "^2.1.0",
     "autoprefixer": "^10.4.0",
     "gridsome": "^0.7.0",
+    "gridsome-plugin-remark-prismjs-all": "^0.4.8",
+    "remark-admonitions": "^1.2.1",
     "vue-disqus": "^4.0.1"
   },
   "devDependencies": {

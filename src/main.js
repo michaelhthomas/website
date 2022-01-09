@@ -8,6 +8,8 @@ import VueDisqus from 'vue-disqus'
 // Import global styles
 import '~/assets/styles/root.scss'
 
+import 'prismjs/plugins/command-line/prism-command-line.css'
+
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 export default function (Vue, { router, head, isClient }) { // eslint-disable-line
   Vue.use(VueDisqus)
