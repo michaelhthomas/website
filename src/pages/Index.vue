@@ -38,7 +38,11 @@
           Featured Posts
         </h2>
 
-        <PostCard v-for="post in $page.posts.edges" :key="post.node.slug" :post="post.node" />
+        <PostCard
+          v-for="post in $page.posts.edges"
+          :key="post.node.slug"
+          :post="post.node"
+        />
       </section>
 
 
@@ -57,7 +61,7 @@
 
 <page-query>
 query {
-  posts: allPost(sortBy: "date_published", order: DESC) {
+  posts: allPost(sortBy: "date_published", order: DESC, filter: { featured: { eq: true } }) {
     edges {
       node {
         id
