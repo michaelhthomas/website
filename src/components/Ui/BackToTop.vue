@@ -33,10 +33,12 @@ export default {
   },
   computed: {
     displayBackToTop() {
-      if (this.scrollPosition > window.innerHeight && this.scrollPosition < document.body.clientHeight - window.innerHeight - 150) {
-        return true
+      if (process.isClient) {
+        if (this.scrollPosition > window.innerHeight && this.scrollPosition < document.body.clientHeight - window.innerHeight - 150) {
+          return true
+        }
+        return false
       }
-      return false
     }
   }
 }
