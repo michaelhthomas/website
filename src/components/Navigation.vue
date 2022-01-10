@@ -11,7 +11,7 @@
         <div class="flex flex-row gap-5">
           <g-link class="nav-link" to="/blog">Blog</g-link>
           <g-link class="nav-link" to="/about">About</g-link>
-          <ColorSwitcher />
+          <UiColorSwitcher />
         </div>
       </div>
     </nav>
