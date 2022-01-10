@@ -14,6 +14,9 @@
       </div>
       
       <div class="post content-box bg-white dark:bg-true-gray-800 shadow-lg shadow-true-gray-300 dark:shadow-true-gray-900 max-w-3xl pb-5 mx-0 sm:mx-5 md:mx-auto sm:rounded-lg">
+        <!-- Share Menu -->
+        <PostShare :title="$page.post.title" />
+
         <div class="post__header">
           <g-image 
             alt="Cover image"
@@ -23,12 +26,13 @@
           />
         </div>
 
+        <!-- Content -->
         <div class="mx-10">
           <div class="post__content prose prose-lg text-true-gray-900 dark:text-true-gray-100 mx-auto my-10" v-html="$page.post.content" />
         </div>
         
-        <div class="post__footer">
-          <PostTags :post="$page.post" />
+        <div class="post__footer mx-10 my-5 text-center">
+          <PostTags :tags="$page.post.tags" />
         </div>
       </div>
 
@@ -42,16 +46,21 @@
         <AuthorSmall class="post-author" />
       </div>
     </div>
+
+    <UiBackToTop />
+
   </Layout>
 </template>
 
 <script>
 import AuthorSmall from '~/components/Author/Small.vue';
+import PostShare from '../components/Post/Share.vue';
 
 export default {
   components: {
-    AuthorSmall
-  },
+    AuthorSmall,
+    PostShare
+},
   metaInfo () {
     return {
       title: this.$page.post.title,
