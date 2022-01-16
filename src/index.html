@@ -11,7 +11,7 @@
         function setTheme(newTheme) {
           window.__theme = newTheme;
           preferredTheme = newTheme;
-          document.body.setAttribute('data-theme', newTheme);
+          document.documentElement.style.setProperty('color-scheme', newTheme);
           document.documentElement.classList.remove('light');
           document.documentElement.classList.remove('dark');
           document.documentElement.classList.add(newTheme);
