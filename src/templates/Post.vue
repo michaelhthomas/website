@@ -36,14 +36,16 @@
         </div>
       </div>
 
-      <div class="max-w-screen-md mx-auto mt-10 px-5">
-        <div class="post-comments">
-          <Disqus shortname="michaelt" :pageConfig="{title: $page.post.title, identifier: $page.post.path}" />
-        </div>
+      <div class="max-w-3xl mx-auto mt-8 px-5 md:px-0">
+        <PostNavigationArrows :postId="$page.post.id" />
 
-        <div class="my-10"></div>
-
+        <div class="my-8"></div>
+      
         <AuthorSmall class="post-author" />
+
+        <div class="mt-15"></div>
+
+        <Disqus shortname="michaelt" :pageConfig="{title: $page.post.title, identifier: $page.post.path}" />
       </div>
     </div>
 
@@ -55,11 +57,13 @@
 <script>
 import AuthorSmall from '~/components/Author/Small.vue';
 import PostShare from '../components/Post/Share.vue';
+import PostNavigationArrows from '../components/Post/NavigationArrows.vue'
 
 export default {
   components: {
     AuthorSmall,
-    PostShare
+    PostShare,
+    PostNavigationArrows
 },
   metaInfo () {
     return {
@@ -78,6 +82,7 @@ export default {
 <page-query>
 query Post ($id: ID!) {
   post: post (id: $id) {
+    id
     title
     path
     date_published (format: "MMMM D, YYYY")
