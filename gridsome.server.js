@@ -7,23 +7,24 @@
 
 const { PurgeIcons } = require('purge-icons-webpack-plugin')
 
+const yaml = require('js-yaml');
+const fs   = require('fs');
+
+function loadData(name) {
+  try {
+    return yaml.load(fs.readFileSync(`./content/data/${name}.yaml`, 'utf8'));
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 module.exports = function (api) {
-  api.loadSource(({ addCollection }) => { // eslint-disable-line
+  api.loadSource(({ addMetadata, addCollection }) => { // eslint-disable-line
     // Use the Data store API here: https://gridsome.org/docs/data-store-api/
-  })
-  api.loadSource(async store => {
-    store.addMetadata('socials', [
-      {
-        name: "github",
-        icon: "mdi:github",
-        link: 'https://github.com/michaelhthomas'
-      },
-      {
-        name: "reddit",
-        icon: "mdi:reddit",
-        link: 'https://reddit.com/u/linuxoveruser'
-      }
-    ])
+    addMetadata('socials', loadData('socials'));
+    addMetadata('education', loadData('education'));
+    addMetadata('experience', loadData('experience'));
+    addMetadata('shareServices', loadData('share_services'));
   })
 
   // A nifty little autoloader for Vue components

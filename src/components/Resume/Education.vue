@@ -1,7 +1,7 @@
 <template>
   <div class="education">
     <ResumeExpCard 
-      v-for="ed in education"
+      v-for="ed in $static.metadata.education"
       :key="ed.name"
       :title="ed.name"
       :subtitle="ed.role"
@@ -11,6 +11,19 @@
   </div>
 </template>
 
+<static-query>
+query {
+  metadata {
+    education {
+      name
+      link
+      role
+      years
+    }
+  }
+}
+</static-query>
+
 <script>
 import ResumeExpCard from '~/components/Resume/ExpCard.vue'
 
@@ -18,18 +31,6 @@ export default {
   name: "Education",
   components: {
     ResumeExpCard
-  },
-  data() {
-    return {
-      education: [
-        {
-          name: "River Bluff High School",
-          link: "https://schools.lexington1.net/RBHS",
-          role: "High School Student",
-          years: "2019 - 2022"
-        }
-      ]
-    }
   }
 }
 </script>
