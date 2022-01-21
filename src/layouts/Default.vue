@@ -9,7 +9,7 @@
     </div>
       
     <transition name="page" appear>
-      <div class="page mb-auto">
+      <div class="page mb-auto mt-10">
         <slot />
       </div>
     </transition>

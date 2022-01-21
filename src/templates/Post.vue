@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="text-true-gray-900 dark:text-true-gray-100">
-      <div class="wrapper-small post-title my-10 text-center">
+      <div class="wrapper-small post-title mb-10 text-center">
         <h1 class="text-3xl font-bold text-true-gray-800 dark:text-true-gray-200 post-title__text mb-4">
           {{ $page.post.title }}
         </h1>
@@ -13,7 +13,7 @@
 
       </div>
       
-      <div class="post content-box bg-white dark:bg-true-gray-800 shadow-lg shadow-true-gray-300 dark:shadow-true-gray-900 max-w-3xl pb-5 mx-0 sm:mx-5 md:mx-auto sm:rounded-lg">
+      <div class="post content-box bg-white dark:bg-true-gray-800 shadow-lg shadow-true-gray-300 dark:shadow-true-gray-900 max-w-min pb-5 mx-0 sm:mx-5 md:mx-auto sm:rounded-lg">
         <!-- Share Menu -->
         <PostShare :title="$page.post.title" />
 
@@ -27,8 +27,8 @@
         </div>
 
         <!-- Content -->
-        <div class="mx-10">
-          <div class="post__content prose prose-lg text-true-gray-900 dark:text-true-gray-100 mx-auto my-10" v-html="$page.post.content" />
+        <div class="p-5 sm:p-10">
+          <div class="post__content prose prose-lg text-true-gray-900 dark:text-true-gray-100" v-html="$page.post.content" />
         </div>
         
         <div class="post__footer mx-10 my-5 text-center">

@@ -1,5 +1,5 @@
 <template>
-  <div role="banner" class="rounded-md flex flex-col-reverse bg-light-700 my-16 py-10 px-8 justify-between md:flex-row md:items-center dark:bg-true-gray-800">
+  <div role="banner" class="rounded-md flex flex-col-reverse bg-light-700 mb-16 py-10 px-8 justify-between md:flex-row md:items-center dark:bg-true-gray-800">
     <div class="sm:w-8/12">
         <div class="space-y-px">
           <div class="text-2xl font-semibold text-true-gray-900 sm:text-3xl md:text-4xl dark:text-true-gray-100 mb-4">
