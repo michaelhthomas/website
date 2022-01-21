@@ -5,6 +5,7 @@ import typographyPlugin from 'windicss/plugin/typography'
 
 export default defineConfig({
   darkMode: 'class',
+  attributify: true,
   purge: {
     enabled: process.env.NODE_ENV === 'production',
     content: [
