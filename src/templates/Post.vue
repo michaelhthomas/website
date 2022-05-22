@@ -36,7 +36,7 @@
         </div>
       </div>
 
-      <div class="max-w-3xl mx-auto mt-8 px-5 md:px-0">
+      <div class="max-w-screen-md mx-auto mt-8 px-5 md:px-0">
         <PostNavigationArrows :postId="$page.post.id" />
 
         <div class="my-8"></div>
