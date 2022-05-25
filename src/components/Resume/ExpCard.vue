@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="my-4">
     <div class="flex space-x-2 items-center justify-between">
       <h3 class="text-xl font-semibold text-true-gray-800 dark:text-true-gray-200">
         <Link
