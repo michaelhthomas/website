@@ -1,4 +1,8 @@
-- name: "River Bluff High School"
-  link: "https://schools.lexington1.net/RBHS"
-  role: "High School Student"
-  years: "2019 - 2022"
+- name: River Bluff High School
+  link: https://schools.lexington1.net/RBHS
+  role: High School Student
+  years: 2019 - 2022
+- name: Furman University
+  link: https://www.furman.edu
+  role: B.S. in Computer Science
+  years: 2022 - Present
