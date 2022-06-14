@@ -83,7 +83,20 @@ query {
 </page-query>
 
 <script>
+import {
+  hydrateWhenIdle,
+  hydrateWhenVisible,
+} from 'vue-lazy-hydration';
+
 export default {
+  components: {
+    AuthorProfile: hydrateWhenIdle(() => import('/src/components/Author/Profile.vue')),
+    ResumeTechnologies: hydrateWhenIdle(() => import('/src/components/Resume/Technologies.vue')),
+    ResumeExperience: hydrateWhenIdle(() => import('/src/components/Resume/Experience.vue')),
+    ResumeEducation: hydrateWhenIdle(() => import('/src/components/Resume/Education.vue')),
+    PostCard: hydrateWhenVisible(() => import('/src/components/Post/Card.vue')),
+    ResumeProjects: hydrateWhenVisible(() => import('/src/components/Resume/Projects.vue')),
+  },
   metaInfo: {
     title: 'Hello, world!'
   }

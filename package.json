@@ -19,7 +19,8 @@
     "gridsome-plugin-remark-prismjs-all": "^0.4.8",
     "js-yaml": "^4.1.0",
     "remark-admonitions": "^1.2.1",
-    "vue-disqus": "^4.0.1"
+    "vue-disqus": "^4.0.1",
+    "vue-lazy-hydration": "^2.0.0-beta.4"
   },
   "devDependencies": {
     "eslint": "^7.0.0",

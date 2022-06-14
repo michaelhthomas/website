@@ -21,8 +21,17 @@
 </template>
 
 <script>
+import {
+  hydrateWhenIdle,
+  hydrateWhenVisible,
+} from 'vue-lazy-hydration';
+
 export default {
-  name: "Default"
+  name: "Default",
+  components: {
+    Navigation: hydrateWhenIdle(() => import('/src/components/Navigation.vue')),
+    Footer: hydrateWhenVisible(() => import('/src/components/Footer.vue')),
+  }
 }
 </script>
 
