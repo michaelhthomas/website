@@ -2,57 +2,66 @@
   <Layout :show-logo="false">
 
     <div class="wrapper-small md:px-10">
-      <AuthorProfile />
+      <LazyHydrate when-idle>
+        <AuthorProfile />
+      </LazyHydrate>
 
-      <section
-        id="technologies"
-        class="my-8"
-      >
-        <h2 class="section-heading">
-          Technologies I Use
-        </h2>
-
-        <ResumeTechnologies />
-      </section>
-
-      <div class="section grid gap-10 md:grid-cols-2">
-        <section id="experience">
-          <h2 class="section-heading mb-4">
-            Experience
+      <LazyHydrate when-visible>
+        <section
+          id="technologies"
+          class="my-8"
+        >
+          <h2 class="section-heading">
+            Technologies I Use
           </h2>
 
-          <ResumeExperience />
+          <ResumeTechnologies />
         </section>
+      </LazyHydrate>
 
-        <section id="education">
-          <h2 class="section-heading mb-4">
-            Education
-          </h2>
+      <LazyHydrate when-visible>
+        <div class="section grid gap-10 md:grid-cols-2">
+          <section id="experience">
+            <h2 class="section-heading mb-4">
+              Experience
+            </h2>
 
-          <ResumeEducation />
-        </section>
-      </div>
+            <ResumeExperience />
+          </section>
+
+          <section id="education">
+            <h2 class="section-heading mb-4">
+              Education
+            </h2>
+
+            <ResumeEducation />
+          </section>
+        </div>
+      </LazyHydrate>
     
-      <section id="featured-posts" class="section">
-        <h2 class="section-heading">
-          Featured Posts
-        </h2>
+      <LazyHydrate when-visible>
+        <section id="featured-posts" class="section">
+          <h2 class="section-heading">
+            Featured Posts
+          </h2>
 
-        <PostCard
-          v-for="post in $page.posts.edges"
-          :key="post.node.slug"
-          :post="post.node"
-        />
-      </section>
+          <PostCard
+            v-for="post in $page.posts.edges"
+            :key="post.node.slug"
+            :post="post.node"
+          />
+        </section>
+      </LazyHydrate>
 
+      <LazyHydrate when-visible>
+        <section id="projects" class="section">
+          <h2 class="section-heading">
+            Open Source Projects
+          </h2>
 
-      <section id="projects" class="section">
-        <h2 class="section-heading">
-          Open Source Projects
-        </h2>
-
-        <ResumeProjects />
-      </section>
+          <ResumeProjects />
+        </section>
+      </LazyHydrate>
       
     </div>
 
@@ -83,19 +92,11 @@ query {
 </page-query>
 
 <script>
-import {
-  hydrateWhenIdle,
-  hydrateWhenVisible,
-} from 'vue-lazy-hydration';
+import LazyHydrate from 'vue-lazy-hydration';
 
 export default {
   components: {
-    AuthorProfile: hydrateWhenIdle(() => import('/src/components/Author/Profile.vue')),
-    ResumeTechnologies: hydrateWhenIdle(() => import('/src/components/Resume/Technologies.vue')),
-    ResumeExperience: hydrateWhenIdle(() => import('/src/components/Resume/Experience.vue')),
-    ResumeEducation: hydrateWhenIdle(() => import('/src/components/Resume/Education.vue')),
-    PostCard: hydrateWhenVisible(() => import('/src/components/Post/Card.vue')),
-    ResumeProjects: hydrateWhenVisible(() => import('/src/components/Resume/Projects.vue')),
+    LazyHydrate
   },
   metaInfo: {
     title: 'Hello, world!'
