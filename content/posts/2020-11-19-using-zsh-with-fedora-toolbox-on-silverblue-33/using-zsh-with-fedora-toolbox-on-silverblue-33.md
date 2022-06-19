@@ -7,7 +7,6 @@ date_published: 2020-11-19
 date_updated: 2021-04-05
 tags: ['Fedora Silverblue', 'Linux']
 description: Setup your own customized shell within Fedora Toolbox, all while maintaining convenience features from the default shell.
-featured: true
 ---
 
 Fedora Silverblue is one of the most interesting Linux distros I have tried to date, and I ended up choosing to use it as my daily-driver for its stability, ease of updates, and cleanliness. However, one of my biggest must-haves was a proper, customized shell. 
