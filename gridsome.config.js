@@ -52,7 +52,8 @@ module.exports = {
     {
       use: 'gridsome-plugin-partytown',
       options: {
-        debug: true,
+        debug: false,
+        lib: "partytown-lib",
         forward: ["dataLayer.push"]
       }
     }
