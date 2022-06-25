@@ -16,15 +16,17 @@
     "@iconify/iconify": "^2.1.0",
     "autoprefixer": "^10.4.0",
     "gridsome": "^0.7.0",
+    "gridsome-plugin-partytown": "^0.1.2",
     "gridsome-plugin-remark-prismjs-all": "^0.4.8",
     "js-yaml": "^4.1.0",
     "remark-admonitions": "^1.2.1",
-    "vue-disqus": "^4.0.1"
+    "vue-disqus": "^4.0.1",
+    "vue-lazy-hydration": "^2.0.0-beta.4"
   },
   "devDependencies": {
     "eslint": "^7.0.0",
     "eslint-plugin-gridsome": "^1.6.2",
-    "gridsome-plugin-windicss": "https://github.com/michaelhthomas/gridsome-plugin-windicss",
+    "gridsome-plugin-windicss": "^1.0.6",
     "purge-icons-webpack-plugin": "^0.7.0",
     "sass": "^1.45.0",
     "sass-loader": "^10.1.1",

@@ -50,15 +50,16 @@ module.exports = {
       use: 'gridsome-plugin-windicss',
     },
     {
-      use: '@gridsome/plugin-google-analytics',
+      use: 'gridsome-plugin-partytown',
       options: {
-        id: 'G-7DK3PZ81VY'
+        debug: true,
+        forward: ["dataLayer.push"]
       }
     }
   ],
 
   transformers: {
-    //Add markdown support to all file-system sources
+    // Add markdown support to all file-system sources
     remark: {
       externalLinksTarget: '_blank',
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
