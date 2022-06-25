@@ -4,9 +4,11 @@
     id="app"
     class="min-h-screen bg-true-gray-100 dark:bg-true-gray-900 transition-colors duration-150 text-true-gray-900 dark:text-true-gray-100"
   >
-    <div class="navigation">
-      <Navigation />
-    </div>
+    <LazyHydrate when-idle>
+      <div class="navigation">
+        <Navigation />
+      </div>
+    </LazyHydrate>
       
     <transition name="page" appear>
       <div class="page mb-auto mt-10">
@@ -14,15 +16,22 @@
       </div>
     </transition>
 
-    <div class="footer">
-      <Footer />
-    </div>
+    <LazyHydrate when-visible>
+      <div class="footer">
+        <Footer />
+      </div>
+    </LazyHydrate>
   </div>
 </template>
 
 <script>
+import LazyHydrate from 'vue-lazy-hydration';
+
 export default {
-  name: "Default"
+  name: "Default",
+  components: {
+    LazyHydrate
+  }
 }
 </script>
 
