@@ -26,7 +26,7 @@
   "devDependencies": {
     "eslint": "^7.0.0",
     "eslint-plugin-gridsome": "^1.6.2",
-    "gridsome-plugin-windicss": "https://github.com/michaelhthomas/gridsome-plugin-windicss",
+    "gridsome-plugin-windicss": "^1.0.6",
     "purge-icons-webpack-plugin": "^0.7.0",
     "sass": "^1.45.0",
     "sass-loader": "^10.1.1",
