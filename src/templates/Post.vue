@@ -28,7 +28,7 @@
 
         <!-- Content -->
         <div class="p-5 sm:p-10">
-          <div class="post__content prose prose-lg w-prose text-true-gray-900 dark:text-true-gray-100" v-html="$page.post.content" />
+          <div class="post__content prose prose-lg w-prose max-w-full text-true-gray-900 dark:text-true-gray-100" v-html="$page.post.content" />
         </div>
         
         <div class="post__footer mx-10 my-5 text-center">
