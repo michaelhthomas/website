@@ -1,6 +1,6 @@
 <template>
   <ul 
-    class="sticky top-4 float-left -ml-15 hidden lg:block"
+    class="sticky top-4 float-right -mr-15 hidden lg:block"
     @mouseover="hover = true"
     @mouseleave="hover = false"
   >

@@ -1,6 +1,6 @@
 <template>
   <div class="md:flex my-8">
-    <div class="img max-w-lg md:max-w-sm mx-auto m-2 rounded-xl shadow-md shadow-true-gray-100 dark:shadow-true-gray-900">
+    <div class="img max-w-lg md:max-w-sm mx-auto m-2 rounded-xl shadow">
       <g-link :to="post.path">
         <g-image :alt="post.title" :src="post.cover_image" class="rounded-xl" />
       </g-link>
