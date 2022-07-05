@@ -38,24 +38,25 @@
     
       <AuthorSmall class="post-author" />
 
-      <Disqus shortname="michaelt" :pageConfig="{title: $page.post.title, identifier: $page.post.path}" />
+      <Giscus />
     </div>
 
     <UiBackToTop />
-
   </Layout>
 </template>
 
 <script>
 import AuthorSmall from '~/components/Author/Small.vue';
 import PostShare from '../components/Post/Share.vue';
-import PostNavigationArrows from '../components/Post/NavigationArrows.vue'
+import PostNavigationArrows from '../components/Post/NavigationArrows.vue';
+import Giscus from '../components/Giscus.vue';
 
 export default {
   components: {
     AuthorSmall,
     PostShare,
-    PostNavigationArrows
+    PostNavigationArrows,
+    Giscus
 },
   metaInfo () {
     return {
