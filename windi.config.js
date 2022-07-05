@@ -22,9 +22,17 @@ export default defineConfig({
       colors: {
         'primary': colors.blue,
       },
+      fontSize: {
+        '5xl': ['3rem', '1.15'],
+        '6xl': ['4rem', '1.15'],
+        '7xl': ['5rem', '1.15'],
+      },
       typography: {
         DEFAULT: {
           css: {
+            'p': {
+              'color': 'rgba(0, 0, 0, 0.75)',
+            },
             a: {
               'text-decoration': 'none',
               'background': `linear-gradient(${colors.blue[300]}, ${colors.blue[300]})`,
@@ -49,16 +57,43 @@ export default defineConfig({
               '&::after': {
                 content: '"" !important',
               },
-            },
-            h1: {
-              marginTop: "1em!important",
-              marginBottom: "0.6em!important"
             }
           },
         },
+        lg: {
+          css: {
+            h1: {
+              marginTop: "3rem",
+              marginBottom: "0",
+              fontSize: '2.5rem'
+            },
+            h2: {
+              marginTop: "3rem",
+              marginBottom: "1.5rem",
+              fontSize: '1.5rem'
+            }
+          }
+        },
+        xl: {
+          css: {
+            h1: {
+              marginTop: "3.5rem",
+              marginBottom: "0",
+              fontSize: '3rem'
+            },
+            h2: {
+              marginTop: "3.5rem",
+              marginBottom: "1.5rem",
+              fontSize: '1.8rem'
+            }
+          }
+        },
         DARK: {
           css: {
-            'a': {
+            p: {
+              'color': 'rgba(255, 255, 255, 0.75)',
+            },
+            a: {
               'background': `linear-gradient(${colors.blue[700]}, ${colors.blue[700]})`,
               'text-decoration': 'none',
               'background-repeat': 'no-repeat',

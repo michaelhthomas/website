@@ -15,6 +15,7 @@
     "@gridsome/vue-remark": "^0.2.6",
     "@iconify/iconify": "^2.1.0",
     "autoprefixer": "^10.4.0",
+    "giscus": "^1.0.6",
     "gridsome": "^0.7.0",
     "gridsome-plugin-partytown": "^0.1.2",
     "gridsome-plugin-remark-prismjs-all": "^0.4.8",
@@ -33,5 +34,8 @@
     "unplugin-vue-components": "^0.17.9",
     "vue-eslint-parser": "^8.0.1",
     "windicss": "^3.3.0"
+  },
+  "resolutions": {
+    "sharp": "^0.28.0"
   }
 }
