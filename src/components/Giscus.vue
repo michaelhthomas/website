@@ -16,12 +16,17 @@
 </template>
 
 <script>
-import 'giscus'
+
+if (process.isClient) {
+  import('giscus')
+}
 
 export default {
   data() {
-    return {
-      initialTheme: window.__theme
+    if(process.isClient) {
+      return {
+        initialTheme: window.__theme
+      }
     }
   },
   methods: {
@@ -39,8 +44,10 @@ export default {
     }
   },
   created() {
-    this.updateTheme
-    window.addEventListener("themeChange", this.updateTheme)
+    if(process.isClient) {
+      this.updateTheme
+      window.addEventListener("themeChange", this.updateTheme)
+    }
   },
 }
 </script>

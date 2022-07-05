@@ -37,7 +37,7 @@
       <PostNavigationArrows :postId="$page.post.id" />
     
       <AuthorSmall class="post-author" />
-
+      
       <Giscus />
     </div>
 
@@ -50,13 +50,15 @@ import AuthorSmall from '~/components/Author/Small.vue';
 import PostShare from '../components/Post/Share.vue';
 import PostNavigationArrows from '../components/Post/NavigationArrows.vue';
 import Giscus from '../components/Giscus.vue';
+import PostTags from '../components/Post/Tags.vue';
 
 export default {
   components: {
     AuthorSmall,
     PostShare,
     PostNavigationArrows,
-    Giscus
+    Giscus,
+    PostTags
 },
   metaInfo () {
     return {
