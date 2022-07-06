@@ -1,3 +1,16 @@
+<script setup>
+const props = defineProps({
+  tags: {
+    type: Array,
+    default() {return []}
+  },
+  variant: {
+    type: String,
+    default() {return "tag"}
+  }
+})
+</script>
+
 <template>
    <div class="post-tags">
    		<g-link 
@@ -14,18 +27,3 @@
    		</g-link>
     </div>
 </template>
-
-<script>
-export default {
-  props: {
-    tags: {
-      type: Array,
-      default() {return []}
-    },
-    variant: {
-      type: String,
-      default() {return "tag"}
-    }
-  }
-}
-</script>

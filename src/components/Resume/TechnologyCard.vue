@@ -1,3 +1,56 @@
+<script setup>
+import { computed } from 'vue'
+
+const props = defineProps({
+  title: {
+    type: String,
+    required: true,
+    default: "",
+  },
+  link: {
+    type: String,
+    required: false,
+    default: null,
+  },
+  icon: {
+    type: String,
+    required: false,
+    default: null,
+  },
+  color: {
+    type: String,
+    required: false,
+    default: null,
+  }
+})
+
+/**
+ * Returns possible icon name if icon prop is not passed.
+ * @returns {string}
+ */
+const getIconName = computed(() => {
+  if (props.icon) return props.icon
+  else
+    return (
+      "logos:" + props.title?.toLowerCase()?.replace(/[^a-zA-Z]/g, "") || "arrow-right"
+    )
+})
+
+/**
+ * Returns appropriate style attribute for icon color
+ * @returns {string}
+ */
+const getStyle = computed(() => {
+  if (props.color) {
+    return ({
+      color: props.color
+    })
+  } else {
+    return null
+  }
+})
+</script>
+
 <template>
   <Link
     blank
@@ -8,57 +61,3 @@
       <span class="truncate">{{ title }}</span>
   </Link>
 </template>
-
-<script>
-export default {
-  name: "TechnologyCard",
-  props: {
-    title: {
-      type: String,
-      required: true,
-      default: "",
-    },
-    link: {
-      type: String,
-      required: false,
-      default: null,
-    },
-    icon: {
-      type: String,
-      required: false,
-      default: null,
-    },
-    color: {
-      type: String,
-      required: false,
-      default: null,
-    },
-  },
-  computed: {
-    /**
-     * Returns possible icon name if icon prop is not passed.
-     * @returns {string}
-     */
-    getIconName() {
-      if (this.icon) return this.icon
-      else
-        return (
-          "logos:" + this.title?.toLowerCase()?.replace(/[^a-zA-Z]/g, "") || "arrow-right"
-        )
-    },
-    /**
-     * Returns appropriate style attribute for icon color
-     * @returns {string}
-     */
-    getStyle() {
-      if (this.color) {
-        return ({
-          color: this.color
-        })
-      } else {
-        return null
-      }
-    }
-  },
-}
-</script>

@@ -1,3 +1,32 @@
+<script setup>
+import { onMounted, reactive, ref } from 'vue';
+import UiSpinner from '~/components/Ui/Spinner.vue'
+
+const projects = ref([])
+const loading = ref(false)
+
+onMounted(async () => {
+  await fetchData()
+})
+
+async function fetchData() {
+  if (process.isClient) {
+    projects.value = []
+    loading.value = true
+
+    const response = await fetch('https://api.github.com/search/repositories?q=user:michaelhthomas&sort=stars&per_page=4')
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error when fetching GitHub projects! status: ${response.status}`)
+    }
+
+    const data = await response.json()
+    loading.value = false
+    projects.value = data.items
+  }
+}
+</script>
+
 <template>
   <div class="my-5">
     <!-- Loading -->
@@ -55,44 +84,3 @@
     </div>
   </div>
 </template>
-
-<script>
-import UiSpinner from '~/components/Ui/Spinner.vue'
-import PostCard from '~/components/Post/Card.vue'
-
-export default {
-  components: {
-    UiSpinner,
-    PostCard
-  },
-  data() {
-    return {
-      projects: [],
-      loading: false,
-      error: null
-    }
-  },
-  async created() {
-    await this.fetchData()
-  },
-  methods: {
-    async fetchData() {
-      if (process.isClient) {
-        this.error = this.projects = null
-        this.loading = true
-
-        const response = await fetch('https://api.github.com/search/repositories?q=user:michaelhthomas&sort=stars&per_page=4')
-        
-        if (!response.ok) {
-          this.error = response.statusText
-          throw new Error(`HTTP error! status: ${response.status}`)
-        }
-
-        const data = await response.json()
-        this.loading = false
-        this.projects = data.items
-      }
-    }
-  }
-}
-</script>

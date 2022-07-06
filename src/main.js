@@ -12,4 +12,8 @@ import 'prismjs/plugins/command-line/prism-command-line.css'
 export default function (Vue, { router, head, isClient }) { // eslint-disable-line
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
+  // Ignore giscus web component
+  Vue.config.ignoredElements = [
+    'giscus-widget'
+  ]
 }

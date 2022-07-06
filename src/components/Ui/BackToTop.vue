@@ -1,3 +1,32 @@
+<script setup>
+import { ref, computed, onDeactivated, onMounted } from 'vue';
+
+const scrollPosition = ref(0)
+
+function updateScroll() {
+  scrollPosition.value = window.scrollY
+}
+function scrollToTop() {
+  window.scroll({top: 0, left: 0, behavior: 'smooth' })
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', updateScroll)
+})
+onDeactivated(() => {
+  window.removeEventListener('scroll', updateScroll)
+})
+
+const displayBackToTop = computed(() => {
+  if (process.isClient) {
+    if (scrollPosition.value > window.innerHeight && scrollPosition.value < document.body.clientHeight - window.innerHeight - 150) {
+      return true
+    }
+    return false
+  }
+})
+</script>
+
 <template>
   <button
     role="button"
@@ -9,37 +38,3 @@
     <Icon icon="ph:caret-up" class="h-5 w-5 -mb-0.75" />
   </button>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      scrollPosition: null,
-    }
-  },
-  methods: {
-    updateScroll() {
-      this.scrollPosition = window.scrollY
-    },
-    scrollToTop() {
-      window.scroll({top: 0, left: 0, behavior: 'smooth' })
-    }
-  },
-  mounted() {
-    window.addEventListener('scroll', this.updateScroll);
-  },
-  destroy() {
-    window.removeEventListener('scroll', this.updateScroll)
-  },
-  computed: {
-    displayBackToTop() {
-      if (process.isClient) {
-        if (this.scrollPosition > window.innerHeight && this.scrollPosition < document.body.clientHeight - window.innerHeight - 150) {
-          return true
-        }
-        return false
-      }
-    }
-  }
-}
-</script>

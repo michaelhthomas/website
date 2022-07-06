@@ -9,14 +9,14 @@
   },
   "dependencies": {
     "@gridsome/plugin-google-analytics": "^0.1.2",
-    "@gridsome/remark-prismjs": "^0.2.0",
+    "@gridsome/remark-prismjs": "^0.5.0",
     "@gridsome/source-filesystem": "^0.6.0",
-    "@gridsome/transformer-remark": "^0.3.0",
+    "@gridsome/transformer-remark": "^0.6.4",
     "@gridsome/vue-remark": "^0.2.6",
     "@iconify/iconify": "^2.1.0",
     "autoprefixer": "^10.4.0",
     "giscus": "^1.0.6",
-    "gridsome": "^0.7.0",
+    "gridsome": "^0.7.23",
     "gridsome-plugin-partytown": "^0.1.2",
     "gridsome-plugin-remark-prismjs-all": "^0.4.8",
     "js-yaml": "^4.1.0",
@@ -25,14 +25,15 @@
     "vue-lazy-hydration": "^2.0.0-beta.4"
   },
   "devDependencies": {
-    "eslint": "^7.0.0",
+    "@vue/runtime-dom": "^3.2.37",
+    "eslint": "^8.19.0",
     "eslint-plugin-gridsome": "^1.6.2",
     "gridsome-plugin-windicss": "^1.0.6",
-    "purge-icons-webpack-plugin": "^0.7.0",
+    "purge-icons-webpack-plugin": "^0.8.1",
     "sass": "^1.45.0",
     "sass-loader": "^10.1.1",
-    "unplugin-vue-components": "^0.17.9",
-    "vue-eslint-parser": "^8.0.1",
+    "unplugin-vue-components": "^0.21.0",
+    "vue-eslint-parser": "^9.0.3",
     "windicss": "^3.3.0"
   },
   "resolutions": {

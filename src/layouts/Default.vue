@@ -1,5 +1,8 @@
-<template>
+<script setup>
+import LazyHydrate from 'vue-lazy-hydration';
+</script>
 
+<template>
   <div
     id="app"
     class="min-h-screen bg-true-gray-100 dark:bg-true-gray-900 transition-colors duration-150 text-true-gray-900 dark:text-true-gray-100"
@@ -11,7 +14,7 @@
     </LazyHydrate>
       
     <transition name="page" appear>
-      <div class="page mb-auto mt-10">
+      <div class="page mb-auto mt-5 md:mt-10">
         <slot />
       </div>
     </transition>
@@ -23,17 +26,6 @@
     </LazyHydrate>
   </div>
 </template>
-
-<script>
-import LazyHydrate from 'vue-lazy-hydration';
-
-export default {
-  name: "Default",
-  components: {
-    LazyHydrate
-  }
-}
-</script>
 
 <style>
 
@@ -56,6 +48,14 @@ export default {
 }
 .footer {
   flex-shrink: 0;
+}
+
+html {
+  @apply bg-primary-600
+}
+
+html.dark {
+  @apply bg-true-gray-700
 }
 
 .wrapper {

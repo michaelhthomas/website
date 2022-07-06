@@ -1,3 +1,7 @@
+<script setup>
+const year = new Date().getFullYear()
+</script>
+
 <template>
   <footer class="bg-true-gray-50 dark:bg-true-gray-800 border-b-8 border-primary-600 dark:border-true-gray-700">
     <div class="wrapper mx-auto mt-24 px-5">
@@ -29,14 +33,3 @@
     </div>
   </footer>
 </template>
-
-<script>
-export default {
-  name: "Footer",
-  computed: {
-    year() {
-      return new Date().getFullYear();
-    }
-  }
-}
-</script>

@@ -1,3 +1,20 @@
+<script setup>
+defineProps({
+  title: {
+    type: String
+  },
+  subtitle: {
+    type: String,
+  },
+  link: {
+    type: String
+  },
+  years: {
+    type: String
+  }
+})
+</script>
+
 <template>
   <div class="my-4">
     <div class="flex space-x-2 items-center justify-between">
@@ -19,23 +36,3 @@
     <p class="text-lg text-true-gray-600 dark:text-true-gray-400">{{ subtitle }}</p>
   </div>
 </template>
-
-<script>
-export default {
-  name: "ExpCard",
-  props: {
-    title: {
-      type: String
-    },
-    subtitle: {
-      type: String,
-    },
-    link: {
-      type: String
-    },
-    years: {
-      type: String
-    }
-  }
-}
-</script>

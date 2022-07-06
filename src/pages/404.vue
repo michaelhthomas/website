@@ -1,5 +1,5 @@
 <template>
-  <Layout :show-logo="false">
+  <Layout>
     <div class="wrapper-small text-center">
       <h1
         class="text-8xl font-black text-red-500 my-10 border-true-gray-500 border-dotted border-10 p-10 rounded-full block"

@@ -1,3 +1,12 @@
+<script setup>
+import Icon from "../Icon.vue";
+
+const props = defineProps({
+  postId: String
+})
+
+</script>
+
 <template>
   <div class="post-navigation-arrows grid sm:grid-cols-2 gap-2 text-true-gray-800 dark:text-true-gray-200">
     <div>
@@ -44,12 +53,8 @@ query {
 </static-query>
 
 <script>
-import Icon from "../Icon.vue";
+
 export default {
-  components: { Icon },
-  props: {
-    postId: String
-  },
   computed: {
     pageIndex() {
       // TODO: this is a bit of a hacky / inefficient way of doing this, so need to make sure this gets implemented *properly* when it gains upstream support

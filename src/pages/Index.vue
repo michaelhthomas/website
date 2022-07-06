@@ -1,5 +1,9 @@
+<script setup>
+import LazyHydrate from 'vue-lazy-hydration'
+</script>
+
 <template>
-  <Layout :show-logo="false">
+  <Layout>
 
     <div class="wrapper-small md:px-10">
       <LazyHydrate when-idle>
@@ -92,12 +96,7 @@ query {
 </page-query>
 
 <script>
-import LazyHydrate from 'vue-lazy-hydration';
-
 export default {
-  components: {
-    LazyHydrate
-  },
   metaInfo: {
     title: 'Hello, world!'
   }

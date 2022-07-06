@@ -1,3 +1,12 @@
+<script setup>
+const props = defineProps({
+  post: {
+    type: Object,
+    default: null
+  }
+})
+</script>
+
 <template>
    <div class="post-meta">
       Posted {{ post.date_published }}
@@ -11,9 +20,3 @@
       </template>
     </div>
 </template>
-
-<script>
-export default {
-  props: ['post']
-}
-</script>

@@ -1,3 +1,43 @@
+<script setup>
+import { ref, toRefs } from "vue";
+import Icon from "../Icon.vue";
+
+const props = defineProps({
+  title: String
+})
+
+const hover = ref(false)
+
+function parseLink(link, valueObj) {
+  const templateMatcher = /{{\s?([^{}\s]*)\s?}}/g;
+  let text = link.replace(templateMatcher, (substring, value, index) => {
+    value = encodeURIComponent(valueObj[value]);
+    return value;
+  });
+  return text
+}
+  
+function share(service) {
+  if (process.isClient) {
+    const w= 550;
+    const h = 650;
+    const y = window.top.outerHeight / 2 + window.top.screenY - ( h / 2);
+    const x = window.top.outerWidth / 2 + window.top.screenX - ( w / 2);
+    const link = parseLink(service.link, {
+      title: props.title,
+      location: location.href,
+      text: props.title + '\n' + location.href
+    });
+    window.open(
+      link,
+      service.name,
+      `width=${w}, height=${h}, top=${y}, left=${x}, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no,`
+    )
+  }
+}
+
+</script>
+
 <template>
   <ul 
     class="sticky top-4 float-right -mr-15 hidden lg:block"
@@ -37,44 +77,3 @@ query {
   }
 }
 </static-query>
-
-<script>
-export default {
-  props: {
-    title: String
-  },
-  data() {
-    return {
-      hover: false
-    }
-  },
-  methods: {
-    parseLink(link, valueObj) {
-      const templateMatcher = /{{\s?([^{}\s]*)\s?}}/g;
-      let text = link.replace(templateMatcher, (substring, value, index) => {
-        value = encodeURIComponent(valueObj[value]);
-        return value;
-      });
-      return text
-    },
-    share(service) {
-      if (process.isClient) {
-        const w= 550;
-        const h = 650;
-        const y = window.top.outerHeight / 2 + window.top.screenY - ( h / 2);
-        const x = window.top.outerWidth / 2 + window.top.screenX - ( w / 2);
-        const link = this.parseLink(service.link, {
-          title: this.title,
-          location: location.href,
-          text: this.title + '\n' + location.href
-        });
-        window.open(
-          link,
-          service.name,
-          `width=${w}, height=${h}, top=${y}, left=${x}, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no,`
-        )
-      }
-    }
-  }
-}
-</script>

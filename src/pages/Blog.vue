@@ -1,5 +1,5 @@
 <template>
-  <Layout :show-logo="false">
+  <Layout>
     
     <div class="flex justify-center items-center title">
       <h2 class="text-center">Blog</h2>
@@ -39,12 +39,6 @@ query {
 export default {
   metaInfo: {
     title: 'Blog'
-  },
-  methods: {
-    formatDate(date) {
-      const options = {year: 'numeric', month: 'long', day: 'numeric'}
-      return new Date(date).toLocaleDateString('en', options)
-    }
-  },
+  }
 }
 </script>

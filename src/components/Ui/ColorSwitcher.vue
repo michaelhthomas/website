@@ -1,3 +1,30 @@
+<script setup>
+import { onMounted, ref } from "vue";
+import Icon from "../Icon.vue"
+
+const darkTheme = ref(false)
+
+onMounted(() => {
+  if (process.isClient)
+    darkTheme.value = window.__theme === 'dark'
+})
+
+/**
+ * Updates the color mode value.
+ */
+function toggleTheme(event) {
+  event.currentTarget.blur();
+
+  darkTheme.value = !darkTheme.value
+  if (process.isClient) {
+    // This is using a script that is added in index.html
+    window.__setPreferredTheme(
+      darkTheme.value ? 'dark' : 'light'
+    )
+  }
+}
+</script>
+
 <template>
   <button
     role="button"
@@ -18,38 +45,3 @@
     </div>
   </button>
 </template>
-
-<script>
-import Icon from "../Icon.vue";
-
-export default {
-  components: {
-    Icon
-  },
-  data() {
-    return {
-      darkTheme: false
-    }
-  },
-  methods: {
-    /**
-     * Updates the color mode value.
-     */
-    toggleTheme(event) {
-      event.currentTarget.blur();
-
-      this.darkTheme = !this.darkTheme
-      // This is using a script that is added in index.html
-      window.__setPreferredTheme(
-        this.darkTheme ? 'dark' : 'light'
-      )
-    }
-  },
-  mounted() {
-    /**
-     * Checks the browser color mode preference.
-     */
-    if (window.__theme == 'dark') this.darkTheme = true
-  }
-}
-</script>

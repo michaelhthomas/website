@@ -1,3 +1,12 @@
+<script setup>
+const props = defineProps({
+  post: {
+    type: Object,
+    default: null
+  }
+})
+</script>
+
 <template>
   <div class="md:flex my-8">
     <div class="img max-w-lg md:max-w-sm mx-auto m-2 rounded-xl shadow">
@@ -29,25 +38,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    post: {
-      type: Object,
-      default: null
-    }
-  },
-  methods: {
-    formatDate(date) {
-      const options = {year: 'numeric', month: 'long', day: 'numeric'}
-      return new Date(date).toLocaleDateString('en', options)
-    }
-  },
-}
-</script>
-
 <style>
-
 .link-underline {
   position: relative;
 }
@@ -68,5 +59,4 @@ export default {
 .group:hover .link-underline::before {
   transform: scaleX(1);
 }
-
 </style>

@@ -1,3 +1,39 @@
+<script setup>
+import { onMounted, onUnmounted, ref } from 'vue';
+
+if (process.isClient) {
+  import('giscus')
+}
+
+const initialTheme = ref("")
+
+function sendMessage(message) {
+  const iframe = document.querySelector('#comments').shadowRoot.querySelector('iframe');
+  if (!iframe) return;
+  iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+}
+function updateTheme() {
+  sendMessage({
+    setConfig: {
+      theme: window.__theme
+    }
+  })
+}
+
+onMounted(() => {
+  if (process.isClient) {
+    initialTheme.value = window.__theme
+    window.addEventListener("themeChange", updateTheme)
+  }
+})
+
+onUnmounted(() => {
+  if (process.isClient) {
+    window.removeEventListener("themeChange", updateTheme)
+  }
+})
+</script>
+
 <template>
   <giscus-widget
     id="comments"
@@ -14,40 +50,3 @@
     loading="lazy"
   ></giscus-widget>
 </template>
-
-<script>
-
-if (process.isClient) {
-  import('giscus')
-}
-
-export default {
-  data() {
-    if(process.isClient) {
-      return {
-        initialTheme: window.__theme
-      }
-    }
-  },
-  methods: {
-    sendMessage(message) {
-      const iframe = document.querySelector('#comments').shadowRoot.querySelector('iframe');
-      if (!iframe) return;
-      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-    },
-    updateTheme() {
-      this.sendMessage({
-        setConfig: {
-          theme: window.__theme
-        }
-      })
-    }
-  },
-  created() {
-    if(process.isClient) {
-      this.updateTheme
-      window.addEventListener("themeChange", this.updateTheme)
-    }
-  },
-}
-</script>

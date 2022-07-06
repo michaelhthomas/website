@@ -1,3 +1,7 @@
+<script setup>
+import ResumeExpCard from '~/components/Resume/ExpCard.vue'
+</script>
+
 <template>
   <div class="education">
     <ResumeExpCard 
@@ -23,14 +27,3 @@ query {
   }
 }
 </static-query>
-
-<script>
-import ResumeExpCard from '~/components/Resume/ExpCard.vue'
-
-export default {
-  name: "Education",
-  components: {
-    ResumeExpCard
-  }
-}
-</script>

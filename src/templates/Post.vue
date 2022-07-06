@@ -1,3 +1,11 @@
+<script setup>
+import AuthorSmall from '~/components/Author/Small.vue';
+import PostShare from '~/components/Post/Share.vue';
+import PostNavigationArrows from '~/components/Post/NavigationArrows.vue';
+import Giscus from '~/components/Giscus.vue';
+import PostTags from '~/components/Post/Tags.vue';
+</script>
+
 <template>
   <Layout>
     <div class="post-wrapper text-true-gray-900 dark:text-true-gray-100">
@@ -46,20 +54,7 @@
 </template>
 
 <script>
-import AuthorSmall from '~/components/Author/Small.vue';
-import PostShare from '../components/Post/Share.vue';
-import PostNavigationArrows from '../components/Post/NavigationArrows.vue';
-import Giscus from '../components/Giscus.vue';
-import PostTags from '../components/Post/Tags.vue';
-
 export default {
-  components: {
-    AuthorSmall,
-    PostShare,
-    PostNavigationArrows,
-    Giscus,
-    PostTags
-},
   metaInfo () {
     return {
       title: this.$page.post.title,
