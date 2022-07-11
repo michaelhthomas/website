@@ -4,3 +4,6 @@
 - name: reddit
   icon: mdi:reddit
   link: 'https://reddit.com/u/linuxoveruser'
+- name: rss
+  icon: mdi:rss
+  link: '/feed.xml'

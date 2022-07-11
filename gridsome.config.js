@@ -7,6 +7,7 @@
 module.exports = {
   siteName: 'Michael Thomas',
   siteDescription: 'A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.',
+  siteUrl: 'https://michaelt.xyz',
 
   templates: {
     Post: '/blog/:title',
@@ -55,6 +56,26 @@ module.exports = {
         debug: false,
         lib: "partytown-lib",
         forward: ["dataLayer.push"]
+      }
+    },
+    {
+      // Create RSS Feed
+      use: '@microflash/gridsome-plugin-feed',
+      options: {
+        contentTypes: ['Post'],
+        htmlFields: ['content'],
+        feedOptions: {
+          title: "Michael Thomas's Blog",
+          description: "Michael's stream of consciousness"
+        },
+        atom: {
+          enabled: true
+        },
+        nodeToFeedItem: (node) => ({
+          title: node.title,
+          date: node.date_published,
+          description: node.description
+        })
       }
     }
   ],
