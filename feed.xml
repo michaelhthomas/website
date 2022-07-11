@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Michael Thomas's Blog</title>
+        <link>https://michaelt.xyz/</link>
+        <description>Michael's stream of consciousness</description>
+        <lastBuildDate>Mon, 11 Jul 2022 22:12:48 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Gridsome Feed Plugin</generator>
+        <atom:link href="https://michaelt.xyz/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Supercharge your Static Site or Blog with Gridsome]]></title>
+            <link>https://michaelt.xyz/blog/supercharge-your-static-site-or-blog-with-gridsome/</link>
+            <guid>https://michaelt.xyz/blog/supercharge-your-static-site-or-blog-with-gridsome/</guid>
+            <pubDate>Tue, 24 May 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Make your static site or blog work for you with the Gridsome static site generator.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[NixOS Configuration Notes]]></title>
+            <link>https://michaelt.xyz/blog/nix-os-configuration-notes/</link>
+            <guid>https://michaelt.xyz/blog/nix-os-configuration-notes/</guid>
+            <pubDate>Mon, 05 Apr 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Tips and tricks for configuring NixOS, a declarative, immutable Linux distribution.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Using ZSH with Toolbox on Fedora Silverblue 33]]></title>
+            <link>https://michaelt.xyz/blog/using-zsh-with-toolbox-on-fedora-silverblue-33/</link>
+            <guid>https://michaelt.xyz/blog/using-zsh-with-toolbox-on-fedora-silverblue-33/</guid>
+            <pubDate>Thu, 19 Nov 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Setup your own customized shell within Fedora Toolbox, all while maintaining convenience features from the default shell.]]></description>
+        </item>
+    </channel>
+</rss>
