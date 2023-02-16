@@ -18,7 +18,7 @@
     v-else
     :href="href && (utm === false ? href : getUtmLink)"
     :target="blank ? '_blank' : ''"
-    rel="noreferrer noopener"
+    :rel="[...rel, 'noreferrer', 'noopener']"
     :title="title"
     class="link"
   >
@@ -58,6 +58,11 @@ export default {
       type: Boolean,
       required: false,
       default: true,
+    },
+    rel: {
+      type: Array,
+      required: false,
+      default: [],
     },
   },
   computed: {

@@ -24,6 +24,7 @@ query {
       name
       link
       icon
+      rel
     }
   }
 }

@@ -1,9 +1,13 @@
 - name: github
   icon: mdi:github
-  link: 'https://github.com/michaelhthomas'
+  link: "https://github.com/michaelhthomas"
 - name: reddit
   icon: mdi:reddit
-  link: 'https://reddit.com/u/linuxoveruser'
+  link: "https://reddit.com/u/linuxoveruser"
+- name: mastodon
+  icon: mdi:mastodon
+  link: "https://mstdn.social/@michaelhthomas"
+  rel: "me"
 - name: rss
   icon: mdi:rss
-  link: '/feed.xml'
+  link: "/feed.xml"
