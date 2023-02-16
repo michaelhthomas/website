@@ -7,7 +7,8 @@
 - name: mastodon
   icon: mdi:mastodon
   link: "https://mstdn.social/@michaelhthomas"
-  rel: "me"
+  rel:
+    - me
 - name: rss
   icon: mdi:rss
   link: "/feed.xml"

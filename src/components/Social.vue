@@ -8,6 +8,7 @@
       :href="social.link"
       v-for="social in $static.metadata.socials"
       :key="social.name"
+      :rel="social.rel"
     >
       <Icon
         class="h-8 w-8"

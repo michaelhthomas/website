@@ -8,6 +8,7 @@
     :to="href"
     :target="blank && '_blank'"
     :title="title"
+    :rel="rel"
     class="link"
   >
     <slot />
@@ -18,7 +19,7 @@
     v-else
     :href="href && (utm === false ? href : getUtmLink)"
     :target="blank ? '_blank' : ''"
-    :rel="[...rel, 'noreferrer', 'noopener']"
+    :rel="[...rel, 'noreferrer', 'noopener'].join(' ')"
     :title="title"
     class="link"
   >
