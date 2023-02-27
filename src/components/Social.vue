@@ -9,6 +9,7 @@
       v-for="social in $static.metadata.socials"
       :key="social.name"
       :rel="social.rel"
+      :utm="false"
     >
       <Icon
         class="h-8 w-8"
