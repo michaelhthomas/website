@@ -1,8 +1,8 @@
 name: Build & Deploy
 
 on:
-  push:	
-    branches:	
+  push:
+    branches:
       - main
 
 jobs:
@@ -14,10 +14,10 @@ jobs:
         uses: actions/checkout@v2
 
       # Cache node_modules folder unless yarn.lock changes
-      - name: Load cached node_modules 
+      - name: Load cached node_modules
         uses: actions/cache@v2
         with:
-          path: '**/node_modules'
+          path: "**/node_modules"
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install packages 📦
@@ -25,6 +25,8 @@ jobs:
 
       - name: Build site 🚧
         run: yarn build
+        env:
+          NODE_OPTIONS: "--openssl-legacy-provider"
 
       - name: Deploy to GitHub Pages 💻
         uses: JamesIves/github-pages-deploy-action@4.1.4
