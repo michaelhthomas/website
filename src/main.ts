@@ -7,11 +7,14 @@ import '@purge-icons/generated';
 import '~/assets/styles/root.scss';
 
 import 'prismjs/plugins/command-line/prism-command-line.css';
+import { ClientApiConstructor } from './types';
 
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
-export default function (Vue, { router, head, isClient }) { // eslint-disable-line
+const client: ClientApiConstructor = function (Vue) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout);
   // Ignore giscus web component
   Vue.config.ignoredElements = ['giscus-widget'];
-}
+};
+
+export default client;

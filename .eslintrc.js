@@ -1,14 +1,6 @@
 'use strict';
 
 module.exports = {
-  parser: 'vue-eslint-parser',
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true
-    }
-  },
   env: {
     browser: true,
     es6: true,
@@ -21,7 +13,18 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.vue', '**/*.ts']
+      files: ['src/**/*.vue', 'src/**/*.ts'],
+      parser: 'vue-eslint-parser',
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        ecmaVersion: 2020,
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true
+        }
+      },
+      extends: ['plugin:@typescript-eslint/recommended'],
+      plugins: ['@typescript-eslint']
     }
   ]
 };

@@ -6,12 +6,10 @@
     "paths": {
       "~/*": ["*"],
       "@/*": ["components/*"]
-    }
+    },
+    "moduleResolution": "node"
   },
-  "include": [
-    "src/**/*.vue",
-    "src/**/*.js"
-  ],
+  "include": ["src/**/*.vue", "src/**/*.ts", "src/**/*.js"],
   "vueCompilerOptions": {
     "target": 2.7
   }
