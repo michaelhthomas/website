@@ -10,7 +10,7 @@ const hover = ref(false);
 
 function parseLink(link, valueObj) {
   const templateMatcher = /{{\s?([^{}\s]*)\s?}}/g;
-  let text = link.replace(templateMatcher, (substring, value, index) => {
+  let text = link.replace(templateMatcher, (substring, value) => {
     value = encodeURIComponent(valueObj[value]);
     return value;
   });

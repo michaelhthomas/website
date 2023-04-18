@@ -19,7 +19,7 @@ function loadData(name) {
 }
 
 module.exports = function (api) {
-  api.loadSource(({ addMetadata, addCollection }) => {
+  api.loadSource(({ addMetadata }) => {
     // eslint-disable-line
     // Use the Data store API here: https://gridsome.org/docs/data-store-api/
     addMetadata('socials', loadData('socials'));

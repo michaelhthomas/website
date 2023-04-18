@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({
+const { post } = defineProps({
   post: {
     type: Object,
     default: null

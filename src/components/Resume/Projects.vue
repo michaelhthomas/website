@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, reactive, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import UiSpinner from '~/components/Ui/Spinner.vue';
 
 const projects = ref([]);
@@ -10,24 +10,24 @@ onMounted(async () => {
 });
 
 async function fetchData() {
-  if (process.isClient) {
-    projects.value = [];
-    loading.value = true;
+  if (!process.isClient) return;
 
-    const response = await fetch(
-      'https://api.github.com/search/repositories?q=user:michaelhthomas&sort=stars&per_page=4'
+  projects.value = [];
+  loading.value = true;
+
+  const response = await fetch(
+    'https://api.github.com/search/repositories?q=user:michaelhthomas&sort=stars&per_page=4'
+  );
+
+  if (!response.ok) {
+    throw new Error(
+      `HTTP error when fetching GitHub projects! status: ${response.status}`
     );
-
-    if (!response.ok) {
-      throw new Error(
-        `HTTP error when fetching GitHub projects! status: ${response.status}`
-      );
-    }
-
-    const data = await response.json();
-    loading.value = false;
-    projects.value = data.items;
   }
+
+  const data = await response.json();
+  loading.value = false;
+  projects.value = data.items;
 }
 </script>
 

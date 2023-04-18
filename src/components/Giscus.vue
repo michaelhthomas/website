@@ -2,13 +2,15 @@
 import { onMounted, onUnmounted, ref } from 'vue';
 
 if (process.isClient) {
-  import('giscus')
+  import('giscus');
 }
 
-const initialTheme = ref("")
+const initialTheme = ref('');
 
 function sendMessage(message) {
-  const iframe = document.querySelector('#comments').shadowRoot.querySelector('iframe');
+  const iframe = document
+    .querySelector('#comments')
+    .shadowRoot.querySelector('iframe');
   if (!iframe) return;
   iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
 }
@@ -17,21 +19,21 @@ function updateTheme() {
     setConfig: {
       theme: window.__theme
     }
-  })
+  });
 }
 
 onMounted(() => {
   if (process.isClient) {
-    initialTheme.value = window.__theme
-    window.addEventListener("themeChange", updateTheme)
+    initialTheme.value = window.__theme;
+    window.addEventListener('themeChange', updateTheme);
   }
-})
+});
 
 onUnmounted(() => {
   if (process.isClient) {
-    window.removeEventListener("themeChange", updateTheme)
+    window.removeEventListener('themeChange', updateTheme);
   }
-})
+});
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({
+const { tags, variant } = defineProps({
   tags: {
     type: Array,
     default() {

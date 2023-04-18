@@ -1,9 +1,5 @@
 <script setup>
 import Icon from '../Icon.vue';
-
-const props = defineProps({
-  postId: String
-});
 </script>
 
 <template>
@@ -71,6 +67,9 @@ query {
 
 <script>
 export default {
+  props: {
+    postId: String
+  },
   computed: {
     pageIndex() {
       // TODO: this is a bit of a hacky / inefficient way of doing this, so need to make sure this gets implemented *properly* when it gains upstream support

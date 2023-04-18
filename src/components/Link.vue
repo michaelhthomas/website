@@ -63,7 +63,7 @@ export default {
     rel: {
       type: Array,
       required: false,
-      default: []
+      default: () => []
     }
   },
   computed: {

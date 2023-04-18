@@ -37,7 +37,7 @@
     "sass": "^1.45.0",
     "sass-loader": "^10.1.1",
     "unplugin-vue-components": "^0.21.0",
-    "vue-eslint-parser": "^9.0.3",
+    "vue-eslint-parser": "^9.1.1",
     "windicss": "^3.3.0"
   },
   "resolutions": {
