@@ -4,8 +4,12 @@
   "frontMatter.content.publicFolder": "",
   "frontMatter.content.pageFolders": [
     {
-      "title": "content",
-      "path": "[[workspace]]/content"
+      "title": "posts",
+      "path": "[[workspace]]/content/posts"
+    },
+    {
+      "title": "pages",
+      "path": "[[workspace]]/content/pages"
     }
   ],
   "frontMatter.taxonomy.contentTypes": [
