@@ -6,7 +6,8 @@
 
 module.exports = {
   siteName: 'Michael Thomas',
-  siteDescription: 'A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.',
+  siteDescription:
+    'A simple, hackable & minimalistic starter for Gridsome that uses Markdown for content.',
   siteUrl: 'https://michaelt.xyz',
 
   templates: {
@@ -35,7 +36,7 @@ module.exports = {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: 'SitePage',
-        path: 'content/pages/*.md',
+        path: 'content/pages/*.md'
       }
     },
     {
@@ -48,14 +49,14 @@ module.exports = {
       }
     },
     {
-      use: 'gridsome-plugin-windicss',
+      use: 'gridsome-plugin-windicss'
     },
     {
       use: 'gridsome-plugin-partytown',
       options: {
         debug: false,
-        lib: "partytown-lib",
-        forward: ["dataLayer.push"]
+        lib: 'partytown-lib',
+        forward: ['dataLayer.push']
       }
     },
     {
@@ -91,10 +92,10 @@ module.exports = {
           'gridsome-plugin-remark-prismjs-all',
           {
             noInlineHighlight: true,
-            prompt: { 
+            prompt: {
               user: `michael`,
               host: `pc`,
-              global: true,
+              global: true
             }
           }
         ],
@@ -102,4 +103,4 @@ module.exports = {
       ]
     }
   }
-}
+};

@@ -1,5 +1,5 @@
 <template>
-  <span 
+  <span
     class="iconify"
     :data-icon="icon"
     :data-inline="inline"
@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { addCollection } from "@iconify/iconify";
+import { addCollection } from '@iconify/iconify';
 
 addCollection({
   prefix: 'custom',
@@ -22,11 +22,11 @@ addCollection({
       width: 24,
       height: 24
     }
-  },
+  }
 });
 
 export default {
-  name: "Icon",
+  name: 'Icon',
   props: {
     icon: {
       type: String
@@ -37,13 +37,11 @@ export default {
       default: false
     }
   }
-}
+};
 </script>
 
 <style>
-
 svg.iconify-inline {
   display: inline;
 }
-
 </style>

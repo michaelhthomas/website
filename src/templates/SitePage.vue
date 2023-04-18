@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <h1 class="page-title text-center title">
+    <h1 class="page-title title text-center">
       {{ $page.data.title }}
     </h1>
 
@@ -11,7 +11,7 @@
 </template>
 
 <page-query>
-query SitePage ($id: ID!) {
+query SitePage($id: ID!) {
   data: sitePage(id: $id) {
     title
     content
@@ -21,7 +21,7 @@ query SitePage ($id: ID!) {
 
 <script>
 export default {
-   metaInfo () {
+  metaInfo() {
     return {
       title: this.$page.data.title,
       meta: [
@@ -30,7 +30,7 @@ export default {
           content: this.$page.data.description
         }
       ]
-    }
+    };
   }
-}
+};
 </script>

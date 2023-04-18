@@ -1,6 +1,6 @@
 <template>
-  <div 
-    class="spinner-border animate-spin inline-block w-16 h-16 border-6 border-r-transparent dark:border-r-transparent border-true-gray-800 dark:border-true-gray-200 rounded-full"
+  <div
+    class="spinner-border border-6 border-true-gray-800 dark:border-true-gray-200 inline-block h-16 w-16 animate-spin rounded-full border-r-transparent dark:border-r-transparent"
     role="status"
   >
     <span class="invisible">Loading...</span>
@@ -9,6 +9,6 @@
 
 <script>
 export default {
-  name: "Spinner"
-}
+  name: 'Spinner'
+};
 </script>

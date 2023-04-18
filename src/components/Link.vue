@@ -29,42 +29,42 @@
 
 <script>
 export default {
-  name: "Link",
+  name: 'Link',
   props: {
     href: {
       required: true,
-      default: "",
+      default: ''
     },
     blank: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     internal: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     external: {
       type: Boolean,
       required: false,
-      default: false,
+      default: false
     },
     title: {
       type: String,
       required: false,
-      default: null,
+      default: null
     },
     utm: {
       type: Boolean,
       required: false,
-      default: true,
+      default: true
     },
     rel: {
       type: Array,
       required: false,
-      default: [],
-    },
+      default: []
+    }
   },
   computed: {
     /**
@@ -72,11 +72,11 @@ export default {
      * @returns {boolean}
      */
     isInternalPage() {
-      const href = this.href
-      if (typeof href === "object") return true
-      else if (typeof href === "string" && ["/", "#"].includes(href[0]))
-        return true
-      else return false
+      const href = this.href;
+      if (typeof href === 'object') return true;
+      else if (typeof href === 'string' && ['/', '#'].includes(href[0]))
+        return true;
+      else return false;
     },
     /**
      * Adds UTM query parameter to URL and returns it.
@@ -84,20 +84,20 @@ export default {
      */
     getUtmLink() {
       try {
-        const url = new URL(this.href)
-        url.searchParams.append("utm_source", "michaelt.xyz")
-        return url.href
+        const url = new URL(this.href);
+        url.searchParams.append('utm_source', 'michaelt.xyz');
+        return url.href;
       } catch (err) {
-        return this.href
+        return this.href;
       }
-    },
-  },
-}
+    }
+  }
+};
 </script>
 
 <style scoped>
 .underline {
-  @apply bg-gradient-to-r from-primary-300 to-primary-300 dark:from-primary-700 dark:to-primary-700;
+  @apply from-primary-300 to-primary-300 dark:from-primary-700 dark:to-primary-700 bg-gradient-to-r;
   text-decoration: none;
 
   background-repeat: no-repeat;

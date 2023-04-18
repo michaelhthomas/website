@@ -4,34 +4,62 @@ const props = defineProps({
     type: Object,
     default: null
   }
-})
+});
 </script>
 
 <template>
-  <div class="md:flex my-8">
-    <div v-if="post.cover_image" class="img max-w-lg md:max-w-sm mx-auto m-2 rounded-xl shadow">
+  <div class="my-8 md:flex">
+    <div
+      v-if="post.cover_image"
+      class="img m-2 mx-auto max-w-lg rounded-xl shadow md:max-w-sm"
+    >
       <g-link :to="post.path">
-        <g-image :alt="post.title" :src="post.cover_image" class="rounded-xl" />
+        <g-image
+          :alt="post.title"
+          :src="post.cover_image"
+          class="rounded-xl"
+        />
       </g-link>
     </div>
-    <div class="flex-grow justify-between max-w-lg mx-auto md:px-5 lg:px-0">
+    <div class="mx-auto max-w-lg flex-grow justify-between md:px-5 lg:px-0">
       <div class="meta">
         <g-link :to="post.path">
-          <h2 class="text-xl font-semibold text-true-gray-800 dark:text-true-gray-100">{{ post.title }}</h2>
+          <h2
+            class="text-true-gray-800 dark:text-true-gray-100 text-xl font-semibold"
+          >
+            {{ post.title }}
+          </h2>
         </g-link>
-        <p class="font-semibold text-true-gray-600 dark:text-true-gray-400 text-md">{{ post.date_published }}</p>
+        <p
+          class="text-true-gray-600 dark:text-true-gray-400 text-md font-semibold"
+        >
+          {{ post.date_published }}
+        </p>
       </div>
-      
-      <PostTags class="my-2" :tags="post.tags" />
+
+      <PostTags
+        class="my-2"
+        :tags="post.tags"
+      />
 
       <g-link :to="post.path">
-        <p class="text-base text-true-gray-600 dark:text-true-gray-400">{{ post.description }}</p>
+        <p class="text-true-gray-600 dark:text-true-gray-400 text-base">
+          {{ post.description }}
+        </p>
 
-        <p class="text-base font-semibold text-primary-800 dark:text-primary-200 block my-1 group">
-          <span class="link-underline before:bg-primary-800 dark:before:bg-primary-200">
+        <p
+          class="text-primary-800 dark:text-primary-200 group my-1 block text-base font-semibold"
+        >
+          <span
+            class="link-underline before:bg-primary-800 dark:before:bg-primary-200"
+          >
             Read more
           </span>
-          <Icon class="transform group-hover:translate-x-1 transition-transform" inline icon="icon-park-outline:arrow-right" />
+          <Icon
+            class="transform transition-transform group-hover:translate-x-1"
+            inline
+            icon="icon-park-outline:arrow-right"
+          />
         </p>
       </g-link>
     </div>
@@ -44,7 +72,7 @@ const props = defineProps({
 }
 
 .link-underline::before {
-  content: "";
+  content: '';
   position: absolute;
   display: block;
   width: calc(100% - 5px);

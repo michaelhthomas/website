@@ -1,14 +1,16 @@
 <template>
   <Layout>
-    
-    <div class="flex justify-center items-center title">
+    <div class="title flex items-center justify-center">
       <h2 class="text-center">Blog</h2>
     </div>
 
     <div class="wrapper-small my-5">
-      <PostCard v-for="edge in $page.posts.edges" :key="edge.node.id" :post="edge.node" />
+      <PostCard
+        v-for="edge in $page.posts.edges"
+        :key="edge.node.id"
+        :post="edge.node"
+      />
     </div>
-
   </Layout>
 </template>
 
@@ -19,10 +21,10 @@ query {
       node {
         id
         title
-        date_published (format: "MMMM D, YYYY")
+        date_published(format: "MMMM D, YYYY")
         timeToRead
         description
-        cover_image (width: 770, height: 380, blur: 10)
+        cover_image(width: 770, height: 380, blur: 10)
         path
         tags {
           id
@@ -40,5 +42,5 @@ export default {
   metaInfo: {
     title: 'Blog'
   }
-}
+};
 </script>

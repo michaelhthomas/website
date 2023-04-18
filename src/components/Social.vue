@@ -1,5 +1,7 @@
 <template>
-  <div class="wrapper flex flex-wrap text-base text-center m-3 text-true-gray-700 dark:text-true-gray-300">
+  <div
+    class="wrapper text-true-gray-700 dark:text-true-gray-300 m-3 flex flex-wrap text-center text-base"
+  >
     <Link
       role="button"
       :aria-label="social.name"
@@ -34,6 +36,6 @@ query {
 
 <script>
 export default {
-  name: "Social"
-}
+  name: 'Social'
+};
 </script>

@@ -10,42 +10,49 @@ import PostTags from '~/components/Post/Tags.vue';
   <Layout>
     <div class="post-wrapper text-true-gray-900 dark:text-true-gray-100">
       <div class="post-title">
-        <PostTags :tags="$page.post.tags" variant="post" />
+        <PostTags
+          :tags="$page.post.tags"
+          variant="post"
+        />
 
-        <h1 class="text-3xl md:text-5xl font-bold text-true-gray-800 dark:text-true-gray-200 post-title__text mt-2 mb-4">
+        <h1
+          class="text-true-gray-800 dark:text-true-gray-200 post-title__text mb-4 mt-2 text-3xl font-bold md:text-5xl"
+        >
           {{ $page.post.title }}
         </h1>
 
         <PostMeta
-          class="text-thin text-sm md:text-base text-true-gray-600 dark:text-true-gray-400"
-          :post="$page.post" 
+          class="text-thin text-true-gray-600 dark:text-true-gray-400 text-sm md:text-base"
+          :post="$page.post"
         />
-
       </div>
 
       <div class="post__header post-object-wide">
-        <g-image 
+        <g-image
           alt="Cover image"
-          class="rounded-lg mx-auto shadow-lg"
+          class="mx-auto rounded-lg shadow-lg"
           v-if="$page.post.cover_image"
-          :src="$page.post.cover_image" 
+          :src="$page.post.cover_image"
         />
       </div>
 
       <!-- Content -->
       <div class="post">
         <!-- Share Menu -->
-        <PostShare :title="$page.post.title" class="share" />
-        <div 
-          class="post__content prose prose-lg md:prose-xl w-prose max-w-full text-true-gray-900 dark:text-true-gray-100"
-          v-html="$page.post.content" 
+        <PostShare
+          :title="$page.post.title"
+          class="share"
+        />
+        <div
+          class="post__content prose prose-lg md:prose-xl w-prose text-true-gray-900 dark:text-true-gray-100 max-w-full"
+          v-html="$page.post.content"
         />
       </div>
 
       <PostNavigationArrows :postId="$page.post.id" />
-    
+
       <AuthorSmall class="post-author" />
-      
+
       <Giscus />
     </div>
 
@@ -55,7 +62,7 @@ import PostTags from '~/components/Post/Tags.vue';
 
 <script>
 export default {
-  metaInfo () {
+  metaInfo() {
     return {
       title: this.$page.post.title,
       meta: [
@@ -64,15 +71,21 @@ export default {
           content: this.$page.post.description
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="scss">
 .post-wrapper {
   display: grid;
-  grid-template-columns: [full-start] minmax(4vmin,auto) [wide-start] minmax(auto,240px) [main-start] min(720px,calc(100% - 8vw)) [main-end] minmax(auto,240px) [wide-end] minmax(4vmin,auto) [full-end];
+  grid-template-columns:
+    [full-start] minmax(4vmin, auto) [wide-start] minmax(auto, 240px)
+    [main-start] min(720px, calc(100% - 8vw)) [main-end] minmax(auto, 240px) [wide-end] minmax(
+      4vmin,
+      auto
+    )
+    [full-end];
   row-gap: 2rem;
 }
 
@@ -94,13 +107,13 @@ export default {
 </style>
 
 <page-query>
-query Post ($id: ID!) {
-  post: post (id: $id) {
+query Post($id: ID!) {
+  post: post(id: $id) {
     id
     title
     path
-    date_published (format: "MMMM D, YYYY")
-    date_updated (format: "MMMM D, YYYY")
+    date_published(format: "MMMM D, YYYY")
+    date_updated(format: "MMMM D, YYYY")
     timeToRead
     tags {
       id
@@ -109,7 +122,7 @@ query Post ($id: ID!) {
     }
     description
     content
-    cover_image (width: 860, blur: 10)
+    cover_image(width: 860, blur: 10)
   }
 }
 </page-query>

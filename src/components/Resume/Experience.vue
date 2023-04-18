@@ -1,10 +1,10 @@
 <script setup>
-import ResumeExpCard from '~/components/Resume/ExpCard.vue'
+import ResumeExpCard from '~/components/Resume/ExpCard.vue';
 </script>
 
 <template>
   <div class="experience">
-    <ResumeExpCard 
+    <ResumeExpCard
       v-for="exp in $static.metadata.experience"
       :key="exp.name"
       :title="exp.name"

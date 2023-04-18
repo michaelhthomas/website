@@ -5,15 +5,18 @@ import LazyHydrate from 'vue-lazy-hydration';
 <template>
   <div
     id="app"
-    class="min-h-screen bg-true-gray-100 dark:bg-true-gray-900 transition-colors duration-150 text-true-gray-900 dark:text-true-gray-100"
+    class="bg-true-gray-100 dark:bg-true-gray-900 text-true-gray-900 dark:text-true-gray-100 min-h-screen transition-colors duration-150"
   >
     <LazyHydrate when-idle>
       <div class="navigation">
         <Navigation />
       </div>
     </LazyHydrate>
-      
-    <transition name="page" appear>
+
+    <transition
+      name="page"
+      appear
+    >
       <div class="page mb-auto mt-5 md:mt-10">
         <slot />
       </div>
@@ -28,13 +31,12 @@ import LazyHydrate from 'vue-lazy-hydration';
 </template>
 
 <style>
-
 ::selection {
   background: #b6ddf7;
 }
 
 .dark ::selection {
-  background: #3498DB;
+  background: #3498db;
 }
 
 #app {
@@ -51,27 +53,26 @@ import LazyHydrate from 'vue-lazy-hydration';
 }
 
 html {
-  @apply bg-primary-600
+  @apply bg-primary-600;
 }
 
 html.dark {
-  @apply bg-true-gray-700
+  @apply bg-true-gray-700;
 }
 
 .wrapper {
-  @apply max-w-screen-xl mx-auto;
+  @apply mx-auto max-w-screen-xl;
 }
 
 .wrapper-small {
-  @apply max-w-screen-lg mx-auto px-6;
+  @apply mx-auto max-w-screen-lg px-6;
 }
 
 .flex-center {
-  @apply flex justify-center items-center;
+  @apply flex items-center justify-center;
 }
 
 .title {
-  @apply text-5xl mb-16 font-bold text-true-gray-800 dark:text-true-gray-300;
+  @apply text-true-gray-800 dark:text-true-gray-300 mb-16 text-5xl font-bold;
 }
-
 </style>

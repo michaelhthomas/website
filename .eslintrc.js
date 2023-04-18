@@ -1,10 +1,10 @@
-"use strict";
+'use strict';
 
 module.exports = {
-  parser: "vue-eslint-parser",
+  parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: "module",
+    sourceType: 'module',
     ecmaFeatures: {
       jsx: true
     }
@@ -14,9 +14,14 @@ module.exports = {
     es6: true,
     node: true
   },
-  plugins: ["gridsome"],
-  extends: [
-    "eslint:recommended",
-    "plugin:gridsome/recommended"
+  plugins: ['gridsome', 'prettier'],
+  extends: ['eslint:recommended', 'plugin:gridsome/recommended'],
+  rules: {
+    'prettier/prettier': 'error'
+  },
+  overrides: [
+    {
+      files: ['**/*.vue', '**/*.ts']
+    }
   ]
 };

@@ -1,28 +1,32 @@
 <script setup>
 import { onMounted, reactive, ref } from 'vue';
-import UiSpinner from '~/components/Ui/Spinner.vue'
+import UiSpinner from '~/components/Ui/Spinner.vue';
 
-const projects = ref([])
-const loading = ref(false)
+const projects = ref([]);
+const loading = ref(false);
 
 onMounted(async () => {
-  await fetchData()
-})
+  await fetchData();
+});
 
 async function fetchData() {
   if (process.isClient) {
-    projects.value = []
-    loading.value = true
+    projects.value = [];
+    loading.value = true;
 
-    const response = await fetch('https://api.github.com/search/repositories?q=user:michaelhthomas&sort=stars&per_page=4')
-    
+    const response = await fetch(
+      'https://api.github.com/search/repositories?q=user:michaelhthomas&sort=stars&per_page=4'
+    );
+
     if (!response.ok) {
-      throw new Error(`HTTP error when fetching GitHub projects! status: ${response.status}`)
+      throw new Error(
+        `HTTP error when fetching GitHub projects! status: ${response.status}`
+      );
     }
 
-    const data = await response.json()
-    loading.value = false
-    projects.value = data.items
+    const data = await response.json();
+    loading.value = false;
+    projects.value = data.items;
   }
 }
 </script>
@@ -32,7 +36,7 @@ async function fetchData() {
     <!-- Loading -->
     <div
       v-if="loading"
-      class="flex justify-center items-center py-20"
+      class="flex items-center justify-center py-20"
     >
       <UiSpinner />
     </div>
@@ -40,45 +44,62 @@ async function fetchData() {
     <!-- Loaded -->
     <div
       v-else
-      class='grid grid-cols-1 md:grid-cols-2 gap-6'
+      class="grid grid-cols-1 gap-6 md:grid-cols-2"
     >
       <a
-        v-for='(project, index) in projects'
-        :key='index'
-        :href='project.html_url'
-        class='block bg-true-gray-50 dark:bg-true-gray-800 p-6 shadow rounded-lg mt-2 lg:mt-0 hover:shadow-lg transform hover:-translate-y-1.5 transition duration-200'
+        v-for="(project, index) in projects"
+        :key="index"
+        :href="project.html_url"
+        class="bg-true-gray-50 dark:bg-true-gray-800 mt-2 block transform rounded-lg p-6 shadow transition duration-200 hover:-translate-y-1.5 hover:shadow-lg lg:mt-0"
         rel="noreferrer"
-        target='_blank'
+        target="_blank"
       >
         <div>
-          <h3 class='text-lg font-medium text-true-gray-800 dark:text-true-gray-100'>
+          <h3
+            class="text-true-gray-800 dark:text-true-gray-100 text-lg font-medium"
+          >
             {{ project.name }}
           </h3>
-          <p class='my-2 text-base text-true-gray-500 dark:text-true-gray-400'>
+          <p class="text-true-gray-500 dark:text-true-gray-400 my-2 text-base">
             {{ project.description }}
           </p>
-          <ul class='flex items-center space-x-4 text-black dark:text-true-gray-200'>
-            <li class='inline-flex items-center'>
-              <Icon icon="mdi:star" class="h-4 w-4 mr-1"/>
+          <ul
+            class="dark:text-true-gray-200 flex items-center space-x-4 text-black"
+          >
+            <li class="inline-flex items-center">
+              <Icon
+                icon="mdi:star"
+                class="mr-1 h-4 w-4"
+              />
               <span>{{ project.stargazers_count }}</span>
             </li>
-            <li v-if='project.forks' class='inline-flex items-center'>
-              <Icon icon="mdi:source-fork" class="h-4 w-4 mr-1"/>
+            <li
+              v-if="project.forks"
+              class="inline-flex items-center"
+            >
+              <Icon
+                icon="mdi:source-fork"
+                class="mr-1 h-4 w-4"
+              />
               <span>{{ project.forks }}</span>
             </li>
           </ul>
         </div>
-      </a> <!-- End Project Cards -->     
+      </a>
+      <!-- End Project Cards -->
     </div>
 
-    <div class='flex items-center justify-center mt-6'>
+    <div class="mt-6 flex items-center justify-center">
       <a
-        class='bg-black w-full md:w-auto flex items-center justify-center px-10 md:px-24 py-3 shadow-md hover:bg-true-gray-800 rounded-lg text-white transition duration-300'
-        href='https://github.com/michaelhthomas'
+        class="hover:bg-true-gray-800 flex w-full items-center justify-center rounded-lg bg-black px-10 py-3 text-white shadow-md transition duration-300 md:w-auto md:px-24"
+        href="https://github.com/michaelhthomas"
         rel="noreferrer"
-        target='_blank'
+        target="_blank"
       >
-        <Icon icon="mdi:github" class="text-white h-5 w-5 mr-2"/>
+        <Icon
+          icon="mdi:github"
+          class="mr-2 h-5 w-5 text-white"
+        />
         See More Projects
       </a>
     </div>

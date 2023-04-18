@@ -1,13 +1,12 @@
 <script setup>
-import { onMounted, ref } from "vue";
-import Icon from "../Icon.vue"
+import { onMounted, ref } from 'vue';
+import Icon from '../Icon.vue';
 
-const darkTheme = ref(false)
+const darkTheme = ref(false);
 
 onMounted(() => {
-  if (process.isClient)
-    darkTheme.value = window.__theme === 'dark'
-})
+  if (process.isClient) darkTheme.value = window.__theme === 'dark';
+});
 
 /**
  * Updates the color mode value.
@@ -15,12 +14,10 @@ onMounted(() => {
 function toggleTheme(event) {
   event.currentTarget.blur();
 
-  darkTheme.value = !darkTheme.value
+  darkTheme.value = !darkTheme.value;
   if (process.isClient) {
     // This is using a script that is added in index.html
-    window.__setPreferredTheme(
-      darkTheme.value ? 'dark' : 'light'
-    )
+    window.__setPreferredTheme(darkTheme.value ? 'dark' : 'light');
   }
 }
 </script>
@@ -32,15 +29,21 @@ function toggleTheme(event) {
     class="cursor-pointer"
     @click="toggleTheme"
   >
-    <div 
+    <div
       class="icon inline-block leading-[2.25rem]"
       sm="block leading-0 mr-0 h-9 w-9 rounded-full p-2 bg-true-gray-200 text-true-gray-800 dark:bg-true-gray-800 dark:text-true-gray-100"
     >
       <div v-show="darkTheme">
-        <Icon icon="ph:sun" class="h-5 w-5" />
+        <Icon
+          icon="ph:sun"
+          class="h-5 w-5"
+        />
       </div>
       <div v-show="!darkTheme">
-        <Icon icon="ph:moon-stars" class="h-5 w-5" />
+        <Icon
+          icon="ph:moon-stars"
+          class="h-5 w-5"
+        />
       </div>
     </div>
   </button>

@@ -4,7 +4,7 @@ defineProps({
     type: String
   },
   subtitle: {
-    type: String,
+    type: String
   },
   link: {
     type: String
@@ -12,13 +12,15 @@ defineProps({
   years: {
     type: String
   }
-})
+});
 </script>
 
 <template>
   <div class="my-4">
-    <div class="flex space-x-2 items-center justify-between">
-      <h3 class="text-xl font-semibold text-true-gray-800 dark:text-true-gray-200">
+    <div class="flex items-center justify-between space-x-2">
+      <h3
+        class="text-true-gray-800 dark:text-true-gray-200 text-xl font-semibold"
+      >
         <Link
           :href="link"
           blank
@@ -29,10 +31,13 @@ defineProps({
       </h3>
 
       <span
-        class="text-true-gray-600 dark:text-true-gray-400 font-medium text-lg"
-      >{{ years }}</span>
+        class="text-true-gray-600 dark:text-true-gray-400 text-lg font-medium"
+        >{{ years }}</span
+      >
     </div>
-    
-    <p class="text-lg text-true-gray-600 dark:text-true-gray-400">{{ subtitle }}</p>
+
+    <p class="text-true-gray-600 dark:text-true-gray-400 text-lg">
+      {{ subtitle }}
+    </p>
   </div>
 </template>

@@ -1,19 +1,28 @@
 <script setup>
-import Icon from "../Icon.vue";
+import Icon from '../Icon.vue';
 
 const props = defineProps({
   postId: String
-})
-
+});
 </script>
 
 <template>
-  <div class="post-navigation-arrows grid sm:grid-cols-2 gap-2 text-true-gray-800 dark:text-true-gray-200">
+  <div
+    class="post-navigation-arrows text-true-gray-800 dark:text-true-gray-200 grid gap-2 sm:grid-cols-2"
+  >
     <div>
-      <g-link :to="prevPost.node.path" v-if="prevPost">
-        <div class="flex flex-row gap-4 group p-4 rounded-md hover:bg-true-gray-200 dark:hover:bg-true-gray-800 transition-colors">
-          <div class="flex flex-col justify-center flex-grow-0">
-            <Icon icon="mdi:arrow-left" class="h-10 w-10 transform group-hover:-translate-x-1 transition-transform" />
+      <g-link
+        :to="prevPost.node.path"
+        v-if="prevPost"
+      >
+        <div
+          class="hover:bg-true-gray-200 dark:hover:bg-true-gray-800 group flex flex-row gap-4 rounded-md p-4 transition-colors"
+        >
+          <div class="flex flex-grow-0 flex-col justify-center">
+            <Icon
+              icon="mdi:arrow-left"
+              class="h-10 w-10 transform transition-transform group-hover:-translate-x-1"
+            />
           </div>
           <div class="flex-grow">
             <p class="font-bold">Previous</p>
@@ -23,14 +32,22 @@ const props = defineProps({
       </g-link>
     </div>
     <div>
-      <g-link :to="nextPost.node.path" v-if="nextPost">
-        <div class="flex flex-row gap-4 group p-4 rounded-md hover:bg-true-gray-200 dark:hover:bg-true-gray-800 transition-colors">
+      <g-link
+        :to="nextPost.node.path"
+        v-if="nextPost"
+      >
+        <div
+          class="hover:bg-true-gray-200 dark:hover:bg-true-gray-800 group flex flex-row gap-4 rounded-md p-4 transition-colors"
+        >
           <div class="flex-grow text-right">
             <p class="font-bold">Next</p>
             <p>{{ nextPost.node.title }}</p>
           </div>
-          <div class="flex flex-col justify-center flex-grow-0">
-            <Icon icon="mdi:arrow-right" class="h-10 w-10 transform group-hover:translate-x-1 transition-transform" />
+          <div class="flex flex-grow-0 flex-col justify-center">
+            <Icon
+              icon="mdi:arrow-right"
+              class="h-10 w-10 transform transition-transform group-hover:translate-x-1"
+            />
           </div>
         </div>
       </g-link>
@@ -53,13 +70,14 @@ query {
 </static-query>
 
 <script>
-
 export default {
   computed: {
     pageIndex() {
       // TODO: this is a bit of a hacky / inefficient way of doing this, so need to make sure this gets implemented *properly* when it gains upstream support
       // See https://github.com/gridsome/gridsome/issues/177
-      return this.$static.posts.edges.findIndex(el => el.node.id === this.postId);
+      return this.$static.posts.edges.findIndex(
+        (el) => el.node.id === this.postId
+      );
     },
     prevPost() {
       return this.$static.posts.edges[this.pageIndex - 1];
@@ -68,5 +86,5 @@ export default {
       return this.$static.posts.edges[this.pageIndex + 1];
     }
   }
-}
+};
 </script>

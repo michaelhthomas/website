@@ -1,10 +1,9 @@
 <script setup>
-import LazyHydrate from 'vue-lazy-hydration'
+import LazyHydrate from 'vue-lazy-hydration';
 </script>
 
 <template>
   <Layout>
-
     <div class="wrapper-small md:px-10">
       <LazyHydrate when-idle>
         <AuthorProfile />
@@ -15,9 +14,7 @@ import LazyHydrate from 'vue-lazy-hydration'
           id="technologies"
           class="my-8"
         >
-          <h2 class="section-heading">
-            Technologies I Use
-          </h2>
+          <h2 class="section-heading">Technologies I Use</h2>
 
           <ResumeTechnologies />
         </section>
@@ -26,28 +23,25 @@ import LazyHydrate from 'vue-lazy-hydration'
       <LazyHydrate when-visible>
         <div class="section grid gap-10 md:grid-cols-2">
           <section id="experience">
-            <h2 class="section-heading mb-4">
-              Experience
-            </h2>
+            <h2 class="section-heading mb-4">Experience</h2>
 
             <ResumeExperience />
           </section>
 
           <section id="education">
-            <h2 class="section-heading mb-4">
-              Education
-            </h2>
+            <h2 class="section-heading mb-4">Education</h2>
 
             <ResumeEducation />
           </section>
         </div>
       </LazyHydrate>
-    
+
       <LazyHydrate when-visible>
-        <section id="featured-posts" class="section">
-          <h2 class="section-heading">
-            Featured Posts
-          </h2>
+        <section
+          id="featured-posts"
+          class="section"
+        >
+          <h2 class="section-heading">Featured Posts</h2>
 
           <PostCard
             v-for="post in $page.posts.edges"
@@ -58,31 +52,34 @@ import LazyHydrate from 'vue-lazy-hydration'
       </LazyHydrate>
 
       <LazyHydrate when-visible>
-        <section id="projects" class="section">
-          <h2 class="section-heading">
-            Open Source Projects
-          </h2>
+        <section
+          id="projects"
+          class="section"
+        >
+          <h2 class="section-heading">Open Source Projects</h2>
 
           <ResumeProjects />
         </section>
       </LazyHydrate>
-      
     </div>
-
   </Layout>
 </template>
 
 <page-query>
 query {
-  posts: allPost(sortBy: "date_published", order: DESC, filter: { featured: { eq: true } }) {
+  posts: allPost(
+    sortBy: "date_published"
+    order: DESC
+    filter: { featured: { eq: true } }
+  ) {
     edges {
       node {
         id
         title
-        date_published (format: "MMMM D, YYYY")
+        date_published(format: "MMMM D, YYYY")
         timeToRead
         description
-        cover_image (width: 770, height: 380, blur: 10)
+        cover_image(width: 770, height: 380, blur: 10)
         path
         tags {
           id
@@ -100,14 +97,14 @@ export default {
   metaInfo: {
     title: 'Hello, world!'
   }
-}
+};
 </script>
 
 <style>
-  .section {
-    @apply my-8;
-  }
- .section-heading {
-    @apply text-xl font-semibold text-true-gray-900 dark:text-true-gray-100;
-  }
+.section {
+  @apply my-8;
+}
+.section-heading {
+  @apply text-true-gray-900 dark:text-true-gray-100 text-xl font-semibold;
+}
 </style>
