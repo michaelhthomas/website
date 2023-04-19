@@ -2,12 +2,18 @@
   "compilerOptions": {
     "target": "es2015",
     "module": "esnext",
+    "allowJs": true,
     "baseUrl": "./",
     "paths": {
       "~/*": ["*"],
       "@/*": ["components/*"]
     },
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "sourceMap": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "types": []
   },
   "include": ["src/**/*.vue", "src/**/*.ts", "src/**/*.js"],
   "vueCompilerOptions": {

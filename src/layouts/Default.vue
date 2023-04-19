@@ -1,4 +1,4 @@
-<script setup>
+<script lang="ts" setup>
 import LazyHydrate from 'vue-lazy-hydration';
 </script>
 
