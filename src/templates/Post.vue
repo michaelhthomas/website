@@ -44,7 +44,7 @@ import PostTags from '~/components/Post/Tags.vue';
           class="share"
         />
         <div
-          class="post__content prose prose-lg md:prose-xl w-prose text-true-gray-900 dark:text-true-gray-100 max-w-full"
+          class="post__content prose dark:prose-invert w-prose text-true-gray-900 dark:text-true-gray-100 max-w-full text-lg md:text-xl"
           v-html="$page.post.content"
         />
       </div>
@@ -87,6 +87,38 @@ export default {
     )
     [full-end];
   row-gap: 2rem;
+}
+
+.post__content :first-child {
+  margin-top: 0;
+}
+
+.post__content {
+  h1 {
+    margin-top: 3rem;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  @screen md {
+    h1 {
+      margin-top: 3.5rem;
+      margin-bottom: 0;
+      font-size: 3rem;
+    }
+
+    h2 {
+      margin-top: 3.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+  }
 }
 
 .post-wrapper > * {

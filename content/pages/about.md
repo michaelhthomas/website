@@ -8,7 +8,7 @@ date_updated: 2021-02-02T17:17:19.000Z
 
 import TechnologyCard from '~/components/Resume/Technologies.vue'
 
-<div class="prose prose-xl mx-auto">
+<div class="prose text-xl mx-auto">
 
 ## Hi there!
 
@@ -22,7 +22,7 @@ I'm Michael Thomas, a computer science student and web developer. Over the past 
 
 </div>
 
-<div class="prose prose-xl mx-auto">
+<div class="prose text-xl mx-auto">
 
 In addition to web development, I have a passion for self-hosting, using technologies like Docker and Linux to host my own personal cloud. I'm always learning new things and finding new ways to solve problems!
 

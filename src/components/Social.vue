@@ -1,6 +1,6 @@
 <template>
   <div
-    class="wrapper text-true-gray-700 dark:text-true-gray-300 m-3 flex flex-wrap text-center text-base"
+    class="wrapper text-true-gray-700 dark:text-true-gray-300 my-3 flex flex-wrap text-center text-base"
   >
     <Link
       role="button"

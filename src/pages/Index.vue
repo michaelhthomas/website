@@ -4,7 +4,7 @@ import LazyHydrate from 'vue-lazy-hydration';
 
 <template>
   <Layout>
-    <div class="wrapper-small md:px-10">
+    <div class="wrapper-small">
       <LazyHydrate when-idle>
         <AuthorProfile />
       </LazyHydrate>

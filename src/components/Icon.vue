@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style>
-svg.iconify-inline {
+svg[data-inline] {
   display: inline;
 }
 </style>

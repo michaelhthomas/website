@@ -99,7 +99,6 @@ export default {
 }
 
 .nav-link {
-  @apply text-true-gray-700 dark:text-true-gray-200 hover:text-primary-500 dark:hover:text-primary-500 text-center text-lg font-medium transition-colors duration-100;
-  line-height: 2.25rem;
+  @apply text-true-gray-700 dark:text-true-gray-200 hover:text-primary-500 dark:hover:text-primary-500 text-center text-lg font-medium leading-[2.25rem] transition-colors duration-100;
 }
 </style>

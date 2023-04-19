@@ -49,9 +49,6 @@ module.exports = {
       }
     },
     {
-      use: 'gridsome-plugin-windicss'
-    },
-    {
       use: 'gridsome-plugin-partytown',
       options: {
         debug: false,
@@ -104,6 +101,17 @@ module.exports = {
         ],
         'remark-admonitions'
       ]
+    }
+  },
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          require('@unocss/postcss')({
+            content: ['**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}']
+          })
+        ]
+      }
     }
   }
 };

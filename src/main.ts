@@ -4,6 +4,7 @@ import DefaultLayout from '~/layouts/Default.vue';
 import '@purge-icons/generated';
 
 // Import global styles
+import '@unocss/reset/tailwind.css';
 import '~/assets/styles/root.scss';
 
 import 'prismjs/plugins/command-line/prism-command-line.css';

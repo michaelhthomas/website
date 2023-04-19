@@ -97,7 +97,7 @@ export default {
 
 <style scoped>
 .underline {
-  @apply from-primary-300 to-primary-300 dark:from-primary-700 dark:to-primary-700 bg-gradient-to-r;
+  @apply bg-gradient-from-primary-300 bg-gradient-to-primary-300 dark:bg-gradient-from-primary-700 dark:bg-gradient-to-primary-700 bg-gradient-to-r;
   text-decoration: none;
 
   background-repeat: no-repeat;
