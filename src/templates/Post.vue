@@ -95,26 +95,26 @@ export default {
 
 .post__content {
   h1 {
-    margin-top: 3rem;
+    margin-top: 2.5rem;
     margin-bottom: 0;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   h2 {
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
     font-size: 1.5rem;
   }
 
   @screen md {
     h1 {
-      margin-top: 3.5rem;
+      margin-top: 3rem;
       margin-bottom: 0;
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
 
     h2 {
-      margin-top: 3.5rem;
+      margin-top: 3rem;
       margin-bottom: 1.5rem;
       font-size: 1.8rem;
     }

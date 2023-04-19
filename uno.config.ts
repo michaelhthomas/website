@@ -16,13 +16,14 @@ export default defineConfig({
     presetAttributify(),
     presetTypography({
       cssExtend: {
-        '*': {
+        'a, h1, h2, h3, h4, h5, ol, ul, li': {
           color: colors.trueGray[900],
           'line-height': 1.8
         },
-        '.dark *': {
-          color: colors.trueGray[100]
-        },
+        '.dark a, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark ol, .dark ul, .dark li':
+          {
+            color: colors.trueGray[100]
+          },
         p: {
           color: 'rgba(0, 0, 0, 0.75)'
         },
