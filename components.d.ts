@@ -33,5 +33,4 @@ declare module '@vue/runtime-core' {
     UiColorSwitcher: typeof import('./src/components/Ui/ColorSwitcher.vue')['default']
     UiSpinner: typeof import('./src/components/Ui/Spinner.vue')['default']
   }
-
 }
