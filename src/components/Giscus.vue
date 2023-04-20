@@ -17,14 +17,15 @@ function sendMessage(message) {
 function updateTheme() {
   sendMessage({
     setConfig: {
-      theme: window.__theme
+      theme: window.__theme === 'light' ? 'light' : 'transparent_dark'
     }
   });
 }
 
 onMounted(() => {
   if (process.isClient) {
-    initialTheme.value = window.__theme;
+    initialTheme.value =
+      window.__theme === 'light' ? 'light' : 'transparent_dark';
     window.addEventListener('themeChange', updateTheme);
   }
 });
