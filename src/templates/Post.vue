@@ -28,12 +28,21 @@ import PostTags from '~/components/Post/Tags.vue';
       </div>
 
       <div class="post__header post-object-wide">
-        <g-image
-          alt="Cover image"
-          class="mx-auto rounded-lg shadow-lg"
+        <figure
+          class="mx-auto w-fit"
           v-if="$page.post.cover_image"
-          :src="$page.post.cover_image"
-        />
+        >
+          <g-image
+            alt="Cover image"
+            class="rounded-lg shadow-lg"
+            :src="$page.post.cover_image"
+          />
+          <figcaption
+            v-if="$page.post.cover_image_caption"
+            v-html="$page.post.cover_image_caption"
+            class="prose text-trueGray-600 dark:text-trueGray-400 float-right mt-2 text-sm"
+          ></figcaption>
+        </figure>
       </div>
 
       <!-- Content -->
@@ -106,6 +115,34 @@ export default {
     font-size: 1.5rem;
   }
 
+  figure {
+    p {
+      margin: 0;
+    }
+
+    img {
+      @apply mb-0 rounded-lg shadow-lg;
+    }
+
+    &.crop {
+      img {
+        object-fit: cover;
+      }
+
+      &-16_9 img {
+        aspect-ratio: 16 / 9;
+      }
+
+      &-4_3 img {
+        aspect-ratio: 4 / 3;
+      }
+    }
+
+    figcaption {
+      @apply text-trueGray-600 dark:text-trueGray-400 mt-2 text-right text-sm;
+    }
+  }
+
   @screen md {
     h1 {
       margin-top: 3rem;
@@ -155,6 +192,7 @@ query Post($id: ID!) {
     description
     content
     cover_image(width: 860, blur: 10)
+    cover_image_caption
   }
 }
 </page-query>
