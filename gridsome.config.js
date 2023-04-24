@@ -99,7 +99,8 @@ module.exports = {
             }
           }
         ],
-        'remark-admonitions'
+        'remark-admonitions',
+        ['@silvenon/remark-smartypants', { dashes: 'oldschool' }]
       ]
     }
   },
