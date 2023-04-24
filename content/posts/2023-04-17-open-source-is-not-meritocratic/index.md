@@ -13,7 +13,7 @@ cover_image_caption: Illustration by <a href="https://unsplash.com/@pawel_czerwi
 
 <font size="5">Open source communities often incorrectly assume that everyone is equally able to contribute. In reality, women and other groups are excluded, both intentionally and unintentionally, from open-source communities.</font>
 
-While women are already poorly represented in software development as a whole---only [22.1% of professional computer programmers are female](https://www.bls.gov/cps/cpsaat11.htm)---female representation in open-source is significantly worse. Less than [six percent of developers on GitHub are women](https://www.toptal.com/open-source/is-open-source-open-to-women), with the most active contributors being overwhelmingly male. Such an alarming lack of female representation highlights the existence of inherent bias and barriers that likely deter women from participating in open-source communities. This raises an important question: Does the current open-source ecosystem truly promote equal opportunities for all contributors, or does it simply perpetuate systemic inequalities?
+While women are already poorly represented in software development as a whole---only [22.1% of professional computer programmers are female](https://www.bls.gov/cps/cpsaat11.htm)---female representation in open-source is significantly worse. Less than [six percent of developers on GitHub are women](https://www.toptal.com/open-source/is-open-source-open-to-women), with the most active contributors being overwhelmingly male. Such an alarming lack of female representation highlights the existence of inherent bias and barriers that deter women from participating in open-source communities. This raises an important question: Does the current open-source ecosystem truly promote equal opportunities for all contributors, or does it simply perpetuate systemic inequalities?
 
 One of the core values of the open source community is the idea of meritocracy---the idea that anyone can contribute and that their contributions will be judged on their merit, regardless of their background, gender, or other characteristics. Based on this principle alone, one might assume that the open-source community is accepting and diverse, allowing the best work to climb to the top regardless of who contributes it. However, the reality is that meritocracy is often used as a shield to defend the status quo, rather than a tool for promoting diversity and inclusion.
 
@@ -40,7 +40,7 @@ The problem with meritocracy is that it assumes that everyone has an equal start
 — <a class="not-prose cursor-pointer" href="https://web.archive.org/web/20130204193633/http://blog.nerdchic.net/archives/134/" target="_blank" rel="nofollow noopener noreferrer">Noirin Shirley</a>
 </p>
 
-In open-source circles, the myth of meritocracy is particularly prevalent. The community prides itself on being meritocratic, with many going so far as to claim that ["patches don't have gender,"](https://journals.sagepub.com/doi/10.1177/1461444811422887) and that gender and other social differences should be ignored altogether in open-source circles. Despite its charming simplicity, this belief is not congruent with reality. Open source is not a level playing field, and even [the process of submitting patches](https://dl.acm.org/doi/10.1145/3180155.3180241) presents major, unequal challenges for contributors. Women, in particular, face numerous challenges that make it difficult to succeed in this environment.
+In open-source circles, the myth of meritocracy is particularly prevalent. The community prides itself on being meritocratic, with many going so far as to claim that ["patches don't have gender,"](https://journals.sagepub.com/doi/10.1177/1461444811422887) and that gender and other social differences should be ignored altogether in open-source circles. Despite its charming simplicity, this belief is incongruent with reality. Open source is _not_ a level playing field, and even [the process of submitting patches](https://dl.acm.org/doi/10.1145/3180155.3180241) presents major, unequal challenges for contributors. Women, especially, face numerous challenges that make it difficult to succeed in this environment.
 
 ## Gender Bias
 
@@ -48,7 +48,7 @@ One of the biggest challenges that women face in open source is gender bias. [St
 
 ## Lack of Diversity
 
-Another challenge that women face in open source is the lack of diversity. The community is still predominantly male, which can create an environment that is hostile to women. Women are less likely to feel welcome and included in open-source projects, which can discourage them from participating and contributing. Additionally, the challenge of finding mentors in a male-dominated community can make it difficult for women to gain a footing in open source groups or learn the [often over-complicated](https://dl.acm.org/doi/10.1145/3180155.3180241) processes required to contribute. This is a vicious cycle
+Another challenge that women face in open source is the lack of diversity. The community is still predominantly male, which can create an environment that is hostile to women. Women are less likely to feel welcome and included in open-source projects, which can discourage them from participating and contributing. Additionally, the challenge of finding mentors in a male-dominated community can make it difficult for women to gain a footing in open source groups or learn the [often over-complicated](https://dl.acm.org/doi/10.1145/3180155.3180241) processes required to contribute.
 
 # Meritocracy in Practice
 
@@ -86,4 +86,4 @@ The myth of meritocracy in open-source development is a pervasive and harmful be
 
 - Celebrate the contributions of women and other underrepresented groups in open source development and work to promote their visibility.
 
-As open-source developers, we all have a responsibility to make the community more welcoming and inclusive for everyone. This means we need to overcome the meritocracy myth and make conscious efforts to improve our communities and actively encourage women and other underrepresented groups to get involved.
+As open-source developers, we all have a responsibility to make the community more welcoming and inclusive for everyone. This means we need to overcome the myth of meritocracy and make conscious efforts to improve our communities and actively encourage women and other underrepresented groups to get involved.
