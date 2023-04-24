@@ -50,6 +50,12 @@ Another challenge that women face in open source is the lack of diversity. The c
 
 # Meritocracy in Practice
 
+<figure class="max-w-130 mx-auto">
+
+![An](./meritocracy-exam.png)
+
+</figure>
+
 Even in cases where women do manage to overcome these challenges and make significant contributions to open source projects, their work is often overlooked or undervalued. This is because the myth of meritocracy assumes that everyone has an equal opportunity to succeed, regardless of their background or circumstances. But the reality is that people who come from privileged backgrounds often have more opportunities to develop their skills and abilities, and are therefore more likely to be recognized and rewarded for their work.
 
 ## Moving Beyond Meritocracy
