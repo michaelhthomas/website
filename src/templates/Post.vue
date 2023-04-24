@@ -40,7 +40,7 @@ import PostTags from '~/components/Post/Tags.vue';
           <figcaption
             v-if="$page.post.cover_image_caption"
             v-html="$page.post.cover_image_caption"
-            class="prose text-trueGray-600 dark:text-trueGray-400 float-right mt-2 text-sm"
+            class="prose text-trueGray-600 dark:text-trueGray-400 mt-2 text-sm"
           ></figcaption>
         </figure>
       </div>
@@ -139,7 +139,7 @@ export default {
     }
 
     figcaption {
-      @apply text-trueGray-600 dark:text-trueGray-400 mt-2 text-right text-sm;
+      @apply text-trueGray-600 dark:text-trueGray-400 mt-2 text-sm;
     }
   }
 
