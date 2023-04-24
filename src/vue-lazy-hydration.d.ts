@@ -1,21 +1,24 @@
 declare module 'vue-lazy-hydration' {
-  const LazyHydrate: import('vue').Component<
-    { hydrated: boolean },
-    {
-      cleanup(): void;
-      hydrate(): void;
-    },
-    {
-      interactionEvents: string[];
-    },
-    {
-      idleTimeout: number;
-      onInteraction: boolean | string | string[];
-      never: boolean;
-      triggerHydration: boolean;
-      whenIdle: boolean;
-    }
-  > & { functional: false };
+  const LazyHydrate: Omit<
+    import('vue').Component<
+      { hydrated: boolean },
+      {
+        cleanup(): void;
+        hydrate(): void;
+      },
+      {
+        interactionEvents: string[];
+      },
+      {
+        idleTimeout: number;
+        onInteraction: boolean | string | string[];
+        never: boolean;
+        triggerHydration: boolean;
+        whenIdle: boolean;
+      }
+    >,
+    'functional'
+  >;
 
   export function hydrateNever(
     component: import('vue').AsyncComponent | import('vue').Component
