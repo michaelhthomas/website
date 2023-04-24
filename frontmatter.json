@@ -2,6 +2,7 @@
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.framework.id": "other",
   "frontMatter.content.publicFolder": "",
+  "frontMatter.preview.host": "http://localhost:8080",
   "frontMatter.content.pageFolders": [
     {
       "title": "posts",
@@ -16,6 +17,7 @@
     {
       "name": "post",
       "pageBundle": true,
+      "previewPath": "/blog/",
       "fields": [
         {
           "title": "Title",
