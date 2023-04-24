@@ -15,9 +15,7 @@ cover_image_caption: Illustration by <a href="https://unsplash.com/@pawel_czerwi
 
 While women are already poorly represented in software development as a whole---only [22.1% of professional computer programmers are female](https://www.bls.gov/cps/cpsaat11.htm)---female representation in open-source is significantly worse. Less than [six percent of developers on GitHub are women](https://www.toptal.com/open-source/is-open-source-open-to-women), with the most active contributors being overwhelmingly male. Such an alarming lack of female representation highlights the existence of inherent bias and barriers that deter women from participating in open-source communities. This raises an important question: Does the current open-source ecosystem truly promote equal opportunities for all contributors, or does it simply perpetuate systemic inequalities?
 
-One of the core values of the open source community is the idea of meritocracy---the idea that anyone can contribute and that their contributions will be judged on their merit, regardless of their background, gender, or other characteristics. Based on this principle alone, one might assume that the open-source community is accepting and diverse, allowing the best work to climb to the top regardless of who contributes it. However, the reality is that meritocracy is often used as a shield to defend the status quo, rather than a tool for promoting diversity and inclusion.
-
-# What is Meritocracy?
+# Open Source and Meritocracy
 
 <figure class="crop crop-4_3">
 
@@ -26,11 +24,11 @@ One of the core values of the open source community is the idea of meritocracy--
 <figcaption>Image by <a href="https://insights.som.yale.edu/insights/how-meritocracy-worsens-inequality-and-makes-even-the-rich-miserable">Yale Insights</a></figcaption>
 </figure>
 
-[Meritocracy](https://www.merriam-webster.com/dictionary/meritocracy) is the idea that people should be rewarded based on their skills and abilities, rather than factors such as their race, gender, or socioeconomic status. In theory, this sounds like a fair and just system. In practice, it is far from it.
+One of the core values of the open source community is the idea of [meritocracy](https://www.merriam-webster.com/dictionary/meritocracy)---the idea that anyone can contribute and that their contributions will be judged on their merit, regardless of their background, gender, or other characteristics. Based on this principle alone, one might assume that the open-source community is accepting and diverse, allowing the best work to climb to the top regardless of who contributes it. However, the reality is that meritocracy is often used as a shield to defend the status quo, rather than a tool for promoting diversity and inclusion.
 
-The problem with meritocracy is that it assumes that everyone has an equal starting point, which is simply not true. People are born into different circumstances and face different obstacles throughout their lives. This means that some people have more opportunities to develop their skills and abilities than others.
+The problem with meritocracy is that it assumes that everyone has an equal starting point, which is simply not true. People are born into different circumstances and face different obstacles throughout their lives. This means that some people have more opportunities to develop their skills and abilities than others. Thus, the ideal of meritocracy is often more of a myth than it is a reality.
 
-# The Myth of Meritocracy in Open Source
+# The Myth of Meritocracy
 
 <blockquote class="mb-0">
   <p class="mb-0">Generally, at best, a meritocracy turns very quickly into a merit-and-confidence/pushiness-ocracy. Good work doesn’t win you influence, "good work that’s pushed in others' faces, or at the very least, good work of which others are regularly reminded" wins you influence. And that's where women fall down.</p>
@@ -58,7 +56,7 @@ Another challenge that women face in open source is the lack of diversity. The c
 
 </figure>
 
-Even in cases where women do manage to overcome these challenges and make significant contributions to open-source projects, their work is often overlooked or undervalued. This is because meritocracy assumes that everyone has an equal opportunity to succeed, regardless of their background or circumstances. But the reality is that people who come from privileged backgrounds often have more opportunities to develop their skills and abilities, and are therefore more likely to be recognized and rewarded for their work.
+Even in cases where women do manage to overcome these challenges and make significant contributions to open-source projects, their work is often overlooked or undervalued. This is because meritocracy assumes that everyone has an equal opportunity to succeed, regardless of their background or circumstances. But the reality is that people who come from privileged backgrounds often have more opportunities to develop their skills and abilities, and are therefore more likely to be recognized and rewarded for their work. Denying reality and believing that open-source communities are meritocratic is directly harmful to those who do not come from privileged backgrounds, like women and other underrepresented groups.
 
 ## Moving Beyond Meritocracy
 
