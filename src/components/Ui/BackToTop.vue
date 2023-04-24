@@ -35,13 +35,13 @@ const displayBackToTop = computed(() => {
   <button
     role="button"
     aria-label="Back to top"
-    class="bg-true-gray-200 text-true-gray-900 dark:bg-true-gray-800 dark:text-true-gray-100 hover:bg-true-gray-300 dark:hover:bg-true-gray-700 fixed bottom-6 right-6 hidden h-10 w-10 cursor-pointer rounded-full p-2 transition-all duration-300 lg:block"
+    class="bg-true-gray-200 text-true-gray-900 dark:bg-true-gray-800 dark:text-true-gray-100 hover:bg-true-gray-300 dark:hover:bg-true-gray-700 flex-center fixed bottom-6 right-6 hidden h-10 w-10 cursor-pointer rounded-full transition-all duration-300 lg:flex"
     @click="scrollToTop"
     :style="{ opacity: displayBackToTop ? '100%' : 0 }"
   >
     <Icon
       icon="ph:caret-up"
-      class="-mb-0.75 h-5 w-5"
+      class="h-5 w-5"
     />
   </button>
 </template>
