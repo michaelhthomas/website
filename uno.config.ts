@@ -76,7 +76,7 @@ export default defineConfig({
     './src/**/*.vue',
     './src/**/*.js',
     './src/**/*.ts',
-    './src/**/*.md'
+    './content/**/*.md'
   ],
   theme: {
     // Primary Color

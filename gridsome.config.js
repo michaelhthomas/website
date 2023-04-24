@@ -109,7 +109,10 @@ module.exports = {
       postcss: {
         plugins: [
           require('@unocss/postcss')({
-            content: ['**/*.{html,js,ts,jsx,tsx,vue,svelte,astro}']
+            content: [
+              './src/**/*.{html,js,ts,jsx,tsx,vue}',
+              './content/**/*.md'
+            ]
           })
         ]
       }
