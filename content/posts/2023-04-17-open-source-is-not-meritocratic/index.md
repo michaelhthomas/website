@@ -40,13 +40,13 @@ The problem with meritocracy is that it assumes that everyone has an equal start
 
 In open source circles, the myth of meritocracy is particularly prevalent. The community prides itself on being meritocratic, with the long-standing belief that ["patches don't have gender,"](https://journals.sagepub.com/doi/10.1177/1461444811422887) and the resulting idea that gender should be ignored in open source circles altogether. In spite of its charming simplicity, this belief is not congruent with reality. Women, in particular, face numerous challenges that make it difficult to succeed in this environment.
 
-## Gender Bias in Open Source
+## Gender Bias
 
 One of the biggest challenges that women face in open source is gender bias. [Studies have shown](https://biancatrink.github.io/files/papers/TOSEM2021.pdf) that women are less likely to be accepted into open source projects and that their contributions are often undervalued compared to those of their male counterparts. This bias can take many forms, from subtle microaggressions to [outright harassment](https://thenewstack.io/why-almost-everyone-wants-richard-stallman-cancelled/).
 
-## Lack of Diversity in Open Source
+## Lack of Diversity
 
-Another challenge that women face in open source is the lack of diversity. The community is still predominantly male, which can create an environment that is hostile to women. Women are less likely to feel welcome and included in open source projects, which can discourage them from participating and contributing.
+Another challenge that women face in open source is the lack of diversity. The community is still predominantly male, which can create an environment that is hostile to women. Women are less likely to feel welcome and included in open source projects, which can discourage them from participating and contributing. Additionally, the challenge of finding mentors in a male-dominated community can make it difficult for women to gain a footing in open source groups or learn the [often over-complicated](https://dl.acm.org/doi/10.1145/3180155.3180241) processes required to contribute.
 
 # Meritocracy in Practice
 
