@@ -35,7 +35,7 @@ The problem with meritocracy is that it assumes that everyone has an equal start
 </blockquote>
 
 <p class="text-right mt-0">
-— <a class="not-prose cursor-pointer" href="https://web.archive.org/web/20130204193633/http://blog.nerdchic.net/archives/134/">Noirin Shirley</a>
+— <a class="not-prose cursor-pointer" href="https://web.archive.org/web/20130204193633/http://blog.nerdchic.net/archives/134/" target="_blank" rel="nofollow noopener noreferrer">Noirin Shirley</a>
 </p>
 
 In open source circles, the myth of meritocracy is particularly prevalent. The community prides itself on being meritocratic, with the long-standing belief that ["patches don't have gender,"](https://journals.sagepub.com/doi/10.1177/1461444811422887) and the resulting idea that gender should be ignored in open source circles altogether. In spite of its charming simplicity, this belief is not congruent with reality. Women, in particular, face numerous challenges that make it difficult to succeed in this environment.
@@ -59,7 +59,7 @@ Even in cases where women do manage to overcome these challenges and make signif
 </blockquote>
 
 <p class="text-right mt-0">
-— <a class="not-prose cursor-pointer" href="https://dri.es/the-privilege-of-free-time-in-open-source">Dries Buytaert</a>
+— <a class="not-prose cursor-pointer" href="https://dri.es/the-privilege-of-free-time-in-open-source" target="_blank" rel="nofollow noopener noreferrer">Dries Buytaert</a>
 </p>
 
 It's time to move beyond the myth of meritocracy and start addressing the systemic issues that prevent women from fully participating and succeeding in open source development. This means creating a more welcoming and inclusive environment for women, addressing gender bias, and actively promoting diversity in the community. It also means recognizing and valuing the contributions of all members, regardless of their background or circumstances.
