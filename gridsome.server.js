@@ -18,6 +18,7 @@ function loadData(name) {
   }
 }
 
+/** @type import('@tyankatsu0105/types-gridsome').Server */
 module.exports = function (api) {
   api.loadSource(({ addMetadata }) => {
     // Use the Data store API here: https://gridsome.org/docs/data-store-api/

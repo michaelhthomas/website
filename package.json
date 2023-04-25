@@ -28,6 +28,8 @@
   },
   "devDependencies": {
     "@silvenon/remark-smartypants": "^1.0.0",
+    "@tyankatsu0105/types-gridsome": "^0.6.0",
+    "@types/node": "^18.16.0",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "@unocss/postcss": "^0.51.5",
