@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://michaelt.xyz/</id>
     <title>Michael Thomas's Blog</title>
-    <updated>2023-04-20T00:12:47.341Z</updated>
+    <updated>2023-04-25T01:31:02.917Z</updated>
     <generator>Gridsome Feed Plugin</generator>
     <link rel="alternate" href="https://michaelt.xyz/"/>
     <link rel="self" href="https://michaelt.xyz/feed.atom"/>
