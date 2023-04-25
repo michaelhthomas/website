@@ -4,6 +4,7 @@ import PostShare from '~/components/Post/Share.vue';
 import PostNavigationArrows from '~/components/Post/NavigationArrows.vue';
 import Giscus from '~/components/Giscus.vue';
 import PostTags from '~/components/Post/Tags.vue';
+import BackToTop from '~/components/Ui/BackToTop.vue';
 </script>
 
 <template>
@@ -34,7 +35,7 @@ import PostTags from '~/components/Post/Tags.vue';
         >
           <g-image
             alt="Cover image"
-            class="rounded-lg shadow-lg"
+            class="shadow-opacity-10 rounded-lg shadow-lg shadow-black"
             :src="$page.post.cover_image"
           />
           <figcaption
@@ -65,9 +66,31 @@ import PostTags from '~/components/Post/Tags.vue';
       <Giscus />
     </div>
 
-    <UiBackToTop />
+    <BackToTop />
   </Layout>
 </template>
+
+<page-query lang="graphql">
+query Post($id: ID!) {
+  post: post(id: $id) {
+    id
+    title
+    path
+    date_published(format: "MMMM D, YYYY")
+    date_updated(format: "MMMM D, YYYY")
+    timeToRead
+    tags {
+      id
+      title
+      path
+    }
+    description
+    content
+    cover_image(width: 860, blur: 10)
+    cover_image_caption
+  }
+}
+</page-query>
 
 <script>
 export default {
@@ -121,7 +144,7 @@ export default {
     }
 
     img {
-      @apply mb-0 rounded-lg shadow-lg;
+      @apply shadow-opacity-10 mb-0 rounded-lg shadow-lg shadow-black;
     }
 
     &.crop {
@@ -174,25 +197,3 @@ export default {
   width: min-content;
 }
 </style>
-
-<page-query>
-query Post($id: ID!) {
-  post: post(id: $id) {
-    id
-    title
-    path
-    date_published(format: "MMMM D, YYYY")
-    date_updated(format: "MMMM D, YYYY")
-    timeToRead
-    tags {
-      id
-      title
-      path
-    }
-    description
-    content
-    cover_image(width: 860, blur: 10)
-    cover_image_caption
-  }
-}
-</page-query>
