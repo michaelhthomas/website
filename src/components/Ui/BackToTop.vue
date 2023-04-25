@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, computed, onDeactivated, onMounted } from 'vue';
 
 const scrollPosition = ref(0);
@@ -17,7 +17,7 @@ onDeactivated(() => {
   window.removeEventListener('scroll', updateScroll);
 });
 
-const displayBackToTop = computed(() => {
+const showBackToTop = computed(() => {
   if (process.isClient) {
     if (
       scrollPosition.value > window.innerHeight &&
@@ -34,10 +34,14 @@ const displayBackToTop = computed(() => {
 <template>
   <button
     role="button"
-    aria-label="Back to top"
+    aria-label="Scroll back to top"
+    :aria-hidden="!showBackToTop"
     class="bg-true-gray-200 text-true-gray-900 dark:bg-true-gray-800 dark:text-true-gray-100 hover:bg-true-gray-300 dark:hover:bg-true-gray-700 flex-center fixed bottom-6 right-6 hidden h-10 w-10 cursor-pointer rounded-full transition-all duration-300 lg:flex"
     @click="scrollToTop"
-    :style="{ opacity: displayBackToTop ? '100%' : 0 }"
+    :style="{
+      opacity: showBackToTop ? '100%' : 0,
+      pointerEvents: showBackToTop ? 'initial' : 'none'
+    }"
   >
     <Icon
       icon="ph:caret-up"
