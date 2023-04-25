@@ -43,4 +43,24 @@ module.exports = function (api) {
       })
     );
   });
+
+  api.loadSource(({ addSchemaTypes, schema }) => {
+    addSchemaTypes([
+      schema.createObjectType({
+        name: 'Post',
+        interfaces: ['Node'],
+        fields: {
+          title: 'String',
+          slug: 'String',
+          description: 'String',
+          featured: 'Boolean',
+          date_published: 'Date',
+          date_updated: 'Date',
+          cover_image: 'Image',
+          cover_image_caption: 'String',
+          tags: '[Tag]'
+        }
+      })
+    ]);
+  });
 };
