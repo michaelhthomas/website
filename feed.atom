@@ -2,11 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://michaelt.xyz/</id>
     <title>Michael Thomas's Blog</title>
-    <updated>2023-04-25T14:26:33.289Z</updated>
+    <updated>2023-04-30T17:15:26.321Z</updated>
     <generator>Gridsome Feed Plugin</generator>
     <link rel="alternate" href="https://michaelt.xyz/"/>
     <link rel="self" href="https://michaelt.xyz/feed.atom"/>
     <subtitle>Michael's stream of consciousness</subtitle>
+    <entry>
+        <title type="html"><![CDATA[The Myth of Meritocracy in Open Source]]></title>
+        <id>https://michaelt.xyz/blog/the-myth-of-meritocracy-in-open-source/</id>
+        <link href="https://michaelt.xyz/blog/the-myth-of-meritocracy-in-open-source/"/>
+        <updated>2023-04-17T14:03:01.239Z</updated>
+        <summary type="html"><![CDATA[Open source communities often incorrectly assume that everyone is equally able to contribute. The reality is far different.]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Supercharge your Static Site or Blog with Gridsome]]></title>
         <id>https://michaelt.xyz/blog/supercharge-your-static-site-or-blog-with-gridsome/</id>
