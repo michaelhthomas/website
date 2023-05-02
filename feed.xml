@@ -4,7 +4,7 @@
         <title>Michael Thomas's Blog</title>
         <link>https://michaelt.xyz/</link>
         <description>Michael's stream of consciousness</description>
-        <lastBuildDate>Sun, 30 Apr 2023 17:15:26 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 02 May 2023 11:42:08 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Gridsome Feed Plugin</generator>
         <atom:link href="https://michaelt.xyz/feed.xml" rel="self" type="application/rss+xml"/>
@@ -12,7 +12,7 @@
             <title><![CDATA[The Myth of Meritocracy in Open Source]]></title>
             <link>https://michaelt.xyz/blog/the-myth-of-meritocracy-in-open-source/</link>
             <guid>https://michaelt.xyz/blog/the-myth-of-meritocracy-in-open-source/</guid>
-            <pubDate>Mon, 17 Apr 2023 14:03:01 GMT</pubDate>
+            <pubDate>Sun, 30 Apr 2023 14:03:01 GMT</pubDate>
             <description><![CDATA[Open source communities often incorrectly assume that everyone is equally able to contribute. The reality is far different.]]></description>
         </item>
         <item>
