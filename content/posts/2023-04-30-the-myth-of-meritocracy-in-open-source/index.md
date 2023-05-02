@@ -2,7 +2,7 @@
 title: The Myth of Meritocracy in Open Source
 slug: the-myth-of-meritocracy-in-open-source
 description: Open source communities often incorrectly assume that everyone is equally able to contribute. The reality is far different.
-date_published: 2023-04-17T14:03:01.239Z
+date_published: 2023-04-30T14:03:01.239Z
 tags:
   - Open Source
   - Politics
