@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: 'Link',
+  name: 'MLink',
   props: {
     href: {
       required: true,

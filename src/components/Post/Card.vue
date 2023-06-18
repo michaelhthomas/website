@@ -1,10 +1,15 @@
 <script setup>
-const { post } = defineProps({
+import PostTags from '~/components/Post/Tags.vue';
+
+import { toRefs } from 'vue';
+
+const props = defineProps({
   post: {
     type: Object,
     default: null
   }
 });
+const { post } = toRefs(props);
 </script>
 
 <template>

@@ -34,8 +34,12 @@ query Tag($id: ID!) {
 }
 </page-query>
 
-<script>
-export default {
+<script lang="ts">
+import PostCard from '~/components/Post/Card.vue';
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  components: { PostCard },
   metaInfo() {
     return {
       title: `#${this.$page.tag.title}`,
@@ -47,5 +51,5 @@ export default {
       ]
     };
   }
-};
+});
 </script>

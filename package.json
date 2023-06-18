@@ -46,7 +46,6 @@
     "ts-loader": "^8.2.0",
     "typescript": "^5.0.4",
     "unocss": "^0.51.5",
-    "unplugin-vue-components": "^0.21.0",
     "vue-eslint-parser": "^9.1.1",
     "vue-server-renderer": "^2.7.14"
   },

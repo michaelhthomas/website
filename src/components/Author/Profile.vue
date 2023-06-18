@@ -18,24 +18,28 @@
         <p class="text-true-gray-800 dark:text-true-gray-200">
           Hi there! I'm Michael Thomas, a web developer and systems engineer
           from Columbia, South Carolina. I build complex web apps using
-          <Link
+          <MLink
             blank
             class="underline"
             href="https://vuejs.org/"
-            >Vue.js</Link
-          >,
-          <Link
+          >
+            Vue.js
+          </MLink>
+          ,
+          <MLink
             class="underline"
             blank
             href="https://nuxtjs.org/"
-            >Nuxt.js</Link
           >
+            Nuxt.js
+          </MLink>
           and
-          <Link
+          <MLink
             class="underline"
             blank
             href="https://windicss.com/"
-            >WindiCSS</Link
+          >
+            WindiCSS </MLink
           >.
         </p>
       </div>

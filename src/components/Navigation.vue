@@ -1,3 +1,7 @@
+<script setup>
+import UiColorSwitcher from '~/components/Ui/ColorSwitcher.vue';
+</script>
+
 <template>
   <div class="border-primary-600 dark:border-true-gray-700 border-t-8">
     <nav class="wrapper py-6">
@@ -27,17 +31,17 @@
                 aria-hidden="true"
                 class="h-0.25 absolute block w-full transform bg-current transition duration-200 ease-in-out"
                 :class="{ 'rotate-45': open, ' -translate-y-1.5': !open }"
-              ></span>
+              />
               <span
                 aria-hidden="true"
                 class="h-0.25 absolute block w-full transform bg-current transition duration-200 ease-in-out"
                 :class="{ 'opacity-0': open }"
-              ></span>
+              />
               <span
                 aria-hidden="true"
                 class="h-0.25 absolute block w-full transform bg-current transition duration-200 ease-in-out"
                 :class="{ '-rotate-45': open, ' translate-y-1.5': !open }"
-              ></span>
+              />
             </div>
           </button>
         </div>
@@ -52,20 +56,22 @@
           leave-to-class="scale-y-0 opacity-0"
         >
           <div
+            v-show="open"
             class="menu bg-true-gray-200 dark:bg-true-gray-800 flex basis-full origin-top transform flex-col justify-center gap-2 rounded-md py-2 transition-all"
             sm="bg-transparent dark:bg-transparent basis-auto flex-row py-0 gap-5"
-            v-show="open"
           >
             <g-link
               class="nav-link"
               to="/blog"
-              >Blog</g-link
             >
+              Blog
+            </g-link>
             <g-link
               class="nav-link"
               to="/about"
-              >About</g-link
             >
+              About
+            </g-link>
             <UiColorSwitcher />
           </div>
         </transition>

@@ -1,3 +1,7 @@
+<script setup>
+import PostCard from '~/components/Post/Card.vue';
+</script>
+
 <template>
   <Layout>
     <div class="title flex items-center justify-center">

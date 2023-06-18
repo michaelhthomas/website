@@ -4,6 +4,7 @@ import PostShare from '~/components/Post/Share.vue';
 import PostNavigationArrows from '~/components/Post/NavigationArrows.vue';
 import Giscus from '~/components/Giscus.vue';
 import PostTags from '~/components/Post/Tags.vue';
+import PostMeta from '~/components/Post/Meta.vue';
 import BackToTop from '~/components/Ui/BackToTop.vue';
 </script>
 
@@ -30,8 +31,8 @@ import BackToTop from '~/components/Ui/BackToTop.vue';
 
       <div class="post__header post-object-wide">
         <figure
-          class="mx-auto w-fit"
           v-if="$page.post.cover_image"
+          class="mx-auto w-fit"
         >
           <g-image
             alt="Cover image"
@@ -40,9 +41,9 @@ import BackToTop from '~/components/Ui/BackToTop.vue';
           />
           <figcaption
             v-if="$page.post.cover_image_caption"
-            v-html="$page.post.cover_image_caption"
             class="prose text-trueGray-600 dark:text-trueGray-400 mt-2 text-sm"
-          ></figcaption>
+            v-html="$page.post.cover_image_caption"
+          />
         </figure>
       </div>
 
@@ -59,7 +60,7 @@ import BackToTop from '~/components/Ui/BackToTop.vue';
         />
       </div>
 
-      <PostNavigationArrows :postId="$page.post.id" />
+      <PostNavigationArrows :post-id="$page.post.id" />
 
       <AuthorSmall class="post-author" />
 

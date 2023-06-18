@@ -1,5 +1,11 @@
 <script setup>
 import LazyHydrate from 'vue-lazy-hydration';
+import AuthorProfile from '~/components/Author/Profile.vue';
+import ResumeTechnologies from '~/components/Resume/Technologies.vue';
+import ResumeExperience from '~/components/Resume/Experience.vue';
+import ResumeEducation from '~/components/Resume/Education.vue';
+import ResumeProjects from '~/components/Resume/Projects.vue';
+import PostCard from '~/components/Post/Card.vue';
 </script>
 
 <template>

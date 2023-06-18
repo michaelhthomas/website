@@ -1,10 +1,13 @@
 <script setup>
-const { post } = defineProps({
+import { toRefs } from 'vue';
+
+const props = defineProps({
   post: {
     type: Object,
     default: null
   }
 });
+const { post } = toRefs(props);
 </script>
 
 <template>

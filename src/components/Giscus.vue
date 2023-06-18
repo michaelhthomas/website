@@ -38,6 +38,7 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <!-- eslint-disable vue/attribute-hyphenation -->
   <giscus-widget
     id="comments"
     repo="michaelhthomas/website"
@@ -51,5 +52,5 @@ onUnmounted(() => {
     :theme="initialTheme"
     lang="en"
     loading="lazy"
-  ></giscus-widget>
+  />
 </template>

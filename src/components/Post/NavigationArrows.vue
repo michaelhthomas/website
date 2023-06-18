@@ -1,15 +1,11 @@
-<script setup>
-import Icon from '../Icon.vue';
-</script>
-
 <template>
   <div
     class="post-navigation-arrows text-true-gray-800 dark:text-true-gray-200 grid gap-2 sm:grid-cols-2"
   >
     <div>
       <g-link
-        :to="prevPost.node.path"
         v-if="prevPost"
+        :to="prevPost.node.path"
       >
         <div
           class="hover:bg-true-gray-200 dark:hover:bg-true-gray-800 group flex flex-row gap-4 rounded-md p-4 transition-colors"
@@ -29,8 +25,8 @@ import Icon from '../Icon.vue';
     </div>
     <div>
       <g-link
-        :to="nextPost.node.path"
         v-if="nextPost"
+        :to="nextPost.node.path"
       >
         <div
           class="hover:bg-true-gray-200 dark:hover:bg-true-gray-800 group flex flex-row gap-4 rounded-md p-4 transition-colors"

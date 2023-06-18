@@ -1,6 +1,5 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import Icon from '../Icon.vue';
 
 const darkTheme = ref(false);
 

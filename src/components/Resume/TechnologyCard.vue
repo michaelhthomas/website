@@ -53,7 +53,7 @@ const getStyle = computed(() => {
 </script>
 
 <template>
-  <Link
+  <MLink
     blank
     class="text-true-gray-900 dark:text-true-gray-100 hover:bg-light-700 dark:hover:bg-true-gray-800 flex items-center space-x-2 overflow-hidden rounded-md p-2 !no-underline transition-colors"
     :href="link"
@@ -64,5 +64,5 @@ const getStyle = computed(() => {
       class="h-7 w-7 flex-shrink-0"
     />
     <span class="truncate">{{ title }}</span>
-  </Link>
+  </MLink>
 </template>

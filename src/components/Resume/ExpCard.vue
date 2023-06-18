@@ -21,13 +21,13 @@ defineProps({
       <h3
         class="text-true-gray-800 dark:text-true-gray-200 text-xl font-semibold"
       >
-        <Link
+        <MLink
           :href="link"
           blank
           class="hover:underline"
         >
           {{ title }}
-        </Link>
+        </MLink>
       </h3>
 
       <span

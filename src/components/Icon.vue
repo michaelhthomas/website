@@ -3,7 +3,7 @@
     class="iconify"
     :data-icon="icon"
     :data-inline="inline"
-  ></span>
+  />
 </template>
 
 <script>

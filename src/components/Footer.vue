@@ -1,4 +1,6 @@
 <script setup>
+import Social from './Social.vue';
+
 const year = new Date().getFullYear();
 </script>
 
@@ -23,14 +25,14 @@ const year = new Date().getFullYear();
                   icon="noto:red-heart"
                 />
                 and
-                <Link
+                <MLink
                   aria-label="michaelt.xyz"
                   blank
                   class="text-true-gray-700 dark:text-true-gray-200 text-sm underline"
                   href="https://github.com/michaelhthomas/michaelhthomas.github.io"
                 >
                   available on GitHub
-                </Link>
+                </MLink>
               </p>
             </div>
           </div>

@@ -2,14 +2,14 @@
   <div
     class="wrapper text-true-gray-700 dark:text-true-gray-300 my-3 flex flex-wrap text-center text-base"
   >
-    <Link
+    <MLink
+      v-for="social in $static.metadata.socials"
+      :key="social.name"
       role="button"
       :aria-label="social.name"
       class="social-link hover:text-primary-500 mx-3 transition-colors"
       target="_blank"
       :href="social.link"
-      v-for="social in $static.metadata.socials"
-      :key="social.name"
       :rel="social.rel"
       :utm="false"
     >
@@ -17,7 +17,7 @@
         class="h-8 w-8"
         :icon="social.icon"
       />
-    </Link>
+    </MLink>
   </div>
 </template>
 

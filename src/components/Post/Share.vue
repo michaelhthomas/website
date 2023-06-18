@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from 'vue';
-import Icon from '../Icon.vue';
 
 const props = defineProps({
   title: String
@@ -44,9 +43,9 @@ function share(service) {
     @mouseleave="hover = false"
   >
     <li
-      class="mb-2"
       v-for="service in $static.metadata.shareServices"
       :key="service.name"
+      class="mb-2"
     >
       <button
         :aria-label="`${service.name} share link`"

@@ -28,15 +28,7 @@ module.exports = function (api) {
     addMetadata('shareServices', loadData('share_services'));
   });
 
-  // A nifty little autoloader for Vue components
-  // TODO: we should make a plugin out of this
   api.chainWebpack((webpack) => {
-    webpack.plugin('vue-components').use(
-      require('unplugin-vue-components/webpack')({
-        directoryAsNamespace: true
-      })
-    );
-
     webpack.plugin('purge-icons').use(
       new PurgeIcons({
         included: []
