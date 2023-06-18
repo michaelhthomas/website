@@ -7,9 +7,28 @@ module.exports = {
     node: true
   },
   plugins: ['gridsome', 'prettier'],
-  extends: ['eslint:recommended', 'plugin:gridsome/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:vue/essential',
+    'plugin:gridsome/recommended'
+  ],
   rules: {
-    'prettier/prettier': 'error'
+    'prettier/prettier': 'error',
+    'vue/multi-word-component-names': 'off',
+    'vue/no-undef-components': [
+      'error',
+      {
+        ignorePatterns: [
+          'Layout',
+          'g-image',
+          'g-link',
+          'VueRemarkContent',
+          'MLink',
+          'Icon',
+          'giscus-widget'
+        ]
+      }
+    ]
   },
   overrides: [
     {
