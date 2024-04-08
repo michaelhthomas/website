@@ -1,5 +1,0 @@
-http://localhost:2020
-
-root * ./dist
-encode zstd gzip
-file_server
