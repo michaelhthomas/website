@@ -5,7 +5,7 @@ import ResumeExpCard from '~/components/Resume/ExpCard.vue';
 <template>
   <div class="education">
     <ResumeExpCard
-      v-for="ed in $static.metadata.education.toReversed()"
+      v-for="ed in [...$static.metadata.education].reverse()"
       :key="ed.name"
       :title="ed.name"
       :subtitle="ed.role"
