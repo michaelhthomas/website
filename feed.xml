@@ -4,7 +4,7 @@
         <title>Michael Thomas's Blog</title>
         <link>https://michaelt.xyz/</link>
         <description>Michael's stream of consciousness</description>
-        <lastBuildDate>Mon, 08 Apr 2024 20:29:05 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 08 Apr 2024 20:49:46 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Gridsome Feed Plugin</generator>
         <atom:link href="https://michaelt.xyz/feed.xml" rel="self" type="application/rss+xml"/>
