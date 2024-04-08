@@ -13,12 +13,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # Cache node_modules folder unless lockfile changes
-      - name: Load cached node_modules
-        uses: actions/cache@v2
+      - uses: pnpm/action-setup@v3
         with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          version: 8
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+          cache: 'pnpm'
 
       - name: Install packages 📦
         run: pnpm install
