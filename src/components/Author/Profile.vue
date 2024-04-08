@@ -10,37 +10,15 @@
         >
           <h1>Michael Thomas</h1>
           <h1>
-            <span class="text-blue-600 dark:text-blue-500">Full-stack</span> web
+            <span class="text-blue-600 dark:text-blue-500">Full-stack</span>
             developer
           </h1>
         </div>
 
         <p class="text-true-gray-800 dark:text-true-gray-200">
-          Hi there! I'm Michael Thomas, a web developer and systems engineer
-          from Columbia, South Carolina. I build complex web apps using
-          <MLink
-            blank
-            class="underline"
-            href="https://vuejs.org/"
-          >
-            Vue.js
-          </MLink>
-          ,
-          <MLink
-            class="underline"
-            blank
-            href="https://nuxtjs.org/"
-          >
-            Nuxt.js
-          </MLink>
-          and
-          <MLink
-            class="underline"
-            blank
-            href="https://windicss.com/"
-          >
-            WindiCSS </MLink
-          >.
+          Hi there! I'm Michael Thomas, a software developer and systems
+          engineer from Columbia, South Carolina. I build complex web and mobile
+          apps using modern front-end and back-end technologies.
         </p>
       </div>
     </div>
