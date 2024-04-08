@@ -24,6 +24,6 @@ https://michaelt.xyz
 
 1. `git clone https://github.com/michaelhthomas/michaelhthomas.github.io.git portfolio`
 2. `cd portfolio` to open folder
-3. `yarn install` to install dependencies
-4. `yarn develop` to start local dev server at `http://localhost:8080`
+3. `pnpm install` to install dependencies
+4. `pnpm dev` to start local dev server at `http://localhost:8080`
 5. Happy coding 🎉🙌
