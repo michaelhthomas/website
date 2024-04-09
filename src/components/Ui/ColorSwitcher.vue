@@ -1,10 +1,12 @@
-<script setup>
+<script setup lang="ts">
+import PhSun from '~icons/ph/sun';
+import PhMoon from '~icons/ph/moon-stars';
 import { onMounted, ref } from 'vue';
 
 const darkTheme = ref(false);
 
 onMounted(() => {
-  if (process.isClient) darkTheme.value = window.__theme === 'dark';
+  darkTheme.value = window.__theme === 'dark';
 });
 
 /**
@@ -14,10 +16,8 @@ function toggleTheme(event) {
   event.currentTarget.blur();
 
   darkTheme.value = !darkTheme.value;
-  if (process.isClient) {
-    // This is using a script that is added in index.html
-    window.__setPreferredTheme(darkTheme.value ? 'dark' : 'light');
-  }
+  // This is using a script that is added in index.html
+  window.__setPreferredTheme(darkTheme.value ? 'dark' : 'light');
 }
 </script>
 
@@ -33,14 +33,12 @@ function toggleTheme(event) {
       sm="block leading-0 mr-0 h-9 w-9 rounded-full p-2 bg-true-gray-200 text-true-gray-800 dark:bg-true-gray-800 dark:text-true-gray-100"
     >
       <div v-show="darkTheme">
-        <Icon
-          icon="ph:sun"
+        <PhSun
           class="h-5 w-5"
         />
       </div>
       <div v-show="!darkTheme">
-        <Icon
-          icon="ph:moon-stars"
+        <PhMoon
           class="h-5 w-5"
         />
       </div>

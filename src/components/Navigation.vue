@@ -1,5 +1,5 @@
-<script setup>
-import UiColorSwitcher from '~/components/Ui/ColorSwitcher.vue';
+<script setup lang="ts">
+import UiColorSwitcher from './Ui/ColorSwitcher.vue';
 </script>
 
 <template>
@@ -7,13 +7,13 @@ import UiColorSwitcher from '~/components/Ui/ColorSwitcher.vue';
     <nav class="wrapper py-6">
       <div class="flex flex-wrap items-center justify-between gap-5 px-10">
         <div class="logo">
-          <g-link to="/">
+          <a href="/">
             <h1
               class="text-true-gray-700 dark:text-true-gray-200 text-2xl font-semibold"
             >
               Michael Thomas
             </h1>
-          </g-link>
+          </a>
         </div>
 
         <div class="mobile-button block sm:hidden">
@@ -60,18 +60,18 @@ import UiColorSwitcher from '~/components/Ui/ColorSwitcher.vue';
             class="menu bg-true-gray-200 dark:bg-true-gray-800 flex basis-full origin-top transform flex-col justify-center gap-2 rounded-md py-2 transition-all"
             sm="bg-transparent dark:bg-transparent basis-auto flex-row py-0 gap-5"
           >
-            <g-link
+            <a
               class="nav-link"
-              to="/blog"
+              href="/blog"
             >
               Blog
-            </g-link>
-            <g-link
+            </a>
+            <a
               class="nav-link"
-              to="/about"
+              href="/about"
             >
               About
-            </g-link>
+            </a>
             <UiColorSwitcher />
           </div>
         </transition>
@@ -80,8 +80,10 @@ import UiColorSwitcher from '~/components/Ui/ColorSwitcher.vue';
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   data() {
     return {
       open: false
@@ -92,7 +94,7 @@ export default {
       this.open = !this.open;
     }
   }
-};
+});
 </script>
 
 <style>
