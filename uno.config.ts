@@ -73,6 +73,7 @@ export default defineConfig({
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
   include: [
+    './src/**/*.astro',
     './src/**/*.vue',
     './src/**/*.js',
     './src/**/*.ts',
