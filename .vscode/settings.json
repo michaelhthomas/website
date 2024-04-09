@@ -1,3 +1,4 @@
 {
-  "eslint.validate": ["js", "ts", "jsx", "tsx", "vue"]
+  "eslint.validate": ["js", "ts", "jsx", "tsx", "vue"],
+  "eslint.experimental.useFlatConfig": true
 }
