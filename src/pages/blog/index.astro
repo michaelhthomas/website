@@ -1,0 +1,26 @@
+---
+import Layout from '~src/layouts/DefaultLayout.astro';
+import PostCard from '~src/components/Post/Card.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('posts')).sort(
+  (a, b) => b.data.date_published.getTime() - a.data.date_published.getTime()
+);
+---
+
+<Layout>
+  <div class="title flex items-center justify-center">
+    <h2 class="text-center">Blog</h2>
+  </div>
+
+  <div class="wrapper-small my-5">
+    {
+      posts.map((post) => (
+        <PostCard
+          post={post.data}
+          slug={post.slug}
+        />
+      ))
+    }
+  </div>
+</Layout>
