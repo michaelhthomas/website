@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import vue from '@astrojs/vue';
 import unocss from 'unocss/astro';
 import unpluginIcons from 'unplugin-icons/vite';
+import icon from 'astro-icon';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,7 +11,8 @@ export default defineConfig({
     vue(),
     unocss({
       injectReset: true
-    })
+    }),
+    icon()
   ],
   vite: {
     plugins: [
