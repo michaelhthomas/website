@@ -1,6 +1,9 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 import Navigation from '../components/Navigation.vue';
 import Footer from '../components/Footer.astro';
+import { fade } from 'astro:transitions';
 ---
 
 <html lang="en">
@@ -20,41 +23,62 @@ import Footer from '../components/Footer.astro';
       content={Astro.generator}
     />
     <title>Michael Thomas</title>
+
+    {() => <ViewTransitions />}
   </head>
   <body>
     <script>
-      // Add dark / light detection that runs before Vue.js load. Borrowed from overreacted.io
-      (function () {
-        var event = new Event('themeChange');
-        function setTheme(newTheme) {
-          window.__theme = newTheme;
-          preferredTheme = newTheme;
-          document.documentElement.style.setProperty('color-scheme', newTheme);
-          document.documentElement.classList.remove('light');
-          document.documentElement.classList.remove('dark');
-          document.documentElement.classList.add(newTheme);
-          window.dispatchEvent(event);
+      type Theme = 'light' | 'dark';
+
+      declare global {
+        interface Window {
+          __theme: Theme | undefined;
+          __setPreferredTheme: (theme: Theme) => void;
         }
+      }
 
-        var preferredTheme;
+      // Get theme preference
+      let lsTheme: Theme | null = null;
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') lsTheme = 'dark';
+        if (theme === 'light') lsTheme = 'light';
+      } catch (err) {}
+      const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+      let preferredTheme = lsTheme
+        ? lsTheme
+        : darkQuery.matches
+          ? 'dark'
+          : 'light';
+
+      const event = new Event('themeChange');
+      function setTheme(newTheme: Theme, el: HTMLElement) {
+        window.__theme = newTheme;
+        preferredTheme = newTheme;
+        el.style.setProperty('color-scheme', newTheme);
+        el.classList.remove('light');
+        el.classList.remove('dark');
+        el.classList.add(newTheme);
+        window.dispatchEvent(event);
+      }
+
+      window.__setPreferredTheme = function (newTheme) {
+        setTheme(newTheme, document.documentElement);
         try {
-          preferredTheme = localStorage.getItem('theme');
+          localStorage.setItem('theme', newTheme);
         } catch (err) {}
+      };
 
-        window.__setPreferredTheme = function (newTheme) {
-          setTheme(newTheme);
-          try {
-            localStorage.setItem('theme', newTheme);
-          } catch (err) {}
-        };
+      darkQuery.addEventListener('change', function (e) {
+        window.__setPreferredTheme(e.matches ? 'dark' : 'light');
+      });
 
-        var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        darkQuery.addListener(function (e) {
-          window.__setPreferredTheme(e.matches ? 'dark' : 'light');
-        });
+      setTheme(preferredTheme, document.documentElement);
 
-        setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
-      })();
+      document.addEventListener('astro:before-swap', ({ newDocument }) =>
+        setTheme(preferredTheme, newDocument.documentElement)
+      );
     </script>
 
     <div
@@ -69,7 +93,10 @@ import Footer from '../components/Footer.astro';
         name="page"
         appear
       > -->
-      <div class="page mb-auto mt-5 md:mt-10">
+      <div
+        class="page mb-auto mt-5 md:mt-10"
+        transition:animate={fade({ duration: '0.1s' })}
+      >
         <slot />
       </div>
       <!-- </transition> -->
