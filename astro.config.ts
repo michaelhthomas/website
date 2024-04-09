@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 
 import vue from '@astrojs/vue';
 import unocss from 'unocss/astro';
+import unpluginIcons from 'unplugin-icons/vite';
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,5 +11,12 @@ export default defineConfig({
     unocss({
       injectReset: true
     })
-  ]
+  ],
+  vite: {
+    plugins: [
+      unpluginIcons({
+        compiler: 'vue3'
+      })
+    ]
+  }
 });
