@@ -1,5 +1,5 @@
-<script setup>
-import ResumeTechnologyCard from '~/components/Resume/TechnologyCard.vue';
+---
+import ResumeTechnologyCard from './TechnologyCard.astro';
 
 const technologies = [
   {
@@ -35,7 +35,7 @@ const technologies = [
   {
     name: 'JavaScript',
     link: 'https://en.wikipedia.org/wiki/JavaScript',
-    icon: 'custom:javascript'
+    icon: 'javascript'
   },
 
   {
@@ -49,9 +49,9 @@ const technologies = [
     icon: 'vscode-icons:file-type-html'
   },
   {
-    name: 'Windi CSS',
-    link: 'https://windicss.org',
-    icon: 'custom:windicss'
+    name: 'Svelte',
+    link: 'https://svelte.dev',
+    icon: 'logos:svelte-icon'
   },
   {
     name: 'Sass',
@@ -81,17 +81,17 @@ const technologies = [
     color: '#3B82F6'
   }
 ];
-</script>
+---
 
-<template>
-  <div class="mt-4 grid grid-cols-2 gap-1 sm:grid-cols-3 md:grid-cols-5">
-    <ResumeTechnologyCard
-      v-for="(technology, index) in technologies"
-      :key="`skill-${index}`"
-      :title="technology.name"
-      :icon="technology.icon"
-      :color="technology.color"
-      :link="technology.link"
-    />
-  </div>
-</template>
+<div class="mt-4 grid grid-cols-2 gap-1 sm:grid-cols-3 md:grid-cols-5">
+  {
+    technologies.map((technology) => (
+      <ResumeTechnologyCard
+        title={technology.name}
+        icon={technology.icon}
+        color={technology.color}
+        link={technology.link}
+      />
+    ))
+  }
+</div>

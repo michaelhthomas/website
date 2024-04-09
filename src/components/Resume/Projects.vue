@@ -1,6 +1,9 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import UiSpinner from '~/components/Ui/Spinner.vue';
+import UiSpinner from '~src/components/Ui/Spinner.vue';
+import IconGithub from '~icons/mdi/github';
+import IconStar from '~icons/mdi/star';
+import IconFork from '~icons/mdi/source-fork';
 
 const projects = ref([]);
 const loading = ref(false);
@@ -10,8 +13,6 @@ onMounted(async () => {
 });
 
 async function fetchData() {
-  if (!process.isClient) return;
-
   projects.value = [];
   loading.value = true;
 
@@ -67,8 +68,7 @@ async function fetchData() {
             class="dark:text-true-gray-200 flex items-center space-x-4 text-black"
           >
             <li class="inline-flex items-center">
-              <Icon
-                icon="mdi:star"
+              <IconStar
                 class="mr-1 h-4 w-4"
               />
               <span>{{ project.stargazers_count }}</span>
@@ -77,8 +77,7 @@ async function fetchData() {
               v-if="project.forks"
               class="inline-flex items-center"
             >
-              <Icon
-                icon="mdi:source-fork"
+              <IconFork
                 class="mr-1 h-4 w-4"
               />
               <span>{{ project.forks }}</span>
@@ -96,8 +95,7 @@ async function fetchData() {
         rel="noreferrer"
         target="_blank"
       >
-        <Icon
-          icon="mdi:github"
+        <IconGithub
           class="mr-2 h-5 w-5 text-white"
         />
         See More Projects

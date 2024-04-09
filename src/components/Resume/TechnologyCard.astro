@@ -1,0 +1,32 @@
+---
+import { Icon } from 'astro-icon/components';
+import MLink from '../MLink.vue';
+
+interface Props {
+  title: string;
+  link?: string;
+  icon?: string;
+  color?: string;
+}
+
+const { title, link, icon, color } = Astro.props;
+
+const iconName = icon
+  ? icon
+  : 'logos:' + title?.toLowerCase()?.replace(/[^a-zA-Z]/g, '') || 'arrow-right';
+
+const iconStyle = color ? { color } : null;
+---
+
+<MLink
+  blank
+  class="text-true-gray-900 dark:text-true-gray-100 hover:bg-light-700 dark:hover:bg-true-gray-800 flex items-center space-x-2 overflow-hidden rounded-md p-2 !no-underline transition-colors"
+  href={link}
+>
+  <Icon
+    name={iconName}
+    style={iconStyle}
+    class="h-7 w-7 flex-shrink-0"
+  />
+  <span class="truncate">{title}</span>
+</MLink>

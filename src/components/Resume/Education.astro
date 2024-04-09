@@ -1,0 +1,31 @@
+---
+import ExpCard from './ExpCard.astro';
+
+const education = [
+  {
+    name: 'Furman University',
+    link: 'https://www.furman.edu',
+    role: 'B.S. in Computer Science',
+    years: '2022 - Present'
+  },
+  {
+    name: 'River Bluff High School',
+    link: 'https://www.lexington1.net/RBHS',
+    role: 'High School Student',
+    years: '2019 - 2022'
+  }
+];
+---
+
+<div class="education">
+  {
+    [...education].map((ed) => (
+      <ExpCard
+        title={ed.name}
+        subtitle={ed.role}
+        link={ed.link}
+        years={ed.years}
+      />
+    ))
+  }
+</div>

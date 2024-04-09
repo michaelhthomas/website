@@ -6,8 +6,9 @@
   />
 </template>
 
-<script>
+<script lang="ts">
 import { addCollection } from '@iconify/iconify';
+import { defineComponent } from 'vue';
 
 addCollection({
   prefix: 'custom',
@@ -25,7 +26,7 @@ addCollection({
   }
 });
 
-export default {
+export default defineComponent({
   name: 'Icon',
   props: {
     icon: {
@@ -37,7 +38,7 @@ export default {
       default: false
     }
   }
-};
+});
 </script>
 
 <style>
