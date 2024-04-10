@@ -1,0 +1,116 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const shareServices = [
+  {
+    name: 'twitter',
+    icon: 'mdi:twitter',
+    color: '#1d9bf0',
+    link: 'https://twitter.com/intent/tweet?text={{text}}'
+  },
+  {
+    name: 'reddit',
+    icon: 'mdi:reddit',
+    color: '#ff4500',
+    link: 'https://reddit.com/submit?url={{location}}'
+  },
+  {
+    name: 'telegram',
+    icon: 'mdi:mastodon',
+    color: '#5149de',
+    link: 'https://mastodonshare.com/share?text={{title}}&url={{location}}'
+  }
+];
+---
+
+<ul
+  class="social-share -mr-15 sticky top-4 float-right hidden lg:block group"
+  data-title={title}
+>
+  {
+    shareServices.map((service) => (
+      <li class="mb-2">
+        <button
+          data-service={JSON.stringify(service)}
+          aria-label={`${service.name} share link`}
+          role="button"
+          class="social-share-button hover:bg-true-gray-200 dark:hover:bg-true-gray-800 duration-400 block rounded-full transition-colors"
+          style={{ color: service.color }}
+        >
+          <Icon
+            name={service.icon}
+            class="m-2 block h-6 w-6 cursor-pointer transition-colors"
+          />
+        </button>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .group:not(:hover) .social-share-button {
+    @apply !text-true-gray-300 !dark:text-true-gray-600;
+  }
+</style>
+
+<script>
+  function parseLink(link: string, valueObj: Record<string, string>) {
+    const templateMatcher = /{{\s?([^{}\s]*)\s?}}/g;
+    let text = link.replace(templateMatcher, (_, value) => {
+      return encodeURIComponent(valueObj[value]);
+    });
+    return text;
+  }
+
+  interface ShareService {
+    name: string;
+    icon: string;
+    color: string;
+    link: string;
+  }
+
+  function share(service: ShareService, title: string) {
+    const w = 550;
+    const h = 650;
+    const y = window.outerHeight / 2 + window.screenY - h / 2;
+    const x = window.outerWidth / 2 + window.screenX - w / 2;
+    const link = parseLink(service.link, {
+      title,
+      location: location.href,
+      text: title + '\n' + location.href
+    });
+    window.open(
+      link,
+      service.name,
+      `width=${w}, height=${h}, top=${y}, left=${x}, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no,`
+    );
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    document
+      .querySelectorAll<HTMLUListElement>('ul.social-share')
+      .forEach((el) => {
+        const title = el.dataset.title;
+        if (!title) return;
+
+        el.querySelectorAll<HTMLButtonElement>(
+          'button.social-share-button'
+        ).forEach((btn) => {
+          const serviceJson = btn.getAttribute('data-service');
+          if (!serviceJson) return;
+
+          const service = JSON.parse(serviceJson) as ShareService;
+
+          btn.addEventListener('click', () => {
+            share(service, title);
+          });
+        });
+      });
+  });
+</script>

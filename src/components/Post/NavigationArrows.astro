@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  postId: string;
+}
+
+const { postId } = Astro.props;
+
+const posts = (await getCollection('posts')).sort(
+  (a, b) => a.data.date_published.getTime() - b.data.date_published.getTime()
+);
+
+const postIndex = posts.findIndex((post) => post.id === postId);
+const prevPost = posts[postIndex - 1];
+const nextPost = posts[postIndex + 1];
+---
+
+<div
+  class="post-navigation-arrows text-true-gray-800 dark:text-true-gray-200 grid gap-2 sm:grid-cols-2"
+>
+  <div>
+    {
+      prevPost && (
+        <a href={`/blog/${prevPost.slug}`}>
+          <div class="hover:bg-true-gray-200 dark:hover:bg-true-gray-800 group flex flex-row gap-4 rounded-md p-4 transition-colors">
+            <div class="flex flex-grow-0 flex-col justify-center">
+              <Icon
+                name="mdi:arrow-left"
+                class="h-10 w-10 transform transition-transform group-hover:-translate-x-1"
+              />
+            </div>
+            <div class="flex-grow">
+              <p class="font-bold">Previous</p>
+              <p>{prevPost.data.title}</p>
+            </div>
+          </div>
+        </a>
+      )
+    }
+  </div>
+  <div>
+    {
+      nextPost && (
+        <a href={`/blog/${nextPost.slug}`}>
+          <div class="hover:bg-true-gray-200 dark:hover:bg-true-gray-800 group flex flex-row gap-4 rounded-md p-4 transition-colors">
+            <div class="flex-grow text-right">
+              <p class="font-bold">Next</p>
+              <p>{nextPost.data.title}</p>
+            </div>
+            <div class="flex flex-grow-0 flex-col justify-center">
+              <Icon
+                name="mdi:arrow-right"
+                class="h-10 w-10 transform transition-transform group-hover:translate-x-1"
+              />
+            </div>
+          </div>
+        </a>
+      )
+    }
+  </div>
+</div>
