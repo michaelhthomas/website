@@ -75,13 +75,9 @@ It's time to move beyond the myth of meritocracy and start addressing the system
 The myth of meritocracy in open-source development is a pervasive and harmful belief that needs to be addressed. Women, in particular, face unique challenges that make it difficult to succeed in this environment. By recognizing and addressing these challenges, we can create a more inclusive and equitable community that values and rewards the contributions of all members, regardless of their background or circumstances. Here are some ways we can start:
 
 - Educate ourselves and others about unconscious bias and its effects.
-
 - Create and enforce codes of conduct that explicitly prohibit harassment and discrimination.
-
 - Encourage and support mentorship programs for women.
-
 - Work to make open source development more accessible to underrepresented groups.
-
 - Celebrate the contributions of women and other underrepresented groups in open source development and work to promote their visibility.
 
 As open-source developers, we all have a responsibility to make the community more welcoming and inclusive for everyone. This means we need to overcome the myth of meritocracy and make conscious efforts to improve our communities and actively encourage women and other underrepresented groups to get involved.
