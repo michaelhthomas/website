@@ -1,10 +1,10 @@
 ---
 import { format } from 'date-fns';
-import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 
 import PostTags from '~src/components/Post/Tags.astro';
 import type { CollectionEntry } from 'astro:content';
+import ArrowRight from '../Ui/ArrowRight.astro';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -60,17 +60,12 @@ const path = `/blog/${slug}`;
       </p>
 
       <p
-        class="text-primary-800 dark:text-primary-200 group my-1 block text-base font-semibold"
+        class="flex link-underline items-center gap-1.5 text-primary-800 dark:text-primary-200 group py-1 block text-base font-semibold"
       >
-        <span
-          class="link-underline before:bg-primary-800 dark:before:bg-primary-200"
-        >
+        <span class="before:bg-primary-800 dark:before:bg-primary-200">
           Read more
         </span>
-        <Icon
-          class="inline transform transition-transform group-hover:translate-x-1"
-          name="ph:arrow-right"
-        />
+        <ArrowRight class="w-3.5 group-hover:w-5 transition-width" />
       </p>
     </a>
   </div>
