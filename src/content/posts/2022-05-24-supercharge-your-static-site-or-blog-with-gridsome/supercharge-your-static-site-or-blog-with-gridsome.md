@@ -10,7 +10,7 @@ description: Make your static site or blog work for you with the Gridsome static
 featured: true
 ---
 
-[Gridsome](https://gridsome.org/) is the static site generator made for Vue developers. Similar to [Gatsby](https://www.gatsbyjs.com/), its equivalent in the React world, it uses the GraphQL query language to make it easy to turn simple, data-driven layouts into a full, content-rich website. Gridsome lets you to focus on building fast, beautiful websites without having to worry about the challenges of aggregating content from markdown files, CMS applications, etc. 
+[Gridsome](https://gridsome.org/) is the static site generator made for Vue developers. Similar to [Gatsby](https://www.gatsbyjs.com/), its equivalent in the React world, it uses the GraphQL query language to make it easy to turn simple, data-driven layouts into a full, content-rich website. Gridsome lets you to focus on building fast, beautiful websites without having to worry about the challenges of aggregating content from markdown files, CMS applications, etc.
 
 # Getting Started
 
@@ -27,7 +27,7 @@ cd my-gridsome-site/
 gridsome develop
 ```
 
-## Directory structure 
+## Directory structure
 
 Open your new project in the editor of your choice, and you'll see a directory structure similar to the one below.
 
@@ -50,7 +50,7 @@ Open your new project in the editor of your choice, and you'll see a directory s
         └── BlogPost.vue
 ```
 
-This directory structure builds heavily on the default `vue-cli` application structure, but adds a few new concepts specific to developing a statically generated website. 
+This directory structure builds heavily on the default `vue-cli` application structure, but adds a few new concepts specific to developing a statically generated website.
 
 ### `gridsome.config.js`
 
@@ -74,7 +74,7 @@ These are just a few of the most important directories in the Gridsome starter p
 
 Here's an example of a simple page template:
 
-```html {codeTitle: "/src/templates/SitePage.vue"}
+```html title="/src/templates/SitePage.vue"
 <template>
   <Layout>
     <h1 class="page-title text-center title">
@@ -97,37 +97,42 @@ query SitePage ($id: ID!) {
 </page-query>
 
 <script>
-export default {
-   metaInfo () {
-    return {
-      title: this.$page.data.title,
-      meta: [
-        {
-          name: 'description',
-          content: this.$page.data.description
-        }
-      ]
+  export default {
+    metaInfo() {
+      return {
+        title: this.$page.data.title,
+        meta: [
+          {
+            name: 'description',
+            content: this.$page.data.description
+          }
+        ]
+      };
     }
-  }
-}
+  };
 </script>
 ```
 
-Pay special attention to the `<page-query>` block in this template. This section of the component is a GraphQL query which obtains the title and markdown content of the current page automatically. 
+Pay special attention to the `<page-query>` block in this template. This section of the component is a GraphQL query which obtains the title and markdown content of the current page automatically.
 
 While in this particular example, the use of a GraphQL intermediary layer in the build may seem a little unnecessary, the value and simplicity it provides cannot be understated. Take another example, which loads a list of blog posts and their metadata.
 
 ```graphql
 query ($page: Int) {
-  posts: allPost(sortBy: "date_published", order: DESC, perPage: 10, page: $page) @paginate {
+  posts: allPost(
+    sortBy: "date_published"
+    order: DESC
+    perPage: 10
+    page: $page
+  ) @paginate {
     edges {
       node {
         id
         title
-        date_published (format: "MMMM D, YYYY")
+        date_published(format: "MMMM D, YYYY")
         timeToRead
         description
-        cover_image (width: 770, height: 380, blur: 10)
+        cover_image(width: 770, height: 380, blur: 10)
         path
         tags {
           id
