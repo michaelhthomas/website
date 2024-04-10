@@ -53,6 +53,8 @@ const { Content } = await post.render();
               alt="Cover image"
               class="shadow-opacity-10 rounded-lg shadow-lg shadow-black"
               src={post.data.cover_image}
+              width="860"
+              densities={[1, 1.5, 2]}
             />
             {post.data.cover_image_caption && (
               <figcaption

@@ -25,6 +25,8 @@ const path = `/blog/${slug}`;
           <Image
             src={post.cover_image}
             alt={post.cover_image_caption ?? ''}
+            width="384"
+            densities={[1, 2]}
             class="rounded-xl"
           />
         </a>
