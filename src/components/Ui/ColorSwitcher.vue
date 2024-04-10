@@ -3,6 +3,13 @@ import PhSun from '~icons/ph/sun';
 import PhMoon from '~icons/ph/moon-stars';
 import { onMounted, ref } from 'vue';
 
+declare global {
+  interface Window {
+    __theme: 'light' | 'dark' | undefined;
+    __setPreferredTheme: (theme: 'light' | 'dark') => void
+  }
+}
+
 const darkTheme = ref(false);
 
 onMounted(() => {
@@ -12,8 +19,8 @@ onMounted(() => {
 /**
  * Updates the color mode value.
  */
-function toggleTheme(event) {
-  event.currentTarget.blur();
+function toggleTheme(event: MouseEvent) {
+  (event.currentTarget as HTMLButtonElement | undefined)?.blur();
 
   darkTheme.value = !darkTheme.value;
   // This is using a script that is added in index.html
