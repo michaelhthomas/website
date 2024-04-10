@@ -5,6 +5,7 @@ import vue from '@astrojs/vue';
 import unocss from 'unocss/astro';
 import icon from 'astro-icon';
 import mdx from '@astrojs/mdx';
+import partytown from '@astrojs/partytown';
 
 // vite plugins
 import unpluginIcons from 'unplugin-icons/vite';
@@ -22,7 +23,8 @@ export default defineConfig({
       injectReset: true
     }),
     icon(),
-    mdx()
+    mdx(),
+    partytown()
   ],
   vite: {
     plugins: [

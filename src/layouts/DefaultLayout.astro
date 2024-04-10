@@ -24,6 +24,22 @@ import { fade } from 'astro:transitions';
       name="generator"
       content={Astro.generator}
     />
+
+    <!-- Analytics -->
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-7DK3PZ81VY"
+    ></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-7DK3PZ81VY');
+    </script>
+
     <title>Michael Thomas</title>
 
     {() => <ViewTransitions />}
