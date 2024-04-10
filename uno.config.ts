@@ -74,21 +74,6 @@ export default defineConfig({
           'background-repeat': 'no-repeat',
           'background-size': '120% 0.2em',
           'background-position': '0 100%'
-        },
-        ':root code': {
-          background: trueGray[200],
-          'font-family': '"Roboto Mono", monospace',
-          color: 'rgba(0, 0, 0, 0.75)'
-        },
-        'code::before': {
-          content: '"﻿" !important'
-        },
-        'code::after': {
-          content: '"" !important'
-        },
-        '.dark code': {
-          background: trueGray[700],
-          color: 'rgba(255, 255, 255, 0.75)'
         }
       }
     })
