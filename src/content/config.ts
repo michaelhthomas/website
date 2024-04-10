@@ -15,6 +15,17 @@ const blogCollection = defineCollection({
     })
 });
 
+const pageCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    date_published: z.date(),
+    date_updated: z.date()
+  })
+});
+
 export const collections = {
-  posts: blogCollection
+  posts: blogCollection,
+  pages: pageCollection
 };

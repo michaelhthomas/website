@@ -1,0 +1,27 @@
+---
+import { getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import DefaultLayout from '~src/layouts/DefaultLayout.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+
+  return pages.map((page) => ({ params: { slug: page.slug } }));
+}
+
+const { slug } = Astro.params;
+
+const page = await getEntry('pages', slug);
+
+const { Content } = await page.render();
+---
+
+<DefaultLayout>
+  <h1 class="page-title title text-center">
+    {page.data.title}
+  </h1>
+
+  <div class="page-content wrapper-small">
+    <Content />
+  </div>
+</DefaultLayout>
