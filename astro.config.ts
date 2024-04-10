@@ -24,7 +24,11 @@ export default defineConfig({
     }),
     icon(),
     mdx(),
-    partytown()
+    partytown({
+      config: {
+        forward: ['dataLayer.push']
+      }
+    })
   ],
   vite: {
     plugins: [
