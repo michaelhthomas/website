@@ -68,12 +68,12 @@ const { Content } = await post.render();
     <!-- Content -->
     <div class="post">
       <!-- Share Menu -->
-        <PostShare
-          title={post.data.title}
-        />
-        <div class="post__content prose dark:prose-invert w-prose text-true-gray-900 dark:text-true-gray-100 max-w-full text-lg md:text-xl">
-          <Content  />
-        </div>
+      <PostShare title={post.data.title} />
+      <div
+        class="post__content prose dark:prose-invert w-prose text-true-gray-900 dark:text-true-gray-100 max-w-full text-lg md:text-xl"
+      >
+        <Content />
+      </div>
     </div>
 
     <PostNavigationArrows postId={post.id} />
@@ -159,19 +159,12 @@ const { Content } = await post.render();
     }
   }
 
-  .post-wrapper > *, #comments {
+  .post-wrapper > *,
+  #comments {
     grid-column: main-start/main-end;
   }
 
   .post-object-wide {
     grid-column: wide-start/wide-end;
-  }
-
-  .share {
-    // grid-column: full-start/main-start;
-    // margin-left: auto;
-    // margin-right: 2rem;
-    height: min-content;
-    width: min-content;
   }
 </style>
