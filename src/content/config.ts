@@ -15,14 +15,6 @@ const blogCollection = defineCollection({
     })
 });
 
-type ReturnTypeOrOriginal<T> = T extends (...args: any[]) => infer R ? R : T;
-
-export type BlogPost = z.infer<
-  ReturnTypeOrOriginal<
-    ReturnTypeOrOriginal<Required<typeof blogCollection>>['schema']
-  >
->;
-
 export const collections = {
   posts: blogCollection
 };

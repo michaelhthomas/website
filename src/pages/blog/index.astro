@@ -14,13 +14,6 @@ const posts = (await getCollection('posts')).sort(
   </div>
 
   <div class="wrapper-small my-5">
-    {
-      posts.map((post) => (
-        <PostCard
-          post={post.data}
-          slug={post.slug}
-        />
-      ))
-    }
+    {posts.map((post) => <PostCard {post} />)}
   </div>
 </Layout>

@@ -4,14 +4,15 @@ import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 
 import PostTags from '~src/components/Post/Tags.astro';
-import type { BlogPost } from '~src/content/config';
+import type { CollectionEntry } from 'astro:content';
 
 interface Props {
-  post: BlogPost;
-  slug: string;
+  post: CollectionEntry<'posts'>;
 }
 
-const { post, slug } = Astro.props;
+const {
+  post: { data: post, slug }
+} = Astro.props;
 
 const path = `/blog/${slug}`;
 ---

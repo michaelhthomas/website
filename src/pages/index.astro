@@ -46,14 +46,7 @@ const featuredPosts = await getCollection('posts', ({ data }) => {
     >
       <h2 class="section-heading">Featured Posts</h2>
 
-      {
-        featuredPosts.map((post) => (
-          <PostCard
-            post={post.data}
-            slug={post.slug}
-          />
-        ))
-      }
+      {featuredPosts.map((post) => <PostCard {post} />)}
     </section>
 
     <section
