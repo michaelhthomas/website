@@ -101,7 +101,8 @@ export default defineConfig({
         './src/**/*.vue',
         './src/**/*.js',
         './src/**/*.ts',
-        './content/**/*.md'
+        './src/content/**/*.md',
+        './src/content/**/*.mdx'
       ]
     }
   },
