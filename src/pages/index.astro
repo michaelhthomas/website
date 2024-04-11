@@ -8,9 +8,13 @@ import { getCollection } from 'astro:content';
 import PostCard from '../components/Post/Card.astro';
 import ResumeProjects from '../components/Resume/Projects.vue';
 
-const featuredPosts = await getCollection('posts', ({ data }) => {
-  return data.featured === true;
-});
+const featuredPosts = (
+  await getCollection('posts', ({ data }) => {
+    return data.featured === true;
+  })
+).sort(
+  (a, b) => b.data.date_published.getTime() - a.data.date_published.getTime()
+);
 ---
 
 <DefaultLayout title="Hello, world!">
