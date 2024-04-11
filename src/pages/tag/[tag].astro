@@ -24,7 +24,7 @@ const posts = (await getCollection('posts'))
   );
 ---
 
-<Layout>
+<Layout title={`# ${tag}`}>
   <div class="title flex items-center justify-center">
     <h2 class="text-center"># {tag}</h2>
   </div>

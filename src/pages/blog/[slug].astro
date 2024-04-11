@@ -25,7 +25,10 @@ const post = await getEntry('posts', slug);
 const { Content } = await post.render();
 ---
 
-<Layout>
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+>
   <div class="post-wrapper text-true-gray-900 dark:text-true-gray-100">
     <div class="post-title">
       <PostTags

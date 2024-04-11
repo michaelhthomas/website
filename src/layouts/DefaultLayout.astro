@@ -2,10 +2,20 @@
 import '~src/styles/root.css';
 
 import { ViewTransitions } from 'astro:transitions';
+import { fade } from 'astro:transitions';
 
 import Navigation from '../components/Navigation.vue';
 import Footer from '../components/Footer.astro';
-import { fade } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Software developer and systems engineer from Columbia, South Carolina.'
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -40,7 +50,11 @@ import { fade } from 'astro:transitions';
       gtag('config', 'G-7DK3PZ81VY');
     </script>
 
-    <title>Michael Thomas</title>
+    <title>{title} - Michael Thomas</title>
+    <meta
+      name="description"
+      content={description}
+    />
 
     {() => <ViewTransitions />}
   </head>
