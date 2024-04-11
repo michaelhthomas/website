@@ -15,6 +15,7 @@ import unpluginIcons from 'unplugin-icons/vite';
 import remarkCodeTitles from 'remark-code-title';
 import remarkDirective from 'remark-directive';
 import remarkCalloutDirectives from '@microflash/remark-callout-directives';
+import remarkSmartypants from 'remark-smartypants';
 
 // https://astro.build/config
 export default defineConfig({
@@ -44,7 +45,12 @@ export default defineConfig({
     shikiConfig: {
       theme: 'material-theme-darker'
     },
-    remarkPlugins: [remarkCodeTitles, remarkDirective, remarkCalloutDirectives]
+    remarkPlugins: [
+      [remarkSmartypants, { dashes: 'oldschool' }],
+      remarkCodeTitles,
+      remarkDirective,
+      remarkCalloutDirectives
+    ]
   },
   redirects: {
     // improper url from gridsome site

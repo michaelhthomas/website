@@ -36,6 +36,7 @@
     "eslint": "^9.0.0",
     "remark-code-title": "^0.2.5",
     "remark-directive": "^3.0.0",
+    "remark-smartypants": "^2.1.0",
     "sass": "^1.74.1",
     "sharp": "^0.33.3",
     "typescript": "^5.4.4",
