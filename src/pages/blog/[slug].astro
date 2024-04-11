@@ -91,7 +91,7 @@ const { Content } = await post.render();
   <BackToTop client:only />
 </Layout>
 
-<style is:global>
+<style is:global lang="scss">
   .post-wrapper {
     display: grid;
     grid-template-columns:
@@ -134,18 +134,18 @@ const { Content } = await post.render();
         img {
           object-fit: cover;
         }
+      }
 
-        &-16_9 img {
-          aspect-ratio: 16 / 9;
-        }
+      &-16_9 img {
+        aspect-ratio: 16 / 9;
+      }
 
-        &-4_3 img {
-          aspect-ratio: 4 / 3;
-        }
+      &-4_3 img {
+        aspect-ratio: 4 / 3;
       }
 
       figcaption {
-        @apply text-trueGray-600 dark:text-trueGray-400 mt-2 text-sm;
+        @apply text-true-gray-600 dark:text-true-gray-400 mt-2 text-sm;
       }
     }
 
