@@ -45,5 +45,9 @@ export default defineConfig({
       theme: 'material-theme-darker'
     },
     remarkPlugins: [remarkCodeTitles, remarkDirective, remarkCalloutDirectives]
+  },
+  redirects: {
+    // improper url from gridsome site
+    '/blog/nix-os-configuration-notes': '/blog/nixos-configuration-notes/'
   }
 });
