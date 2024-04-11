@@ -6,6 +6,7 @@ import unocss from 'unocss/astro';
 import icon from 'astro-icon';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
+import sitemap from '@astrojs/sitemap';
 
 // vite plugins
 import unpluginIcons from 'unplugin-icons/vite';
@@ -17,6 +18,7 @@ import remarkCalloutDirectives from '@microflash/remark-callout-directives';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://michaelt.xyz',
   integrations: [
     vue(),
     unocss({
@@ -28,7 +30,8 @@ export default defineConfig({
       config: {
         forward: ['dataLayer.push']
       }
-    })
+    }),
+    sitemap()
   ],
   vite: {
     plugins: [
