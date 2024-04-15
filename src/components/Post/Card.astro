@@ -1,0 +1,95 @@
+---
+import { format } from 'date-fns';
+import { Image } from 'astro:assets';
+
+import PostTags from '~src/components/Post/Tags.astro';
+import type { CollectionEntry } from 'astro:content';
+import ArrowRight from '../Ui/ArrowRight.astro';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+
+const {
+  post: { data: post, slug }
+} = Astro.props;
+
+const path = `/blog/${slug}`;
+---
+
+<div class="my-8 md:flex">
+  {
+    post.cover_image && (
+      <div class="img m-2 mx-auto max-w-lg rounded-xl shadow md:max-w-sm">
+        <a href={path}>
+          <Image
+            src={post.cover_image}
+            alt={post.cover_image_caption ?? ''}
+            width="384"
+            densities={[1, 2]}
+            class="rounded-xl aspect-[2/1] object-cover"
+          />
+        </a>
+      </div>
+    )
+  }
+  <div class="mx-auto max-w-lg flex-grow justify-between md:px-5 lg:px-0">
+    <div class="meta">
+      <a href={path}>
+        <h2
+          class="text-true-gray-800 dark:text-true-gray-100 text-xl font-semibold"
+        >
+          {post.title}
+        </h2>
+      </a>
+      <p
+        class="text-true-gray-600 dark:text-true-gray-400 text-md font-semibold"
+      >
+        {format(post.date_published, 'PPP')}
+      </p>
+    </div>
+
+    <PostTags
+      class="my-2"
+      tags={post.tags}
+    />
+
+    <a href={path}>
+      <p class="text-true-gray-600 dark:text-true-gray-400 text-base">
+        {post.description}
+      </p>
+
+      <p
+        class="flex link-underline items-center gap-1.5 text-primary-800 dark:text-primary-200 group py-1 block text-base font-semibold"
+      >
+        <span class="before:bg-primary-800 dark:before:bg-primary-200">
+          Read more
+        </span>
+        <ArrowRight class="w-3.5 group-hover:w-5 transition-width" />
+      </p>
+    </a>
+  </div>
+</div>
+
+<style>
+  .link-underline {
+    position: relative;
+  }
+
+  .link-underline::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: calc(100% - 5px);
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: top left;
+    transition: transform 0.3s ease;
+  }
+
+  .group:hover .link-underline::before {
+    transform: scaleX(1);
+  }
+</style>

@@ -1,0 +1,207 @@
+---
+import '~src/styles/root.css';
+
+import { ViewTransitions } from 'astro:transitions';
+import { fade } from 'astro:transitions';
+
+import Navigation from '../components/Navigation.vue';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Software developer and systems engineer from Columbia, South Carolina.'
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
+    <link
+      rel="sitemap"
+      href="/sitemap-index.xml"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed for michaelt.xyz"
+      href={`${Astro.site}/feed.xml`}
+    />
+
+    <!-- Analytics -->
+    <script
+      is:inline
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-7DK3PZ81VY"
+    ></script>
+    <script is:inline type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-7DK3PZ81VY');
+    </script>
+
+    <title>{title} - Michael Thomas</title>
+    <meta
+      name="description"
+      content={description}
+    />
+    <meta
+      property="og:site_name"
+      content="Michael Thomas"
+    />
+    <meta
+      property="og:type"
+      content="website"
+    />
+
+    {() => <ViewTransitions />}
+  </head>
+  <body>
+    <script>
+      type Theme = 'light' | 'dark';
+
+      declare global {
+        interface Window {
+          __theme: Theme | undefined;
+          __setPreferredTheme: (theme: Theme) => void;
+        }
+      }
+
+      // Get theme preference
+      let lsTheme: Theme | null = null;
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') lsTheme = 'dark';
+        if (theme === 'light') lsTheme = 'light';
+      } catch (err) {}
+      const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+      let preferredTheme = lsTheme
+        ? lsTheme
+        : darkQuery.matches
+          ? 'dark'
+          : 'light';
+
+      const event = new Event('themeChange');
+      function setTheme(newTheme: Theme, el: HTMLElement) {
+        window.__theme = newTheme;
+        preferredTheme = newTheme;
+        el.style.setProperty('color-scheme', newTheme);
+        el.classList.remove('light');
+        el.classList.remove('dark');
+        el.classList.add(newTheme);
+        window.dispatchEvent(event);
+      }
+
+      window.__setPreferredTheme = function (newTheme) {
+        setTheme(newTheme, document.documentElement);
+        try {
+          localStorage.setItem('theme', newTheme);
+        } catch (err) {}
+      };
+
+      darkQuery.addEventListener('change', function (e) {
+        window.__setPreferredTheme(e.matches ? 'dark' : 'light');
+      });
+
+      setTheme(preferredTheme, document.documentElement);
+
+      document.addEventListener('astro:before-swap', ({ newDocument }) =>
+        setTheme(preferredTheme, newDocument.documentElement)
+      );
+    </script>
+
+    <div
+      id="app"
+      class="bg-true-gray-100 dark:bg-true-gray-900 text-true-gray-900 dark:text-true-gray-100 min-h-screen transition-colors duration-150"
+    >
+      <div class="navigation">
+        <Navigation client:idle />
+      </div>
+
+      <!-- <transition
+        name="page"
+        appear
+      > -->
+      <div
+        class="page mb-auto mt-5 md:mt-10"
+        transition:animate={fade({ duration: '0.1s' })}
+      >
+        <slot />
+      </div>
+      <!-- </transition> -->
+
+      <div class="footer">
+        <Footer />
+      </div>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  ::selection {
+    background: #b6ddf7;
+  }
+
+  .dark ::selection {
+    background: #3498db;
+  }
+
+  #app {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page {
+    flex: 1 0 auto;
+  }
+  .footer {
+    flex-shrink: 0;
+  }
+
+  html {
+    @apply bg-primary-600;
+  }
+
+  html.dark {
+    @apply bg-true-gray-700;
+  }
+
+  .wrapper {
+    @apply mx-auto max-w-screen-xl;
+  }
+
+  .wrapper-small {
+    @apply mx-auto max-w-screen-lg px-6;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .title {
+    @apply text-true-gray-800 dark:text-true-gray-300 mb-16 text-5xl font-bold;
+  }
+</style>

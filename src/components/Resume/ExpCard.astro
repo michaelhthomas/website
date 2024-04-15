@@ -1,0 +1,36 @@
+---
+import MLink from '../MLink.vue';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  link: string;
+  years: string;
+}
+
+let { title, subtitle, link, years } = Astro.props;
+---
+
+<div class="my-4">
+  <div class="flex items-center justify-between space-x-2">
+    <h3
+      class="text-true-gray-800 dark:text-true-gray-200 text-xl font-semibold"
+    >
+      <MLink
+        href={link}
+        blank
+        class="hover:underline"
+      >
+        {title}
+      </MLink>
+    </h3>
+
+    <span class="text-true-gray-600 dark:text-true-gray-400 text-lg font-medium"
+      >{years}</span
+    >
+  </div>
+
+  <p class="text-true-gray-600 dark:text-true-gray-400 text-lg">
+    {subtitle}
+  </p>
+</div>

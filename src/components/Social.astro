@@ -1,0 +1,51 @@
+---
+import MLink from './MLink.vue';
+import { Icon } from 'astro-icon/components';
+
+const socials = [
+  {
+    name: 'github',
+    icon: 'mdi:github',
+    link: 'https://github.com/michaelhthomas'
+  },
+  {
+    name: 'reddit',
+    icon: 'mdi:reddit',
+    link: 'https://reddit.com/u/linuxoveruser'
+  },
+  {
+    name: 'mastodon',
+    icon: 'mdi:mastodon',
+    link: 'https://mstdn.social/@michaelhthomas',
+    rel: ['me']
+  },
+  {
+    name: 'rss',
+    icon: 'mdi:rss',
+    link: '/feed.xml'
+  }
+];
+---
+
+<div
+  class="wrapper text-true-gray-700 dark:text-true-gray-300 my-3 flex flex-wrap text-center text-base"
+>
+  {
+    socials.map((social) => (
+      <MLink
+        role="button"
+        aria-label={social.name}
+        class="social-link hover:text-primary-500 mx-3 transition-colors"
+        target="_blank"
+        href={social.link}
+        rel={social.rel}
+        utm="false"
+      >
+        <Icon
+          class="h-8 w-8"
+          name={social.icon}
+        />
+      </MLink>
+    ))
+  }
+</div>

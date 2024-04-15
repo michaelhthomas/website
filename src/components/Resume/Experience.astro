@@ -1,0 +1,31 @@
+---
+import ExpCard from './ExpCard.astro';
+
+const experience = [
+  {
+    name: 'Furman University',
+    link: 'https://cs.furman.edu',
+    position: 'Student Researcher — Department of Computer Science',
+    years: '2024 - Present'
+  },
+  {
+    name: 'Cognito Forms',
+    link: 'https://cognitoforms.com',
+    position: 'Software Development and DevOps Intern',
+    years: '2021 - 2024'
+  }
+];
+---
+
+<div class="experience">
+  {
+    experience.map((exp) => (
+      <ExpCard
+        title={exp.name}
+        subtitle={exp.position}
+        link={exp.link}
+        years={exp.years}
+      />
+    ))
+  }
+</div>

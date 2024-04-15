@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import avatar from '~src/assets/images/avatar.png';
+---
+
+<div
+  role="banner"
+  class="bg-light-700 dark:bg-true-gray-800 mb-16 flex flex-col-reverse justify-between rounded-md px-8 py-10 md:flex-row md:items-center"
+>
+  <div class="sm:w-8/12">
+    <div class="space-y-px">
+      <div
+        class="text-true-gray-900 dark:text-true-gray-100 mb-4 text-2xl font-semibold sm:text-3xl md:text-4xl"
+      >
+        <h1>Michael Thomas</h1>
+        <h1>
+          <span class="text-blue-600 dark:text-blue-500">Full-stack</span>
+          developer
+        </h1>
+      </div>
+
+      <p class="text-true-gray-800 dark:text-true-gray-200">
+        Hi there! I'm Michael Thomas, a software developer and systems engineer
+        from Columbia, South Carolina. I build complex web and mobile apps using
+        modern front-end and back-end technologies.
+      </p>
+    </div>
+  </div>
+
+  <div class="mb-4 h-40 w-40 rounded-full md:mb-0">
+    <Image
+      alt="avatar"
+      src={avatar}
+      width="160"
+      densities={[1.5, 2]}
+      class="h-40 w-40 rounded-full"
+    />
+  </div>
+</div>

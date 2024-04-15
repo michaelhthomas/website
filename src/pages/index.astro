@@ -1,0 +1,74 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import AuthorProfile from '~src/components/Author/Profile.astro';
+import ResumeTechnologies from '~src/components/Resume/Technologies.astro';
+import ResumeExperience from '../components/Resume/Experience.astro';
+import ResumeEducation from '../components/Resume/Education.astro';
+import { getCollection } from 'astro:content';
+import PostCard from '../components/Post/Card.astro';
+import ResumeProjects from '../components/Resume/Projects.vue';
+
+const featuredPosts = (
+  await getCollection('posts', ({ data }) => {
+    return data.featured === true;
+  })
+).sort(
+  (a, b) => b.data.date_published.getTime() - a.data.date_published.getTime()
+);
+---
+
+<DefaultLayout title="Hello, world!">
+  <div class="wrapper-small">
+    <AuthorProfile />
+
+    <section
+      id="technologies"
+      class="my-8"
+    >
+      <h2 class="section-heading">Technologies I Use</h2>
+
+      <ResumeTechnologies />
+    </section>
+
+    <div class="section grid gap-10 md:grid-cols-2">
+      <section id="experience">
+        <h2 class="section-heading mb-4">Experience</h2>
+
+        <ResumeExperience />
+      </section>
+
+      <section id="education">
+        <h2 class="section-heading mb-4">Education</h2>
+
+        <ResumeEducation />
+      </section>
+    </div>
+
+    <section
+      id="featured-posts"
+      class="section"
+    >
+      <h2 class="section-heading">Featured Posts</h2>
+
+      {featuredPosts.map((post) => <PostCard {post} />)}
+    </section>
+
+    <section
+      id="projects"
+      class="section"
+    >
+      <h2 class="section-heading">Open Source Projects</h2>
+
+      <ResumeProjects client:visible />
+    </section>
+  </div>
+</DefaultLayout>
+
+<style>
+  .section {
+    @apply my-8;
+  }
+  .section-heading {
+    @apply text-true-gray-900 dark:text-true-gray-100 text-xl font-semibold;
+  }
+</style>

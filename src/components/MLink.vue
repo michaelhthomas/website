@@ -1,34 +1,20 @@
 <template>
-  <!-- Internal URL -->
-  <g-link
-    v-if="
-      href &&
-      ((isInternalPage === true && external === false) || internal === true)
-    "
-    :to="href"
-    :target="blank && '_blank'"
-    :title="title"
-    :rel="rel"
-    class="link"
-  >
-    <slot />
-  </g-link>
-
-  <!-- External URL -->
   <a
-    v-else
-    :href="href && (utm === false ? href : getUtmLink)"
-    :target="blank ? '_blank' : ''"
-    :rel="[...rel, 'noreferrer', 'noopener'].join(' ')"
+    :href="!isInternalPage && utm ? utmLink : href"
+    :target="blank ? '_blank' : undefined"
     :title="title"
+    :rel="relStr"
     class="link"
   >
     <slot />
   </a>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import type { PropType } from 'vue';
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   name: 'MLink',
   props: {
     href: {
@@ -36,11 +22,6 @@ export default {
       default: ''
     },
     blank: {
-      type: Boolean,
-      required: false,
-      default: false
-    },
-    internal: {
       type: Boolean,
       required: false,
       default: false
@@ -61,7 +42,7 @@ export default {
       default: true
     },
     rel: {
-      type: Array,
+      type: Array as PropType<string[]>,
       required: false,
       default: () => []
     }
@@ -69,9 +50,9 @@ export default {
   computed: {
     /**
      * Checks if the href leads to an internal page and returns boolean.
-     * @returns {boolean}
      */
-    isInternalPage() {
+    isInternalPage(): boolean {
+      if (this.external) return false;
       const href = this.href;
       if (typeof href === 'object') return true;
       else if (typeof href === 'string' && ['/', '#'].includes(href[0]))
@@ -80,9 +61,8 @@ export default {
     },
     /**
      * Adds UTM query parameter to URL and returns it.
-     * @returns {string}
      */
-    getUtmLink() {
+    utmLink(): string {
       try {
         const url = new URL(this.href);
         url.searchParams.append('utm_source', 'michaelt.xyz');
@@ -90,12 +70,20 @@ export default {
       } catch (err) {
         return this.href;
       }
+    },
+    relStr() {
+      const rel = this.rel;
+
+      if (!this.isInternalPage)
+        rel.push('noreferrer', 'noopener');
+
+      return rel.join(' ');
     }
   }
-};
+});
 </script>
 
-<style scoped>
+<style>
 .underline {
   @apply bg-gradient-from-primary-300 bg-gradient-to-primary-300 dark:bg-gradient-from-primary-700 dark:bg-gradient-to-primary-700 bg-gradient-to-r;
   text-decoration: none;

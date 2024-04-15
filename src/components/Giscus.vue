@@ -1,18 +1,15 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue';
 
-if (process.isClient) {
-  import('giscus');
-}
+import('giscus');
 
 const initialTheme = ref('');
 
-function sendMessage(message) {
+function sendMessage(message: ISetConfigMessage) {
   const iframe = document
     .querySelector('#comments')
     .shadowRoot.querySelector('iframe');
-  if (!iframe) return;
-  iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+  iframe?.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
 }
 function updateTheme() {
   sendMessage({
@@ -23,17 +20,13 @@ function updateTheme() {
 }
 
 onMounted(() => {
-  if (process.isClient) {
     initialTheme.value =
       window.__theme === 'light' ? 'light' : 'transparent_dark';
     window.addEventListener('themeChange', updateTheme);
-  }
 });
 
 onUnmounted(() => {
-  if (process.isClient) {
     window.removeEventListener('themeChange', updateTheme);
-  }
 });
 </script>
 

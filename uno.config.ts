@@ -10,6 +10,28 @@ import { theme } from 'unocss/preset-mini';
 
 const { colors } = theme;
 
+type ColorLevel =
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | '8'
+  | '9'
+  | '50'
+  | '100'
+  | '200'
+  | '300'
+  | '500'
+  | '600'
+  | '700'
+  | '800'
+  | '900'
+  | '950';
+const trueGray = colors.trueGray as Record<ColorLevel | 'DEFAULT', string>;
+
 export default defineConfig({
   presets: [
     presetUno(),
@@ -17,12 +39,12 @@ export default defineConfig({
     presetTypography({
       cssExtend: {
         'a, h1, h2, h3, h4, h5, ol, ul, li': {
-          color: colors.trueGray[900],
+          color: trueGray[900],
           'line-height': 1.8
         },
         '.dark a, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark ol, .dark ul, .dark li':
           {
-            color: colors.trueGray[100]
+            color: trueGray[100]
           },
         p: {
           color: 'rgba(0, 0, 0, 0.75)'
@@ -52,32 +74,23 @@ export default defineConfig({
           'background-repeat': 'no-repeat',
           'background-size': '120% 0.2em',
           'background-position': '0 100%'
-        },
-        ':root code': {
-          background: colors.trueGray[200],
-          'font-family': '"Roboto Mono", monospace',
-          color: 'rgba(0, 0, 0, 0.75)'
-        },
-        'code::before': {
-          content: '"﻿" !important'
-        },
-        'code::after': {
-          content: '"" !important'
-        },
-        '.dark code': {
-          background: colors.trueGray[700],
-          color: 'rgba(255, 255, 255, 0.75)'
         }
       }
     })
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
-  include: [
-    './src/**/*.vue',
-    './src/**/*.js',
-    './src/**/*.ts',
-    './content/**/*.md'
-  ],
+  content: {
+    pipeline: {
+      include: [
+        './src/**/*.astro',
+        './src/**/*.vue',
+        './src/**/*.js',
+        './src/**/*.ts',
+        './src/content/**/*.md',
+        './src/content/**/*.mdx'
+      ]
+    }
+  },
   theme: {
     // Primary Color
     colors: {

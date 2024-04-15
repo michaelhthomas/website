@@ -1,0 +1,129 @@
+.prose {
+  /* Code Titles */
+	[data-remark-code-title] {
+		position: relative;
+		margin-bottom: -1.6em;
+		background-color: #93C5FD;
+		color: #2f2f2f;
+		padding: 5px 15px;
+		font-weight: bold;
+		font-size: 0.8em;
+		text-align: left;
+		font-family: Roboto Mono, monospace;
+		line-height: 1.5;
+		border-top-left-radius: 0.3em;
+		border-top-right-radius: 0.3em;
+	}
+
+  /* Callouts */
+  .callout {
+    margin-bottom: 1em;
+    padding: 15px 30px 15px 20px;
+
+    .callout-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+
+      margin-top: 0;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      font-weight: 800;
+  
+      svg {
+        width: 22px;
+        height: 22px;
+        stroke: #7633db;
+      }
+    }
+
+    .callout-content > :first-child {
+      margin-top: 0;
+    }
+  
+    .callout-content > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* default for custom types */
+  .callout {
+    background-color: rgba(118, 51, 219, 0.1);
+    border-left: 8px solid #7633db;
+
+    .callout-indicator {
+      color: #7633db;
+    }
+
+    .callout-indicator svg {
+      stroke: #7633db;
+    }
+  }
+
+  /** native types */
+  .callout-caution {
+    background-color: rgba(230, 126, 34, 0.1);
+    border-left: 8px solid #e67e22;
+
+    .callout-indicator {
+      color: #e67e22;
+    }
+
+    .callout-indicator svg {
+      stroke: #e67e22;
+    }
+  }
+
+  .callout-tip {
+    background-color: rgba(46, 204, 113, 0.1);
+    border-left: 8px solid #2ecc71;
+
+    .callout-indicator {
+      color: #2ecc71;
+    }
+  
+    .callout-indicator svg {
+      stroke: #2ecc71;
+    }
+  }
+
+  .callout-warning {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-left: 8px solid #e74c3c;
+
+    .callout-indicator {
+      color: #e74c3c;
+    }
+
+    .admonition-icon svg {
+      stroke: #e74c3c;
+    }
+  }
+
+  .callout-important {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left: 8px solid #3498db;
+
+    .callout-indicator {
+      color: #3498db;
+    }
+
+    .callout-indicator svg {
+      stroke: #3498db;
+    }
+  }
+
+  .callout-note {
+    background-color: rgba(128, 128, 128, 0.1);
+    border-left: 8px solid #3498db;
+
+    .callout-indicator {
+      color: #3498db;
+    }
+
+    .callout-indicator svg {
+      stroke: #3498db;
+    }
+  }
+
+}
