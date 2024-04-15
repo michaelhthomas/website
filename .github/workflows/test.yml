@@ -1,4 +1,4 @@
-name: Test build
+name: Check lint & formatting
 
 on:
   push:
@@ -25,12 +25,5 @@ jobs:
       - name: Install packages 📦
         run: pnpm install
 
-      - name: Check lint & formatting
+      - name: Check lint & formatting ✨
         run: pnpm check
-
-      - name: Build site 🚧
-        run: |
-          pnpm build
-          echo "✅ Gridsome site was built successfully"
-        env:
-          NODE_OPTIONS: '--openssl-legacy-provider'
