@@ -99,9 +99,7 @@ Updated May 24th, 2022 </div> </div> <div class="post__header post-object-wide">
 <div data-remark-code-title="" data-language="html">/src/templates/SitePage.vue</div>
 <pre class="astro-code material-theme-darker" style="background-color:#212121;color:#EEFFFF; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#89DDFF">&#x3C;</span><span style="color:#F07178">template</span><span style="color:#89DDFF">></span></span>
 <span class="line"><span style="color:#89DDFF">  &#x3C;</span><span style="color:#F07178">Layout</span><span style="color:#89DDFF">></span></span>
-<span class="line"><span style="color:#89DDFF">    &#x3C;</span><span style="color:#F07178">h1</span><span style="color:#C792EA"> class</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">page-title text-center title</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">></span></span>
-<span class="line"><span style="color:#EEFFFF">      {{ $page.data.title }}</span></span>
-<span class="line"><span style="color:#89DDFF">    &#x3C;/</span><span style="color:#F07178">h1</span><span style="color:#89DDFF">></span></span>
+<span class="line"><span style="color:#89DDFF">    &#x3C;</span><span style="color:#F07178">h1</span><span style="color:#C792EA"> class</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">page-title text-center title</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">></span><span style="color:#EEFFFF">{{ $page.data.title }}</span><span style="color:#89DDFF">&#x3C;/</span><span style="color:#F07178">h1</span><span style="color:#89DDFF">></span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#89DDFF">    &#x3C;</span><span style="color:#F07178">div</span><span style="color:#C792EA"> class</span><span style="color:#89DDFF">=</span><span style="color:#89DDFF">"</span><span style="color:#C3E88D">page-content wrapper-small</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">></span></span>
 <span class="line"><span style="color:#89DDFF">      &#x3C;</span><span style="color:#F07178">VueRemarkContent</span><span style="color:#89DDFF"> /></span></span>
@@ -110,12 +108,7 @@ Updated May 24th, 2022 </div> </div> <div class="post__header post-object-wide">
 <span class="line"><span style="color:#89DDFF">&#x3C;/</span><span style="color:#F07178">template</span><span style="color:#89DDFF">></span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#89DDFF">&#x3C;</span><span style="color:#F07178">page-query</span><span style="color:#89DDFF">></span></span>
-<span class="line"><span style="color:#EEFFFF">query SitePage ($id: ID!) {</span></span>
-<span class="line"><span style="color:#EEFFFF">  data: sitePage(id: $id) {</span></span>
-<span class="line"><span style="color:#EEFFFF">    title</span></span>
-<span class="line"><span style="color:#EEFFFF">    content</span></span>
-<span class="line"><span style="color:#EEFFFF">  }</span></span>
-<span class="line"><span style="color:#EEFFFF">}</span></span>
+<span class="line"><span style="color:#EEFFFF">  query SitePage ($id: ID!) { data: sitePage(id: $id) { title content } }</span></span>
 <span class="line"><span style="color:#89DDFF">&#x3C;/</span><span style="color:#F07178">page-query</span><span style="color:#89DDFF">></span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#89DDFF">&#x3C;</span><span style="color:#F07178">script</span><span style="color:#89DDFF">></span></span>
