@@ -65,4 +65,3 @@ export default defineConfig({
     '/blog/nix-os-configuration-notes': '/blog/nixos-configuration-notes/'
   }
 });
-
