@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "fmt": "prettier -w ."
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
@@ -34,6 +35,8 @@
     "@types/eslint__js": "^8.42.3",
     "@unocss/reset": "^0.59.0",
     "eslint": "^9.0.0",
+    "prettier": "^3.3.2",
+    "prettier-plugin-astro": "^0.14.0",
     "remark-code-title": "^0.2.5",
     "remark-directive": "^3.0.0",
     "remark-smartypants": "^2.1.0",
