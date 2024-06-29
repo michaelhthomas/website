@@ -2,10 +2,58 @@
 import WordleGame from '~src/components/games/wordle/wordle.svelte';
 ---
 
-<div class="bg-neutral-900 h-full">
-  <div class="w-full h-16 bg-neutral-800 border-b border-neutral-700">Nav</div>
-  <WordleGame client:load />
-</div>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
+
+    <!-- Analytics -->
+    <script
+      is:inline
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-7DK3PZ81VY"
+    ></script>
+    <script is:inline type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-7DK3PZ81VY');
+    </script>
+
+    <title>Wordle</title>
+    <meta
+      property="og:site_name"
+      content="Michael Thomas"
+    />
+    <meta
+      property="og:type"
+      content="website"
+    />
+  </head>
+  <body>
+    <div class="bg-neutral-900 h-full">
+      <div class="w-full h-16 bg-neutral-800 border-b border-neutral-700">
+        Nav
+      </div>
+      <WordleGame client:load />
+    </div>
+  </body>
+</html>
 
 <style>
   html,
