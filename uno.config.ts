@@ -84,6 +84,7 @@ export default defineConfig({
       include: [
         './src/**/*.astro',
         './src/**/*.vue',
+        './src/**/*.svelte',
         './src/**/*.js',
         './src/**/*.ts',
         './src/content/**/*.md',
