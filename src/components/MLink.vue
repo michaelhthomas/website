@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import type { PropType } from 'vue';
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'MLink',
@@ -74,8 +74,7 @@ export default defineComponent({
     relStr() {
       const rel = this.rel;
 
-      if (!this.isInternalPage)
-        rel.push('noreferrer', 'noopener');
+      if (!this.isInternalPage) rel.push('noreferrer', 'noopener');
 
       return rel.join(' ');
     }

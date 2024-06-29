@@ -20,13 +20,13 @@ function updateTheme() {
 }
 
 onMounted(() => {
-    initialTheme.value =
-      window.__theme === 'light' ? 'light' : 'transparent_dark';
-    window.addEventListener('themeChange', updateTheme);
+  initialTheme.value =
+    window.__theme === 'light' ? 'light' : 'transparent_dark';
+  window.addEventListener('themeChange', updateTheme);
 });
 
 onUnmounted(() => {
-    window.removeEventListener('themeChange', updateTheme);
+  window.removeEventListener('themeChange', updateTheme);
 });
 </script>
 

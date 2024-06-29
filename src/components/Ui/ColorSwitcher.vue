@@ -6,7 +6,7 @@ import { onMounted, ref } from 'vue';
 declare global {
   interface Window {
     __theme: 'light' | 'dark' | undefined;
-    __setPreferredTheme: (theme: 'light' | 'dark') => void
+    __setPreferredTheme: (theme: 'light' | 'dark') => void;
   }
 }
 
@@ -40,14 +40,10 @@ function toggleTheme(event: MouseEvent) {
       sm="block leading-0 mr-0 h-9 w-9 rounded-full p-2 bg-true-gray-200 text-true-gray-800 dark:bg-true-gray-800 dark:text-true-gray-100"
     >
       <div v-show="darkTheme">
-        <PhSun
-          class="h-5 w-5"
-        />
+        <PhSun class="h-5 w-5" />
       </div>
       <div v-show="!darkTheme">
-        <PhMoon
-          class="h-5 w-5"
-        />
+        <PhMoon class="h-5 w-5" />
       </div>
     </div>
   </button>

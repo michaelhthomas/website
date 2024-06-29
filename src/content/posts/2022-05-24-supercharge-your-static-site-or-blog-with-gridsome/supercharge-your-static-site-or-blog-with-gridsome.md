@@ -77,9 +77,7 @@ Here's an example of a simple page template:
 ```html title="/src/templates/SitePage.vue"
 <template>
   <Layout>
-    <h1 class="page-title text-center title">
-      {{ $page.data.title }}
-    </h1>
+    <h1 class="page-title text-center title">{{ $page.data.title }}</h1>
 
     <div class="page-content wrapper-small">
       <VueRemarkContent />
@@ -88,12 +86,7 @@ Here's an example of a simple page template:
 </template>
 
 <page-query>
-query SitePage ($id: ID!) {
-  data: sitePage(id: $id) {
-    title
-    content
-  }
-}
+  query SitePage ($id: ID!) { data: sitePage(id: $id) { title content } }
 </page-query>
 
 <script>

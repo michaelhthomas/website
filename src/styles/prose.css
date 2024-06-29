@@ -1,19 +1,21 @@
 .prose {
   /* Code Titles */
-	[data-remark-code-title] {
-		position: relative;
-		margin-bottom: -1.6em;
-		background-color: #93C5FD;
-		color: #2f2f2f;
-		padding: 5px 15px;
-		font-weight: bold;
-		font-size: 0.8em;
-		text-align: left;
-		font-family: Roboto Mono, monospace;
-		line-height: 1.5;
-		border-top-left-radius: 0.3em;
-		border-top-right-radius: 0.3em;
-	}
+  [data-remark-code-title] {
+    position: relative;
+    margin-bottom: -1.6em;
+    background-color: #93c5fd;
+    color: #2f2f2f;
+    padding: 5px 15px;
+    font-weight: bold;
+    font-size: 0.8em;
+    text-align: left;
+    font-family:
+      Roboto Mono,
+      monospace;
+    line-height: 1.5;
+    border-top-left-radius: 0.3em;
+    border-top-right-radius: 0.3em;
+  }
 
   /* Callouts */
   .callout {
@@ -29,7 +31,7 @@
       margin-bottom: 8px;
       text-transform: uppercase;
       font-weight: 800;
-  
+
       svg {
         width: 22px;
         height: 22px;
@@ -40,7 +42,7 @@
     .callout-content > :first-child {
       margin-top: 0;
     }
-  
+
     .callout-content > :last-child {
       margin-bottom: 0;
     }
@@ -81,7 +83,7 @@
     .callout-indicator {
       color: #2ecc71;
     }
-  
+
     .callout-indicator svg {
       stroke: #2ecc71;
     }
@@ -125,5 +127,4 @@
       stroke: #3498db;
     }
   }
-
 }

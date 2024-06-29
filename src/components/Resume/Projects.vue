@@ -68,18 +68,14 @@ async function fetchData() {
             class="dark:text-true-gray-200 flex items-center space-x-4 text-black"
           >
             <li class="inline-flex items-center">
-              <IconStar
-                class="mr-1 h-4 w-4"
-              />
+              <IconStar class="mr-1 h-4 w-4" />
               <span>{{ project.stargazers_count }}</span>
             </li>
             <li
               v-if="project.forks"
               class="inline-flex items-center"
             >
-              <IconFork
-                class="mr-1 h-4 w-4"
-              />
+              <IconFork class="mr-1 h-4 w-4" />
               <span>{{ project.forks }}</span>
             </li>
           </ul>
@@ -95,9 +91,7 @@ async function fetchData() {
         rel="noreferrer"
         target="_blank"
       >
-        <IconGithub
-          class="mr-2 h-5 w-5 text-white"
-        />
+        <IconGithub class="mr-2 h-5 w-5 text-white" />
         See More Projects
       </a>
     </div>

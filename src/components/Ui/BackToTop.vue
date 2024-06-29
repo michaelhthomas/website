@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onDeactivated, onMounted } from 'vue';
-import CaretUpIcon from '~icons/ph/caret-up'
+import CaretUpIcon from '~icons/ph/caret-up';
 
 const scrollPosition = ref(0);
 
@@ -38,8 +38,6 @@ const showBackToTop = computed(() => {
     }"
     @click="scrollToTop"
   >
-    <CaretUpIcon
-      class="h-5 w-5"
-    />
+    <CaretUpIcon class="h-5 w-5" />
   </button>
 </template>
