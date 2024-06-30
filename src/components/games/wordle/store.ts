@@ -1,6 +1,7 @@
 import { get, writable } from 'svelte/store';
 import { Map } from 'svelte/reactivity';
 import { getWordOfTheDay, validWordsList } from './word';
+import { match } from 'ts-pattern';
 
 export enum LetterState {
   NotGuessed = 'ng',
@@ -16,6 +17,15 @@ export type Letter = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j'
 
 export type Guess = [Letter, Letter, Letter, Letter, Letter];
 export type Hint = [Letter, LetterState][];
+
+export function getColorForState(state: LetterState): string {
+  return match(state)
+    .with(LetterState.NotGuessed, () => '')
+    .with(LetterState.Incorrect, () => 'bg-neutral-700')
+    .with(LetterState.WrongPos, () => 'bg-yellow-500')
+    .with(LetterState.Correct, () => 'bg-green-500')
+    .exhaustive();
+}
 
 function assertLetter(c: string): asserts c is Letter {
   if (c.length != 1 || c.charCodeAt(0) < 97 || c.charCodeAt(0) > 122) {
@@ -42,21 +52,32 @@ export function createWordleGame(correctWord?: string) {
 
   function generateHint(guess: Guess): Hint {
     const cs = get(state);
+    const letters = cs.correctWord.split('');
     const hint: [Letter, LetterState][] = [];
 
+    // Handle correct guesses first, filter from letters
     for (let i = 0; i < guess.length; i++) {
       const gl = guess[i];
 
       if (gl === cs.correctWord[i]) {
         cs.letters.set(gl, LetterState.Correct);
-        hint.push([gl, LetterState.Correct]); // Correct letter in the correct position
-      } else if (cs.correctWord.includes(gl)) {
+        delete letters[letters.indexOf(gl)];
+        hint[i] = [gl, LetterState.Correct]; // Correct letter in the correct position
+      }
+    }
+
+    // Handle incorrect and wrong position letters
+    for (let i = 0; i < guess.length; i++) {
+      const gl = guess[i];
+      if (gl === cs.correctWord[i]) continue;
+
+      if (letters.includes(gl)) {
         if (cs.letters.get(gl) != LetterState.Correct)
           cs.letters.set(gl, LetterState.WrongPos);
-        hint.push([gl, LetterState.WrongPos]);
+        hint[i] = [gl, LetterState.WrongPos];
       } else {
-        if (!cs.letters.has(gl)) cs.letters.set(gl, LetterState.Incorrect);
-        hint.push([gl, LetterState.Incorrect]);
+        if (!cs.letters.get(gl)) cs.letters.set(gl, LetterState.Incorrect);
+        hint[i] = [gl, LetterState.Incorrect];
       }
     }
 

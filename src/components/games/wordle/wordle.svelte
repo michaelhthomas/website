@@ -1,7 +1,12 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
   import GameRow from './game-row.svelte';
-  import { createWordleGame, type Guess } from './store';
+  import {
+    createWordleGame,
+    type Guess,
+    getColorForState,
+    LetterState
+  } from './store';
 
   let { state, makeGuess } = createWordleGame();
 
@@ -70,7 +75,7 @@
       <div class="flex flex-row gap-2 justify-center">
         {#each row as key}
           <button
-            class="bg-neutral-800 w-8 sm:w-10 md:w-12 py-2 sm:py-3 md:py-4 text-center rounded border-neutral-700 text-neutral-200"
+            class={`w-8 sm:w-10 md:w-12 py-2 sm:py-3 md:py-4 text-center rounded border-neutral-700 text-neutral-200 ${getColorForState($state.letters.get(key) ?? LetterState.NotGuessed) || 'bg-neutral-800'}`}
             on:click={() => {
               if (currentGuess.length < 5) currentGuess += key;
             }}
