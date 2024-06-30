@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { slide } from 'svelte/transition';
   import GameRow from './game-row.svelte';
   import { createWordleGame, type Guess } from './store';
 
@@ -37,8 +38,19 @@
 </script>
 
 <div
-  class="game w-full max-w-[500px] mx-auto mt-12 space-y-12 md:space-y-18 lg:space-y-24"
+  class="game relative w-full max-w-[500px] mx-auto mt-12 space-y-12 md:space-y-18 lg:space-y-24"
 >
+  {#if $state.message}
+    <div class="fixed left-0 right-0 top-0">
+      <div
+        transition:slide={{ axis: 'y' }}
+        class="w-fit mx-auto z-1 p-2 mt-4 bg-neutral-700 text-white rounded shadow-lg"
+      >
+        {$state.message}
+      </div>
+    </div>
+  {/if}
+
   <div class="space-y-2 mx-8">
     {#each $state.guesses as guess}
       <GameRow {guess} />

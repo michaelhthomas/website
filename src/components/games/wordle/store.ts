@@ -1,6 +1,6 @@
 import { get, writable } from 'svelte/store';
 import { Map } from 'svelte/reactivity';
-import { getWordOfTheDay } from './word';
+import { getWordOfTheDay, validWordsList } from './word';
 
 export enum LetterState {
   NotGuessed = 'ng',
@@ -27,6 +27,7 @@ export interface WordleState {
   letters: Map<Letter, LetterState>;
   correctWord: string;
   guesses: Hint[];
+  message: string | null;
 }
 
 export function createWordleGame(correctWord?: string) {
@@ -35,7 +36,8 @@ export function createWordleGame(correctWord?: string) {
   const state = writable<WordleState>({
     letters: new Map(),
     correctWord,
-    guesses: []
+    guesses: [],
+    message: null
   });
 
   function generateHint(guess: Guess): Hint {
@@ -63,7 +65,24 @@ export function createWordleGame(correctWord?: string) {
     return hint;
   }
 
+  function displayMessage(msg: string) {
+    const cs = get(state);
+    cs.message = msg;
+    state.set(cs);
+
+    setTimeout(() => {
+      const cs = get(state);
+      cs.message = null;
+      state.set(cs);
+    }, 3000);
+  }
+
   function makeGuess(guess: Guess) {
+    if (!validWordsList.includes(guess.join(''))) {
+      displayMessage('Not in word list');
+      return;
+    }
+
     const hint = generateHint(guess);
 
     const cs = get(state);
