@@ -58,7 +58,7 @@
       <div class="flex flex-row gap-2 justify-center">
         {#each row as key}
           <button
-            class="bg-neutral-800 p-2.5 sm:p-3 md:p-4 text-center rounded border-neutral-700 text-neutral-200"
+            class="bg-neutral-800 w-8 sm:w-10 md:w-12 py-2 sm:py-3 md:py-4 text-center rounded border-neutral-700 text-neutral-200"
             on:click={() => {
               if (currentGuess.length < 5) currentGuess += key;
             }}
