@@ -17,6 +17,8 @@ import remarkDirective from 'remark-directive';
 import remarkCalloutDirectives from '@microflash/remark-callout-directives';
 import remarkSmartypants from 'remark-smartypants';
 
+import svelte from '@astrojs/svelte';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://michaelt.xyz',
@@ -32,7 +34,8 @@ export default defineConfig({
         forward: ['dataLayer.push']
       }
     }),
-    sitemap()
+    sitemap(),
+    svelte()
   ],
   vite: {
     plugins: [
@@ -46,7 +49,12 @@ export default defineConfig({
       theme: 'material-theme-darker'
     },
     remarkPlugins: [
-      [remarkSmartypants, { dashes: 'oldschool' }],
+      [
+        remarkSmartypants,
+        {
+          dashes: 'oldschool'
+        }
+      ],
       remarkCodeTitles,
       remarkDirective,
       remarkCalloutDirectives
