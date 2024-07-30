@@ -5,16 +5,17 @@
     createWordleGame,
     type Guess,
     getColorForState,
-    LetterState
+    LetterState,
+    type Letter
   } from './store';
 
   let { state, makeGuess } = createWordleGame();
 
   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
   const keyboard = [
-    'qwertyuiop'.split(''),
-    'asdfghjkl'.split(''),
-    'zxcvbnm'.split('')
+    'qwertyuiop'.split('') as Letter[],
+    'asdfghjkl'.split('') as Letter[],
+    'zxcvbnm'.split('') as Letter[]
   ];
 
   let currentGuess = '';
@@ -43,7 +44,7 @@
 </script>
 
 <div
-  class="game relative w-full max-w-[500px] mx-auto mt-12 space-y-12 md:space-y-18 lg:space-y-24"
+  class="game relative w-full max-w-[650px] mx-auto mt-12 lg:mt-24 space-y-12 md:space-y-18 lg:space-y-32"
 >
   {#if $state.message}
     <div class="fixed left-0 right-0 top-0">
@@ -56,7 +57,7 @@
     </div>
   {/if}
 
-  <div class="space-y-2 mx-8">
+  <div class="space-y-2 mx-auto px-8 max-w-[500px]">
     {#each $state.guesses as guess}
       <GameRow {guess} />
     {/each}
@@ -71,8 +72,19 @@
   </div>
 
   <div class="space-y-2">
-    {#each keyboard as row}
-      <div class="flex flex-row gap-2 justify-center">
+    {#each keyboard as row, i}
+      <div
+        class="flex flex-row gap-1 sm:gap-2 justify-center text-xl font-semibold"
+      >
+        {#if i == 2}
+          <button
+            on:click={handleBackspace}
+            class="p-2 sm:p-3 md:p-4 bg-neutral-800 text-neutral-200 border-neutral-700 rounded"
+            aria-label="Backspace"
+          >
+            &#x232B
+          </button>
+        {/if}
         {#each row as key}
           <button
             class={`w-8 sm:w-10 md:w-12 py-2 sm:py-3 md:py-4 text-center rounded border-neutral-700 text-neutral-200 ${getColorForState($state.letters.get(key) ?? LetterState.NotGuessed) || 'bg-neutral-800'}`}
@@ -83,25 +95,16 @@
             {key}
           </button>
         {/each}
+        {#if i == 2}
+          <button
+            on:click={handleEnter}
+            class="p-2 sm:p-3 md:p-4 bg-neutral-800 text-neutral-200 border-neutral-700 rounded text-base"
+          >
+            Enter
+          </button>
+        {/if}
       </div>
     {/each}
-
-    <div class="flex">
-      <button
-        on:click={handleBackspace}
-        class="p-4 bg-neutral-800 text-neutral-200 border-neutral-700 rounded"
-        aria-label="Backspace"
-      >
-        &#x232B
-      </button>
-      <div class="grow" />
-      <button
-        on:click={handleEnter}
-        class="p-4 bg-neutral-800 text-neutral-200 border-neutral-700 rounded"
-      >
-        Enter
-      </button>
-    </div>
   </div>
 </div>
 
