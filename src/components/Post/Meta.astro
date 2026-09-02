@@ -8,7 +8,7 @@ interface Props {
 
 const { post } = Astro.props;
 
-const words = post.body.trim().split(/\s+/).length;
+const words = (post.body ?? '').trim().split(/\s+/).filter(Boolean).length;
 const timeToRead = Math.round(words / 130);
 ---
 

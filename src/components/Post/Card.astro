@@ -11,7 +11,7 @@ interface Props {
 }
 
 const {
-  post: { data: post, slug }
+  post: { data: post, id: slug }
 } = Astro.props;
 
 const path = `/blog/${slug}`;

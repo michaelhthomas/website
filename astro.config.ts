@@ -16,6 +16,7 @@ import remarkCodeTitles from 'remark-code-title';
 import remarkDirective from 'remark-directive';
 import remarkCalloutDirectives from '@microflash/remark-callout-directives';
 import remarkSmartypants from 'remark-smartypants';
+import { unified } from '@astrojs/markdown-remark';
 
 // https://astro.build/config
 export default defineConfig({
@@ -45,12 +46,14 @@ export default defineConfig({
     shikiConfig: {
       theme: 'material-theme-darker'
     },
-    remarkPlugins: [
-      [remarkSmartypants, { dashes: 'oldschool' }],
-      remarkCodeTitles,
-      remarkDirective,
-      remarkCalloutDirectives
-    ]
+    processor: unified({
+      remarkPlugins: [
+        [remarkSmartypants, { dashes: 'oldschool' }],
+        remarkCodeTitles,
+        remarkDirective,
+        remarkCalloutDirectives
+      ]
+    })
   },
   redirects: {
     // improper url from gridsome site

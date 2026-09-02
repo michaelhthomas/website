@@ -23,7 +23,7 @@ const nextPost = posts[postIndex + 1];
   <div>
     {
       prevPost && (
-        <a href={`/blog/${prevPost.slug}`}>
+        <a href={`/blog/${prevPost.id}`}>
           <div class="hover:bg-true-gray-200 dark:hover:bg-true-gray-800 group flex flex-row gap-4 rounded-md p-4 transition-colors">
             <div class="flex flex-grow-0 flex-col justify-center">
               <Icon
@@ -43,7 +43,7 @@ const nextPost = posts[postIndex + 1];
   <div>
     {
       nextPost && (
-        <a href={`/blog/${nextPost.slug}`}>
+        <a href={`/blog/${nextPost.id}`}>
           <div class="hover:bg-true-gray-200 dark:hover:bg-true-gray-800 group flex flex-row gap-4 rounded-md p-4 transition-colors">
             <div class="flex-grow text-right">
               <p class="font-bold">Next</p>

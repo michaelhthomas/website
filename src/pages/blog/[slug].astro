@@ -8,21 +8,20 @@ import AuthorSmall from '~src/components/Author/Small.astro';
 import BackToTop from '~src/components/Ui/BackToTop.vue';
 import Giscus from '~src/components/Giscus.vue';
 
-import { getEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
+import { getEntry, getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
 
-  return posts.map((post) => ({ params: { slug: post.slug } }));
+  return posts.map((post) => ({ params: { slug: post.id } }));
 }
 
 const { slug } = Astro.params;
 
-const post = await getEntry('posts', slug);
+const post = (await getEntry('posts', slug))!;
 
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 <Layout
