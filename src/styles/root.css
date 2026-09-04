@@ -1,1 +1,84 @@
-@import 'prose.css';
+@import 'tailwindcss';
+@import './prose.css';
+
+@source '../**/*.{astro,vue,ts,js,md,mdx}';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@config '../../tailwind.config.ts';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --color-primary-50: var(--color-blue-50);
+  --color-primary-100: var(--color-blue-100);
+  --color-primary-200: var(--color-blue-200);
+  --color-primary-300: var(--color-blue-300);
+  --color-primary-400: var(--color-blue-400);
+  --color-primary-500: var(--color-blue-500);
+  --color-primary-600: var(--color-blue-600);
+  --color-primary-700: var(--color-blue-700);
+  --color-primary-800: var(--color-blue-800);
+  --color-primary-900: var(--color-blue-900);
+  --color-primary-950: var(--color-blue-950);
+
+  --color-light-50: #fdfdfd;
+  --color-light-100: #fcfcfc;
+  --color-light-200: #fafafa;
+  --color-light-300: #f8f9fa;
+  --color-light-400: #f6f6f6;
+  --color-light-500: #f2f2f2;
+  --color-light-600: #f1f3f5;
+  --color-light-700: #e9ecef;
+  --color-light-800: #dee2e6;
+  --color-light-900: #dde1e3;
+  --color-light-950: #d8dcdf;
+
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1.15;
+  --text-6xl: 4rem;
+  --text-6xl--line-height: 1.15;
+  --text-7xl: 5rem;
+  --text-7xl--line-height: 1.15;
+}
+
+.prose :where(a, h1, h2, h3, h4, h5, ol, ul, li):not(:where(.not-prose, .not-prose *)) {
+  color: var(--color-neutral-900);
+  line-height: 1.8;
+}
+
+.dark .prose :where(a, h1, h2, h3, h4, h5, ol, ul, li):not(:where(.not-prose, .not-prose *)) {
+  color: var(--color-neutral-100);
+}
+
+.prose :where(p):not(:where(.not-prose, .not-prose *)) {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.dark .prose :where(p):not(:where(.not-prose, .not-prose *)) {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.prose :where(h1, h2, h3, h4, h5, h6):not(:where(.not-prose, .not-prose *)) {
+  font-weight: 800;
+}
+
+.prose :where(a):not(:where(.not-prose, .not-prose *)) {
+  text-decoration: none;
+  background: linear-gradient(var(--color-blue-300), var(--color-blue-300));
+  background-repeat: no-repeat;
+  background-size: 120% 0.2em;
+  background-position: 0 100%;
+  transition: all 200ms;
+}
+
+.dark .prose :where(a):not(:where(.not-prose, .not-prose *)) {
+  background: linear-gradient(var(--color-blue-700), var(--color-blue-700));
+  background-repeat: no-repeat;
+  background-size: 120% 0.2em;
+  background-position: 0 100%;
+}
+
+.prose :where(a):not(:where(.not-prose, .not-prose *)):hover,
+.prose :where(a):not(:where(.not-prose, .not-prose *)):focus {
+  background-size: 100% 100%;
+}

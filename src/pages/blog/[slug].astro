@@ -28,7 +28,7 @@ const { Content } = await render(post);
   title={post.data.title}
   description={post.data.description}
 >
-  <div class="post-wrapper text-true-gray-900 dark:text-true-gray-100">
+  <div class="post-wrapper text-neutral-900 dark:text-neutral-100">
     <div class="post-title">
       <PostTags
         tags={post.data.tags}
@@ -36,7 +36,7 @@ const { Content } = await render(post);
       />
 
       <h1
-        class="text-true-gray-800 dark:text-true-gray-200 post-title__text mb-4 mt-2 text-3xl font-bold md:text-5xl"
+        class="text-neutral-800 dark:text-neutral-200 post-title__text mb-4 mt-2 text-3xl font-bold md:text-5xl"
       >
         {post.data.title}
       </h1>
@@ -53,14 +53,14 @@ const { Content } = await render(post);
           >
             <Image
               alt="Cover image"
-              class="shadow-opacity-10 rounded-lg shadow-lg shadow-black"
+              class="rounded-lg shadow-lg shadow-black/10"
               src={post.data.cover_image}
               width="860"
               densities={[1, 1.5, 2]}
             />
             {post.data.cover_image_caption && (
               <figcaption
-                class="prose text-trueGray-600 dark:text-trueGray-400 mt-2 text-sm"
+                class="prose text-neutral-600 dark:text-neutral-400 mt-2 text-sm"
                 set:html={post.data.cover_image_caption}
               />
             )}
@@ -74,7 +74,7 @@ const { Content } = await render(post);
       <!-- Share Menu -->
       <PostShare title={post.data.title} />
       <div
-        class="post__content prose dark:prose-invert w-prose text-true-gray-900 dark:text-true-gray-100 max-w-full text-lg md:text-xl"
+        class="post__content prose dark:prose-invert text-neutral-900 dark:text-neutral-100 max-w-full text-lg md:text-xl"
       >
         <Content />
       </div>
@@ -90,7 +90,9 @@ const { Content } = await render(post);
   <BackToTop client:only />
 </Layout>
 
-<style is:global lang="scss">
+<style is:global>
+  @reference '../../styles/root.css';
+
   .post-wrapper {
     display: grid;
     grid-template-columns:
@@ -126,29 +128,29 @@ const { Content } = await render(post);
       }
 
       img {
-        @apply shadow-opacity-10 mb-0 rounded-lg shadow-lg shadow-black;
+        @apply mb-0 rounded-lg shadow-lg shadow-black/10;
       }
 
       &.crop {
         img {
           object-fit: cover;
         }
+      }
 
-        &-16_9 img {
-          aspect-ratio: 16 / 9;
-        }
+      &.crop-16_9 img {
+        aspect-ratio: 16 / 9;
+      }
 
-        &-4_3 img {
-          aspect-ratio: 4 / 3;
-        }
+      &.crop-4_3 img {
+        aspect-ratio: 4 / 3;
       }
 
       figcaption {
-        @apply text-true-gray-600 dark:text-true-gray-400 mt-2 text-sm;
+        @apply text-neutral-600 dark:text-neutral-400 mt-2 text-sm;
       }
     }
 
-    @screen md {
+    @media (min-width: 768px) {
       h1 {
         margin-top: 3rem;
         margin-bottom: 0;

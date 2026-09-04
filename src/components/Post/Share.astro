@@ -40,7 +40,7 @@ const shareServices = [
           data-service={JSON.stringify(service)}
           aria-label={`${service.name} share link`}
           role="button"
-          class="social-share-button hover:bg-true-gray-200 dark:hover:bg-true-gray-800 duration-400 block rounded-full transition-colors"
+          class="social-share-button hover:bg-neutral-200 dark:hover:bg-neutral-800 duration-400 block rounded-full transition-colors"
           style={{ color: service.color }}
         >
           <Icon
@@ -54,8 +54,10 @@ const shareServices = [
 </ul>
 
 <style>
+  @reference '../../styles/root.css';
+
   .group:not(:hover) .social-share-button {
-    @apply !text-true-gray-300 !dark:text-true-gray-600;
+    @apply text-neutral-300! dark:text-neutral-600!;
   }
 </style>
 

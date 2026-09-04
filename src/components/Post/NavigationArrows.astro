@@ -18,20 +18,20 @@ const nextPost = posts[postIndex + 1];
 ---
 
 <div
-  class="post-navigation-arrows text-true-gray-800 dark:text-true-gray-200 grid gap-2 sm:grid-cols-2"
+  class="post-navigation-arrows text-neutral-800 dark:text-neutral-200 grid gap-2 sm:grid-cols-2"
 >
   <div>
     {
       prevPost && (
         <a href={`/blog/${prevPost.id}`}>
-          <div class="hover:bg-true-gray-200 dark:hover:bg-true-gray-800 group flex flex-row gap-4 rounded-md p-4 transition-colors">
-            <div class="flex flex-grow-0 flex-col justify-center">
+          <div class="hover:bg-neutral-200 dark:hover:bg-neutral-800 group flex flex-row gap-4 rounded-md p-4 transition-colors">
+            <div class="flex grow-0 flex-col justify-center">
               <Icon
                 name="mdi:arrow-left"
                 class="h-10 w-10 transform transition-transform group-hover:-translate-x-1"
               />
             </div>
-            <div class="flex-grow">
+            <div class="grow">
               <p class="font-bold">Previous</p>
               <p>{prevPost.data.title}</p>
             </div>
@@ -44,12 +44,12 @@ const nextPost = posts[postIndex + 1];
     {
       nextPost && (
         <a href={`/blog/${nextPost.id}`}>
-          <div class="hover:bg-true-gray-200 dark:hover:bg-true-gray-800 group flex flex-row gap-4 rounded-md p-4 transition-colors">
-            <div class="flex-grow text-right">
+          <div class="hover:bg-neutral-200 dark:hover:bg-neutral-800 group flex flex-row gap-4 rounded-md p-4 transition-colors">
+            <div class="grow text-right">
               <p class="font-bold">Next</p>
               <p>{nextPost.data.title}</p>
             </div>
-            <div class="flex flex-grow-0 flex-col justify-center">
+            <div class="flex grow-0 flex-col justify-center">
               <Icon
                 name="mdi:arrow-right"
                 class="h-10 w-10 transform transition-transform group-hover:translate-x-1"
