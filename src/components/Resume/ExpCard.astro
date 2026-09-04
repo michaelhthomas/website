@@ -13,9 +13,7 @@ let { title, subtitle, link, years } = Astro.props;
 
 <div class="my-4 space-y-0.5">
   <div class="flex items-center justify-between space-x-2">
-    <h3
-      class="text-true-gray-800 dark:text-true-gray-200 text-xl font-semibold"
-    >
+    <h3 class="text-neutral-800 dark:text-neutral-200 text-xl font-semibold">
       <MLink
         href={link}
         blank
@@ -25,12 +23,12 @@ let { title, subtitle, link, years } = Astro.props;
       </MLink>
     </h3>
 
-    <span class="text-true-gray-600 dark:text-true-gray-400 text-lg font-medium"
+    <span class="text-neutral-600 dark:text-neutral-400 text-lg font-medium"
       >{years}</span
     >
   </div>
 
-  <p class="text-true-gray-600 dark:text-true-gray-400 text-lg">
+  <p class="text-neutral-600 dark:text-neutral-400 text-lg">
     {subtitle}
   </p>
 </div>

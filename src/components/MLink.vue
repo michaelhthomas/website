@@ -83,8 +83,10 @@ export default defineComponent({
 </script>
 
 <style>
-.underline {
-  @apply bg-gradient-from-primary-300 bg-gradient-to-primary-300 dark:bg-gradient-from-primary-700 dark:bg-gradient-to-primary-700 bg-gradient-to-r;
+@reference '../styles/root.css';
+
+.gradient-link {
+  @apply bg-linear-to-r from-primary-300 to-primary-300 dark:from-primary-700 dark:to-primary-700;
   text-decoration: none;
 
   background-repeat: no-repeat;
@@ -93,7 +95,7 @@ export default defineComponent({
   transition: all 200ms;
 }
 
-.underline:hover {
+.gradient-link:hover {
   background-size: 100% 100%;
 }
 </style>

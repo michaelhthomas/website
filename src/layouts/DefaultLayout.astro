@@ -1,7 +1,7 @@
 ---
 import '~src/styles/root.css';
 
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import { fade } from 'astro:transitions';
 
 import Navigation from '../components/Navigation.vue';
@@ -75,7 +75,7 @@ const {
       content="website"
     />
 
-    {() => <ViewTransitions />}
+    <ClientRouter />
   </head>
   <body>
     <script>
@@ -134,7 +134,7 @@ const {
 
     <div
       id="app"
-      class="bg-true-gray-100 dark:bg-true-gray-900 text-true-gray-900 dark:text-true-gray-100 min-h-screen transition-colors duration-150"
+      class="bg-neutral-100 dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 min-h-screen transition-colors duration-150"
     >
       <div class="navigation">
         <Navigation client:idle />
@@ -160,6 +160,8 @@ const {
 </html>
 
 <style is:global>
+  @reference '../styles/root.css';
+
   ::selection {
     background: #b6ddf7;
   }
@@ -186,15 +188,15 @@ const {
   }
 
   html.dark {
-    @apply bg-true-gray-700;
+    @apply bg-neutral-700;
   }
 
   .wrapper {
-    @apply mx-auto max-w-screen-xl;
+    @apply mx-auto max-w-7xl;
   }
 
   .wrapper-small {
-    @apply mx-auto max-w-screen-lg px-6;
+    @apply mx-auto max-w-5xl px-6;
   }
 
   .flex-center {
@@ -202,6 +204,6 @@ const {
   }
 
   .title {
-    @apply text-true-gray-800 dark:text-true-gray-300 mb-16 text-5xl font-bold;
+    @apply text-neutral-800 dark:text-neutral-300 mb-16 text-5xl font-bold;
   }
 </style>

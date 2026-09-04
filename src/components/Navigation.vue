@@ -3,13 +3,13 @@ import UiColorSwitcher from './Ui/ColorSwitcher.vue';
 </script>
 
 <template>
-  <div class="border-primary-600 dark:border-true-gray-700 border-t-8">
+  <div class="border-primary-600 dark:border-neutral-700 border-t-8">
     <nav class="wrapper py-6">
       <div class="flex flex-wrap items-center justify-between gap-5 px-10">
         <div class="logo">
           <a href="/">
             <h1
-              class="text-true-gray-700 dark:text-true-gray-200 text-2xl font-semibold"
+              class="text-neutral-700 dark:text-neutral-200 text-2xl font-semibold"
             >
               Michael Thomas
             </h1>
@@ -20,7 +20,7 @@ import UiColorSwitcher from './Ui/ColorSwitcher.vue';
           <button
             role="button"
             aria-label="Open main menu"
-            class="bg-true-gray-200 text-true-gray-900 dark:bg-true-gray-800 dark:text-true-gray-100 relative h-9 w-9 cursor-pointer rounded-full p-2"
+            class="bg-neutral-200 text-neutral-900 dark:bg-neutral-800 dark:text-neutral-100 relative h-9 w-9 cursor-pointer rounded-full p-2"
             @click="toggle"
           >
             <span class="sr-only">Open main menu</span>
@@ -57,8 +57,7 @@ import UiColorSwitcher from './Ui/ColorSwitcher.vue';
         >
           <div
             v-show="open"
-            class="menu bg-true-gray-200 dark:bg-true-gray-800 flex basis-full origin-top transform flex-col justify-center gap-2 rounded-md py-2 transition-all"
-            sm="bg-transparent dark:bg-transparent basis-auto flex-row py-0 gap-5"
+            class="menu bg-neutral-200 dark:bg-neutral-800 flex basis-full origin-top transform flex-col justify-center gap-2 rounded-md py-2 transition-all sm:bg-transparent sm:dark:bg-transparent sm:basis-auto sm:flex-row sm:py-0 sm:gap-5"
           >
             <a
               class="nav-link"
@@ -98,15 +97,17 @@ export default defineComponent({
 </script>
 
 <style>
+@reference '../styles/root.css';
+
 .mobile-link {
-  @apply text-true-gray-900 block rounded-md px-3 py-2 text-center text-lg font-medium text-white;
+  @apply text-neutral-900 block rounded-md px-3 py-2 text-center text-lg font-medium text-white;
 }
 
 .menu[style] {
-  @apply sm:!flex;
+  @apply sm:flex!;
 }
 
 .nav-link {
-  @apply text-true-gray-700 dark:text-true-gray-200 hover:text-primary-500 dark:hover:text-primary-500 text-center text-lg font-medium leading-[2.25rem] transition-colors duration-100;
+  @apply text-neutral-700 dark:text-neutral-200 hover:text-primary-500 dark:hover:text-primary-500 text-center text-lg font-medium leading-[2.25rem] transition-colors duration-100;
 }
 </style>

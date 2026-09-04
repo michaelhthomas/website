@@ -8,20 +8,20 @@ interface Props {
 
 const { post } = Astro.props;
 
-const words = post.body.trim().split(/\s+/).length;
+const words = (post.body ?? '').trim().split(/\s+/).filter(Boolean).length;
 const timeToRead = Math.round(words / 130);
 ---
 
 <div
-  class="post-meta text-thin text-true-gray-600 dark:text-true-gray-400 text-sm md:text-base"
+  class="post-meta text-neutral-600 dark:text-neutral-400 text-sm md:text-base"
 >
-  Posted {format(post.data.date_published, 'PPP')}
-  <span class="text-true-gray-500 px-1">•</span>
-  {timeToRead} min read
+  Posted {format(post.data.date_published, 'PPP')}{' '}
+  <span class="text-neutral-500 px-1">•</span>{' '}
+  {timeToRead} min read{' '}
   {
     post.data.date_updated && (
       <>
-        <span class="text-true-gray-500 px-1">•</span>
+        <span class="text-neutral-500 px-1">•</span>{' '}
         Updated {format(post.data.date_updated, 'PPP')}
       </>
     )

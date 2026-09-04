@@ -20,13 +20,13 @@ const iconStyle = color ? { color } : null;
 
 <MLink
   blank
-  class="text-true-gray-900 dark:text-true-gray-100 hover:bg-light-700 dark:hover:bg-true-gray-800 flex items-center space-x-2 overflow-hidden rounded-md p-2 !no-underline transition-colors"
+  class="text-neutral-900 dark:text-neutral-100 hover:bg-light-700 dark:hover:bg-neutral-800 flex items-center space-x-2 overflow-hidden rounded-md p-2 no-underline! transition-colors"
   href={link}
 >
   <Icon
     name={iconName}
     style={iconStyle}
-    class="h-7 w-7 flex-shrink-0"
+    class="h-7 w-7 shrink-0"
   />
   <span class="truncate">{title}</span>
 </MLink>

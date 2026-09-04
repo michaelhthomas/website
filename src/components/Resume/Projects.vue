@@ -51,21 +51,21 @@ async function fetchData() {
         v-for="(project, index) in projects"
         :key="index"
         :href="project.html_url"
-        class="bg-true-gray-50 dark:bg-true-gray-800 mt-2 block transform rounded-lg p-6 shadow transition duration-200 hover:-translate-y-1.5 hover:shadow-lg lg:mt-0"
+        class="bg-neutral-50 dark:bg-neutral-800 mt-2 block transform rounded-lg p-6 shadow transition duration-200 hover:-translate-y-1.5 hover:shadow-lg lg:mt-0"
         rel="noreferrer"
         target="_blank"
       >
         <div>
           <h3
-            class="text-true-gray-800 dark:text-true-gray-100 text-lg font-medium"
+            class="text-neutral-800 dark:text-neutral-100 text-lg font-medium"
           >
             {{ project.name }}
           </h3>
-          <p class="text-true-gray-500 dark:text-true-gray-400 my-2 text-base">
+          <p class="text-neutral-500 dark:text-neutral-400 my-2 text-base">
             {{ project.description }}
           </p>
           <ul
-            class="dark:text-true-gray-200 flex items-center space-x-4 text-black"
+            class="dark:text-neutral-200 flex items-center space-x-4 text-black"
           >
             <li class="inline-flex items-center">
               <IconStar class="mr-1 h-4 w-4" />
@@ -86,7 +86,7 @@ async function fetchData() {
 
     <div class="mt-6 flex items-center justify-center">
       <a
-        class="hover:bg-true-gray-800 flex w-full items-center justify-center rounded-lg bg-black px-10 py-3 text-white shadow-md transition duration-300 md:w-auto md:px-24"
+        class="hover:bg-neutral-800 flex w-full items-center justify-center rounded-lg bg-black px-10 py-3 text-white shadow-md transition duration-300 md:w-auto md:px-24"
         href="https://github.com/michaelhthomas"
         rel="noreferrer"
         target="_blank"

@@ -36,8 +36,7 @@ function toggleTheme(event: MouseEvent) {
     @click="toggleTheme"
   >
     <div
-      class="icon inline-block leading-[2.25rem]"
-      sm="block leading-0 mr-0 h-9 w-9 rounded-full p-2 bg-true-gray-200 text-true-gray-800 dark:bg-true-gray-800 dark:text-true-gray-100"
+      class="icon inline-block leading-[2.25rem] sm:block sm:leading-[0] sm:mr-0 sm:h-9 sm:w-9 sm:rounded-full sm:p-2 sm:bg-neutral-200 sm:text-neutral-800 sm:dark:bg-neutral-800 sm:dark:text-neutral-100"
     >
       <div v-show="darkTheme">
         <PhSun class="h-5 w-5" />
